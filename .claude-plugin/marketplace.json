@@ -1,0 +1,14 @@
+{
+  "name": "tcia",
+  "description": "TCIA: a Claude Code skill that turns a story idea into an interactive lowpoly animation.",
+  "owner": { "name": "Solare S.A.S.", "url": "https://github.com/SOLARE-TI" },
+  "plugins": [
+    {
+      "name": "tcia",
+      "source": "./plugins/tcia",
+      "description": "Story idea in, one interactive lowpoly animation (.html) out.",
+      "category": "creative",
+      "tags": ["animation", "storytelling", "lowpoly"]
+    }
+  ]
+}

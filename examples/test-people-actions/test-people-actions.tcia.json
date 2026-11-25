@@ -1,0 +1,298 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "La feria del barrio",
+    "slug": "test-people-actions",
+    "lang": "es",
+    "light": "day"
+  },
+  "state": [
+    { "var": "aplausos", "initial": 0 }
+  ],
+  "characters": [
+    {
+      "id": "anselmo",
+      "name": "Don Anselmo",
+      "kind": "man",
+      "look": {
+        "height": "tall", "build": "broad", "skin": "deep", "head": "trapezoid", "hair": "bald", "hair_color": "black",
+        "outfit": "suit", "top_color": "gray", "bottom_color": "black", "accessory": "bow_tie", "accessory_color": "red"
+      }
+    },
+    {
+      "id": "rocio",
+      "name": "Rocío",
+      "kind": "woman",
+      "look": {
+        "height": "medium", "build": "slim", "skin": "light", "head": "oval", "hair": "long", "hair_color": "auburn",
+        "outfit": "dress", "top_color": "purple", "accessory": "sunglasses", "accessory_color": "black"
+      }
+    },
+    {
+      "id": "iker",
+      "name": "Iker",
+      "kind": "boy",
+      "look": {
+        "height": "short", "build": "average", "skin": "medium", "head": "circle", "hair": "spiky", "hair_color": "blonde",
+        "outfit": "tee_shorts", "top_color": "orange", "bottom_color": "blue", "accessory": "cap", "accessory_color": "green"
+      }
+    },
+    {
+      "id": "noa",
+      "name": "Noa",
+      "kind": "girl",
+      "look": {
+        "height": "tall", "build": "slim", "skin": "brown", "head": "triangle_down", "hair": "braids", "hair_color": "dark_brown",
+        "outfit": "overalls", "top_color": "yellow", "bottom_color": "blue", "accessory": "backpack", "accessory_color": "pink"
+      }
+    },
+    {
+      "id": "celso",
+      "name": "Don Celso",
+      "kind": "old_man",
+      "look": {
+        "height": "short", "build": "broad", "skin": "pale", "head": "square", "hair": "buzz", "hair_color": "gray",
+        "outfit": "sweater_pants", "top_color": "brown", "bottom_color": "gray", "accessory": "cane", "accessory_color": "brown"
+      }
+    },
+    {
+      "id": "brigida",
+      "name": "Doña Brígida",
+      "kind": "old_woman",
+      "look": {
+        "height": "medium", "build": "average", "skin": "tan", "head": "tall_rect", "hair": "bun", "hair_color": "white",
+        "outfit": "skirt_top", "top_color": "teal", "bottom_color": "navy", "accessory": "glasses", "accessory_color": "white"
+      }
+    }
+  ],
+  "sets": [
+    { "id": "parque", "base": "park" },
+    { "id": "sala", "base": "room" },
+    { "id": "calle", "base": "city" }
+  ],
+  "scenes": [
+    {
+      "id": "paseos",
+      "set": "parque",
+      "cast": [
+        { "who": "iker", "at": "left", "facing": "right" },
+        { "who": "noa", "at": "center_right", "facing": "right" },
+        { "who": "anselmo", "at": "far_right", "facing": "left" }
+      ],
+      "beats": [
+        { "actor": "iker", "action": "walk", "to": "center_left", "emotion": "happy", "intensity": 1 },
+        { "actor": "noa", "action": "walk", "variant": "sneak", "to": "right", "together": true },
+        { "actor": "anselmo", "action": "walk", "variant": "strut", "to": "far_left", "emotion": "happy" },
+        { "actor": "iker", "action": "walk", "variant": "stomp", "to": "center", "emotion": "angry", "intensity": 1 },
+        { "actor": "noa", "action": "run", "to": "far_right" },
+        { "actor": "iker", "action": "run", "variant": "dash", "to": "left", "emotion": "surprised", "intensity": 1 },
+        { "actor": "anselmo", "action": "run", "variant": "panic", "to": "center_right", "emotion": "scared", "intensity": 2 },
+        { "actor": "noa", "target": "anselmo", "emotion": "surprised", "intensity": 2 },
+        { "actor": "iker", "action": "talk", "target": "anselmo", "say": "¡Don Anselmo, qué carrera!" },
+        { "actor": "anselmo", "action": "talk", "variant": "shout", "say": "¡Una abeja!", "emotion": "scared", "intensity": 3 },
+        { "actor": "noa", "action": "talk", "variant": "whisper", "target": "iker", "say": "Es una mosca." },
+        { "actor": "iker", "target": "noa", "emotion": "happy", "intensity": 3, "together": true }
+      ]
+    },
+    {
+      "id": "saltos",
+      "set": "parque",
+      "cast": [
+        { "who": "iker", "at": "center_left", "facing": "right" },
+        { "who": "noa", "at": "center_right", "facing": "left" },
+        { "who": "rocio", "at": "far_left", "facing": "right" }
+      ],
+      "beats": [
+        { "actor": "iker", "action": "jump", "height": "low", "emotion": "happy", "intensity": 2 },
+        { "actor": "noa", "action": "jump", "variant": "flip", "height": "high", "emotion": "happy", "intensity": 3, "say": "¡Mira esto!" },
+        { "actor": "rocio", "action": "jump", "variant": "backflip" },
+        { "actor": "iker", "action": "jump", "variant": "spin", "to": "center", "height": "high" },
+        { "actor": "noa", "action": "jump", "variant": "cartwheel", "to": "right", "emotion": "happy", "intensity": 1 },
+        { "actor": "rocio", "action": "jump", "variant": "split", "to": "left" },
+        { "actor": "rocio", "action": "fall", "variant": "trip", "emotion": "sad", "intensity": 2 },
+        { "actor": "rocio", "action": "talk", "say": "Estoy bien... creo.", "emotion": "sad", "intensity": 3 },
+        { "actor": "rocio", "action": "wave", "target": "iker" },
+        { "actor": "iker", "action": "wave", "variant": "big", "target": "rocio", "together": true }
+      ]
+    },
+    {
+      "id": "regalos",
+      "set": "sala",
+      "light": "indoor",
+      "cast": [
+        { "who": "brigida", "at": "left", "facing": "right" },
+        { "who": "iker", "at": "center_left", "facing": "left" },
+        { "who": "celso", "at": "center_right", "facing": "left" }
+      ],
+      "items": [
+        { "id": "carta", "item": "letter", "held_by": "iker" },
+        { "id": "libro", "item": "book", "held_by": "celso" },
+        { "id": "flor", "item": "flower", "at": "left" },
+        { "id": "taza", "item": "cup", "at": "center" }
+      ],
+      "beats": [
+        { "actor": "celso", "action": "sit", "emotion": "happy", "intensity": 1 },
+        { "actor": "iker", "action": "give", "target": "brigida", "emotion": "happy", "intensity": 2 },
+        { "actor": "brigida", "action": "think", "say": "¿Una carta para mí?", "emotion": "surprised", "intensity": 1 },
+        { "actor": "celso", "action": "give", "variant": "toss", "target": "iker", "say": "¡Y un libro!" },
+        { "actor": "brigida", "action": "sit", "variant": "flop", "emotion": "surprised", "intensity": 3 },
+        { "actor": "celso", "action": "think", "variant": "idea", "say": "¡Ya sé qué regalarle!" },
+        { "actor": "iker", "action": "walk", "to": "center" },
+        { "actor": "iker", "target": "brigida", "emotion": "neutral", "intensity": 1 },
+        { "actor": "brigida", "action": "talk", "say": "¡Me caí de la emoción!", "emotion": "happy", "intensity": 2 }
+      ]
+    },
+    {
+      "id": "la_foto",
+      "set": "calle",
+      "light": "sunset",
+      "cast": [
+        { "who": "iker", "at": "left", "facing": "right" },
+        { "who": "noa", "at": "center_left", "facing": "right" },
+        { "who": "anselmo", "at": "center", "facing": "left" },
+        { "who": "rocio", "at": "right", "facing": "left" }
+      ],
+      "items": [
+        { "id": "llave", "item": "key", "at": "center_left" },
+        { "id": "mapa", "item": "map", "at": "left" }
+      ],
+      "beats": [
+        { "actor": "noa", "action": "pick_up", "item": "llave" },
+        { "actor": "anselmo", "action": "point", "target": "noa", "say": "¡Esa es mi llave!", "emotion": "angry", "intensity": 2 },
+        { "actor": "noa", "action": "point", "variant": "accuse", "target": "anselmo", "say": "¡Estaba en el suelo!", "emotion": "angry", "intensity": 3 },
+        { "actor": "rocio", "action": "point", "variant": "up", "say": "¡Miren, un globo!", "emotion": "surprised", "intensity": 2 },
+        { "actor": "iker", "action": "pick_up", "variant": "snatch", "item": "mapa" },
+        { "actor": "noa", "action": "give", "target": "anselmo", "emotion": "happy" },
+        { "actor": "anselmo", "action": "hug", "variant": "bear", "target": "noa", "emotion": "happy", "intensity": 2 },
+        { "actor": "iker", "action": "hug", "target": "noa" },
+        { "actor": "rocio", "action": "fall", "variant": "slip", "emotion": "scared", "intensity": 1 },
+        { "actor": "rocio", "action": "think", "say": "El globo era una nube.", "emotion": "sad", "intensity": 1 }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "ganador",
+      "after": "saltos",
+      "options": [
+        {
+          "id": "noa",
+          "label": "¡Que salte Noa!",
+          "effects": [ { "var": "aplausos", "add": 1 } ],
+          "scenes": [
+            {
+              "id": "noa_brilla",
+              "set": "parque",
+              "cast": [
+                { "who": "noa", "at": "center", "facing": "left" },
+                { "who": "iker", "at": "left", "facing": "right" }
+              ],
+              "items": [ { "id": "pelota", "item": "ball", "at": "center" } ],
+              "beats": [
+                { "actor": "noa", "action": "pick_up", "item": "pelota" },
+                { "actor": "noa", "action": "give", "variant": "toss", "target": "iker", "say": "¡Atrapa, Iker!" },
+                { "actor": "iker", "action": "fall", "variant": "slip", "emotion": "surprised", "intensity": 3 },
+                { "actor": "iker", "action": "talk", "say": "¡La tengo!", "emotion": "happy", "intensity": 2 }
+              ]
+            }
+          ],
+          "rejoin": "regalos"
+        },
+        { "id": "iker", "label": "¡Que corra Iker!", "rejoin": "regalos" }
+      ]
+    },
+    {
+      "id": "cierre",
+      "after": "la_foto",
+      "options": [
+        { "id": "foto", "label": "Foto de grupo", "effects": [ { "var": "aplausos", "add": 1 } ], "rejoin": "@endings" },
+        { "id": "fiesta", "label": "Fiesta en casa", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "estrellas",
+      "title": "Las estrellas de la feria",
+      "when": { "all": [ { "choice": "ganador", "is": "noa" }, { "choice": "cierre", "is": "foto" } ] },
+      "scenes": [
+        {
+          "id": "fin_estrellas",
+          "set": "parque",
+          "light": "sunset",
+          "cast": [
+            { "who": "noa", "at": "center", "facing": "right" },
+            { "who": "anselmo", "at": "center_right", "facing": "left" },
+            { "who": "iker", "at": "left", "facing": "right" },
+            { "who": "rocio", "at": "far_left", "facing": "right" }
+          ],
+          "items": [ { "id": "regalo", "item": "gift", "held_by": "anselmo" } ],
+          "beats": [
+            { "actor": "anselmo", "action": "give", "target": "noa", "say": "¡Para la campeona!" },
+            { "actor": "noa", "action": "jump", "variant": "split", "emotion": "happy", "intensity": 3 },
+            { "actor": "iker", "action": "jump", "variant": "flip", "together": true },
+            { "actor": "rocio", "target": "noa", "emotion": "neutral", "intensity": 2 },
+            { "actor": "rocio", "action": "talk", "say": "Yo también sé hacer eso." },
+            { "actor": "rocio", "action": "fall", "variant": "trip", "emotion": "surprised", "intensity": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aplausos",
+      "title": "Famosos por un día",
+      "when": { "var": "aplausos", "op": ">=", "value": 1 },
+      "scenes": [
+        {
+          "id": "fin_aplausos",
+          "set": "calle",
+          "light": "dusk",
+          "cast": [
+            { "who": "celso", "at": "center_left", "facing": "right" },
+            { "who": "brigida", "at": "center", "facing": "left" }
+          ],
+          "items": [ { "id": "telefono", "item": "phone", "held_by": "brigida" } ],
+          "beats": [
+            { "actor": "brigida", "action": "talk", "target": "celso", "say": "¡Celso, salimos en internet!", "emotion": "happy", "intensity": 3 },
+            { "actor": "celso", "target": "brigida", "emotion": "neutral", "intensity": 3 },
+            { "actor": "celso", "action": "fall", "variant": "faint", "emotion": "surprised", "intensity": 1 },
+            { "actor": "brigida", "action": "think", "say": "Famoso y dormido." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tranquila",
+      "title": "Una tarde tranquila (casi)",
+      "scenes": [
+        {
+          "id": "fin_tranquila",
+          "set": "sala",
+          "light": "indoor",
+          "cast": [
+            { "who": "iker", "at": "center_left", "facing": "right" },
+            { "who": "celso", "at": "center_right", "facing": "left" }
+          ],
+          "items": [
+            { "id": "manzana", "item": "apple", "at": "center" },
+            { "id": "pelota_casa", "item": "ball", "held_by": "iker" }
+          ],
+          "beats": [
+            { "actor": "celso", "action": "sit" },
+            { "actor": "iker", "action": "give", "variant": "toss", "target": "celso", "say": "¡Abuelo, atrápala!" },
+            { "actor": "celso", "target": "iker", "emotion": "surprised", "intensity": 2 },
+            { "actor": "celso", "action": "talk", "say": "La atrapé... con la cara.", "emotion": "happy", "intensity": 2 }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "approximations": [],
+    "invented": [
+      "Everything beyond the cast list: this is a coverage story for tests",
+      "Decisions ganador and cierre; branch scene noa_brilla; three endings"
+    ],
+    "comment": "Test story 3 of TCIA 0.1.0: the 6 person kinds, the 12 actions with their 34 variants, the 6 emotions at intensities 1-3, reaction beats, together, the automatic stand-up and the 10 items."
+  }
+}

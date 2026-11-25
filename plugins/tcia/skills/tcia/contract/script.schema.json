@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:tcia:script:1",
+  "title": "TCIA script (guion), format 1",
+  "description": "CONTRACT FILE. Shape of a TCIA script. Catalog ids (actions, emotions, kinds, lights, bases, pieces, positions, items, look values) are plain identifiers here; membership in catalog.json is checked by the validator's semantic rules so it can suggest the closest id. Text length limits, references and story-flow rules are semantic rules too. Only these keywords are used: $schema, $id, $defs, $ref (local), title, description, type, properties, required, additionalProperties (false), items, minItems, maxItems, enum, const, pattern, minLength, maxLength, minimum, maximum, oneOf.",
+  "type": "object",
+  "required": ["tcia", "meta", "characters", "sets", "scenes", "decisions", "endings"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "description": "Optional, for editor autocomplete. Ignored." },
+    "tcia": { "const": 1, "description": "Format version." },
+    "meta": { "$ref": "#/$defs/meta" },
+    "state": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/stateVar" },
+      "description": "Integer variables that options change and endings test. Choices are always remembered, with or without variables."
+    },
+    "characters": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/character" } },
+    "sets": { "type": "array", "minItems": 1, "maxItems": 8, "items": { "$ref": "#/$defs/set" } },
+    "scenes": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 12,
+      "items": { "$ref": "#/$defs/scene" },
+      "description": "Main column, in story order. These are the user's scenes: the skill never adds or removes any."
+    },
+    "decisions": { "type": "array", "minItems": 2, "maxItems": 3, "items": { "$ref": "#/$defs/decision" } },
+    "endings": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/ending" },
+      "description": "Checked in order; the first ending whose 'when' is true plays. Only the last ending may omit 'when'."
+    },
+    "notes": { "$ref": "#/$defs/notes" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,31}$",
+      "description": "Author id: lowercase letter first, then lowercase letters, digits or underscores, at most 32 characters."
+    },
+    "catalogId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,31}$",
+      "description": "An id from catalog.json. Membership is a semantic rule."
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Visible or reported text. Maximum lengths are semantic rules (catalog.json > text)."
+    },
+    "meta": {
+      "type": "object",
+      "required": ["title", "slug", "lang", "light"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "$ref": "#/$defs/text" },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "maxLength": 60,
+          "description": "Output file name without extension: <slug>.html and <slug>.tcia.json."
+        },
+        "lang": {
+          "type": "string",
+          "pattern": "^[a-z]{2}$",
+          "description": "Language of balloons, labels and title (ISO 639-1). es and en have built-in UI texts; any other language needs meta.ui."
+        },
+        "light": { "$ref": "#/$defs/catalogId" },
+        "ui": {
+          "type": "object",
+          "required": ["start", "restart", "decision"],
+          "additionalProperties": false,
+          "properties": {
+            "start": { "$ref": "#/$defs/text" },
+            "restart": { "$ref": "#/$defs/text" },
+            "decision": { "$ref": "#/$defs/text" }
+          },
+          "description": "UI texts: start button, start-over button, and the accessible name of the decision group (not shown)."
+        }
+      }
+    },
+    "stateVar": {
+      "type": "object",
+      "required": ["var", "initial"],
+      "additionalProperties": false,
+      "properties": {
+        "var": { "$ref": "#/$defs/id" },
+        "initial": { "type": "integer", "minimum": -9, "maximum": 9 }
+      }
+    },
+    "character": {
+      "type": "object",
+      "required": ["id", "name", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/text" },
+        "kind": { "$ref": "#/$defs/catalogId" },
+        "look": { "$ref": "#/$defs/look" }
+      }
+    },
+    "look": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Union of every attribute of every kind. Which keys a kind accepts, and their values, come from catalog.json > attributeSets. Missing keys take the kind's defaults.",
+      "properties": {
+        "height": { "$ref": "#/$defs/catalogId" },
+        "build": { "$ref": "#/$defs/catalogId" },
+        "skin": { "$ref": "#/$defs/catalogId" },
+        "head": { "$ref": "#/$defs/catalogId" },
+        "hair": { "$ref": "#/$defs/catalogId" },
+        "hair_color": { "$ref": "#/$defs/catalogId" },
+        "outfit": { "$ref": "#/$defs/catalogId" },
+        "top_color": { "$ref": "#/$defs/catalogId" },
+        "bottom_color": { "$ref": "#/$defs/catalogId" },
+        "accessory": { "$ref": "#/$defs/catalogId" },
+        "accessory_color": { "$ref": "#/$defs/catalogId" },
+        "size": { "$ref": "#/$defs/catalogId" },
+        "coat": { "$ref": "#/$defs/catalogId" },
+        "pattern": { "$ref": "#/$defs/catalogId" },
+        "ears": { "$ref": "#/$defs/catalogId" },
+        "plumage": { "$ref": "#/$defs/catalogId" }
+      }
+    },
+    "set": {
+      "type": "object",
+      "required": ["id", "base"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "base": { "$ref": "#/$defs/catalogId" },
+        "pieces": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 16,
+          "items": { "$ref": "#/$defs/piece" },
+          "description": "If present (even empty) it replaces the base's defaultPieces. If absent, defaultPieces are used."
+        }
+      }
+    },
+    "piece": {
+      "type": "object",
+      "required": ["piece", "at"],
+      "additionalProperties": false,
+      "properties": {
+        "piece": { "$ref": "#/$defs/catalogId" },
+        "at": { "$ref": "#/$defs/catalogId" },
+        "layer": { "$ref": "#/$defs/catalogId" },
+        "variant": { "$ref": "#/$defs/catalogId" },
+        "color": { "$ref": "#/$defs/catalogId" },
+        "dx": { "type": "integer", "minimum": -120, "maximum": 120 },
+        "flip": { "type": "boolean" }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "required": ["id", "set", "cast", "beats"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "set": { "$ref": "#/$defs/id" },
+        "light": { "$ref": "#/$defs/catalogId" },
+        "cast": { "type": "array", "minItems": 1, "maxItems": 4, "items": { "$ref": "#/$defs/castMember" } },
+        "items": { "type": "array", "minItems": 0, "maxItems": 4, "items": { "$ref": "#/$defs/itemInstance" } },
+        "beats": { "type": "array", "minItems": 1, "maxItems": 24, "items": { "$ref": "#/$defs/beat" } }
+      }
+    },
+    "castMember": {
+      "type": "object",
+      "required": ["who", "at"],
+      "additionalProperties": false,
+      "properties": {
+        "who": { "$ref": "#/$defs/id" },
+        "at": { "$ref": "#/$defs/catalogId" },
+        "facing": { "enum": ["left", "right"] },
+        "posture": { "enum": ["standing", "sitting"] },
+        "emotion": { "$ref": "#/$defs/catalogId" },
+        "intensity": { "type": "integer", "minimum": 1, "maximum": 3 }
+      }
+    },
+    "itemInstance": {
+      "type": "object",
+      "required": ["id", "item"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "item": { "$ref": "#/$defs/catalogId" },
+        "at": { "$ref": "#/$defs/catalogId" },
+        "held_by": { "$ref": "#/$defs/id" }
+      },
+      "description": "Exactly one of 'at' (on the ground at a position) or 'held_by' (a cast member) — semantic rule."
+    },
+    "beat": {
+      "type": "object",
+      "required": ["actor"],
+      "additionalProperties": false,
+      "properties": {
+        "actor": { "$ref": "#/$defs/id" },
+        "action": { "$ref": "#/$defs/catalogId" },
+        "variant": { "$ref": "#/$defs/catalogId" },
+        "to": { "$ref": "#/$defs/catalogId" },
+        "target": { "$ref": "#/$defs/id", "description": "A cast member id, or a position id where the action allows it (point)." },
+        "item": { "$ref": "#/$defs/id", "description": "An item instance id of this scene (pick_up)." },
+        "height": { "$ref": "#/$defs/catalogId" },
+        "emotion": { "$ref": "#/$defs/catalogId" },
+        "intensity": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "say": { "$ref": "#/$defs/text" },
+        "duration": { "type": "number", "minimum": 0.1, "maximum": 10 },
+        "together": { "type": "boolean", "description": "true: starts at the same time as the previous beat." }
+      },
+      "description": "A beat without 'action' is a reaction beat: it needs 'emotion' and may have 'target' (look at) and 'duration' — semantic rule."
+    },
+    "decision": {
+      "type": "object",
+      "required": ["id", "after", "options"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "after": { "$ref": "#/$defs/id", "description": "Main scene after which the decision appears." },
+        "options": { "type": "array", "minItems": 2, "maxItems": 3, "items": { "$ref": "#/$defs/option" } }
+      }
+    },
+    "option": {
+      "type": "object",
+      "required": ["id", "label", "rejoin"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": { "$ref": "#/$defs/text" },
+        "effects": { "type": "array", "minItems": 0, "maxItems": 4, "items": { "$ref": "#/$defs/effect" } },
+        "scenes": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 2,
+          "items": { "$ref": "#/$defs/scene" },
+          "description": "Branch scenes played after choosing this option. They are consequences of the option, not main-column scenes."
+        },
+        "rejoin": {
+          "type": "string",
+          "pattern": "^(@endings|[a-z][a-z0-9_]{0,31})$",
+          "description": "Join point: the main scene right after 'after', or @endings when 'after' is the last main scene."
+        }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "required": ["var", "add"],
+      "additionalProperties": false,
+      "properties": {
+        "var": { "$ref": "#/$defs/id" },
+        "add": { "type": "integer", "minimum": -3, "maximum": 3 }
+      }
+    },
+    "ending": {
+      "type": "object",
+      "required": ["id", "title", "scenes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "title": { "$ref": "#/$defs/text", "description": "For the report only. The animation never shows it." },
+        "when": { "$ref": "#/$defs/condition" },
+        "scenes": { "type": "array", "minItems": 1, "maxItems": 2, "items": { "$ref": "#/$defs/scene" } }
+      }
+    },
+    "condition": {
+      "oneOf": [
+        { "$ref": "#/$defs/condChoice" },
+        { "$ref": "#/$defs/condVar" },
+        { "$ref": "#/$defs/condAll" },
+        { "$ref": "#/$defs/condAny" },
+        { "$ref": "#/$defs/condNot" }
+      ]
+    },
+    "condChoice": {
+      "type": "object",
+      "required": ["choice", "is"],
+      "additionalProperties": false,
+      "properties": {
+        "choice": { "$ref": "#/$defs/id", "description": "Decision id." },
+        "is": { "$ref": "#/$defs/id", "description": "Option id of that decision." }
+      }
+    },
+    "condVar": {
+      "type": "object",
+      "required": ["var", "op", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "var": { "$ref": "#/$defs/id" },
+        "op": { "enum": ["==", "!=", ">=", "<=", ">", "<"] },
+        "value": { "type": "integer", "minimum": -99, "maximum": 99 }
+      }
+    },
+    "condAll": {
+      "type": "object",
+      "required": ["all"],
+      "additionalProperties": false,
+      "properties": {
+        "all": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/condition" } }
+      }
+    },
+    "condAny": {
+      "type": "object",
+      "required": ["any"],
+      "additionalProperties": false,
+      "properties": {
+        "any": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/condition" } }
+      }
+    },
+    "condNot": {
+      "type": "object",
+      "required": ["not"],
+      "additionalProperties": false,
+      "properties": {
+        "not": { "$ref": "#/$defs/condition" }
+      }
+    },
+    "notes": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Written by the skill for the record. The engine ignores it.",
+      "properties": {
+        "approximations": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 50,
+          "items": {
+            "type": "object",
+            "required": ["requested", "used"],
+            "additionalProperties": false,
+            "properties": {
+              "requested": { "$ref": "#/$defs/text" },
+              "used": { "$ref": "#/$defs/text" },
+              "reason": { "$ref": "#/$defs/text" }
+            }
+          }
+        },
+        "invented": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 50,
+          "items": { "$ref": "#/$defs/text" },
+          "description": "What the skill composed on its own: branch scenes, decisions, endings."
+        },
+        "comment": { "$ref": "#/$defs/text" }
+      }
+    }
+  }
+}

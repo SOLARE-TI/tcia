@@ -1,0 +1,19 @@
+{
+  "name": "tcia",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TCIA: a Claude Code skill that turns a story idea into an interactive lowpoly animation.",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "test:engine": "node --test \"tests/engine/**/*.test.mjs\"",
+    "test:validator": "node --test \"tests/contract/**/*.test.mjs\" \"tests/validator/**/*.test.mjs\" \"tests/build/**/*.test.mjs\"",
+    "test:examples": "node --test \"tests/examples/**/*.test.mjs\"",
+    "test:repo": "node --test \"tests/repo/**/*.test.mjs\"",
+    "build:engine": "node engine/build.mjs",
+    "check:engine": "node engine/build.mjs --check",
+    "build:examples": "node examples/rebuild.mjs"
+  }
+}

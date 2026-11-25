@@ -1,0 +1,750 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "Prueba de personas y acciones",
+    "slug": "prueba-personas",
+    "lang": "es",
+    "light": "day"
+  },
+  "state": [
+    {
+      "var": "risa",
+      "initial": 0
+    }
+  ],
+  "characters": [
+    {
+      "id": "leo",
+      "name": "Leo",
+      "kind": "boy",
+      "look": {
+        "head": "circle",
+        "hair": "spiky",
+        "hair_color": "black",
+        "skin": "tan",
+        "outfit": "hoodie_pants",
+        "top_color": "red",
+        "bottom_color": "navy",
+        "accessory": "cap",
+        "accessory_color": "yellow"
+      }
+    },
+    {
+      "id": "ana",
+      "name": "Ana",
+      "kind": "girl",
+      "look": {
+        "head": "oval",
+        "hair": "braids",
+        "hair_color": "auburn",
+        "skin": "light",
+        "outfit": "skirt_top",
+        "top_color": "teal",
+        "bottom_color": "purple",
+        "accessory": "backpack",
+        "accessory_color": "orange",
+        "height": "tall"
+      }
+    },
+    {
+      "id": "tomas",
+      "name": "Tomás",
+      "kind": "man",
+      "look": {
+        "head": "square",
+        "hair": "short",
+        "skin": "medium",
+        "build": "broad",
+        "outfit": "shirt_pants",
+        "top_color": "green",
+        "bottom_color": "brown",
+        "accessory": "glasses",
+        "accessory_color": "black"
+      }
+    },
+    {
+      "id": "lucia",
+      "name": "Lucía",
+      "kind": "woman",
+      "look": {
+        "head": "triangle_down",
+        "hair": "ponytail",
+        "hair_color": "blonde",
+        "skin": "pale",
+        "build": "slim",
+        "outfit": "jacket_pants",
+        "top_color": "yellow",
+        "bottom_color": "blue",
+        "accessory": "scarf",
+        "accessory_color": "red"
+      }
+    },
+    {
+      "id": "abuelo",
+      "name": "Abuelo Ramón",
+      "kind": "old_man",
+      "look": {
+        "head": "trapezoid",
+        "hair": "bald",
+        "skin": "brown",
+        "outfit": "suit",
+        "top_color": "navy",
+        "bottom_color": "gray",
+        "accessory": "hat",
+        "accessory_color": "brown"
+      }
+    },
+    {
+      "id": "abuela",
+      "name": "Abuela Rosa",
+      "kind": "old_woman",
+      "look": {
+        "head": "tall_rect",
+        "hair": "bun",
+        "skin": "deep",
+        "outfit": "dress",
+        "top_color": "pink",
+        "accessory": "sunglasses",
+        "accessory_color": "black"
+      }
+    }
+  ],
+  "sets": [
+    {
+      "id": "parque",
+      "base": "park",
+      "pieces": [
+        {
+          "piece": "tree",
+          "at": "far_left",
+          "variant": "round"
+        },
+        {
+          "piece": "bench",
+          "at": "right"
+        },
+        {
+          "piece": "flowers",
+          "at": "far_right",
+          "layer": "front",
+          "color": "yellow"
+        },
+        {
+          "piece": "hill",
+          "at": "center",
+          "layer": "far"
+        },
+        {
+          "piece": "cloud",
+          "at": "center",
+          "layer": "sky"
+        },
+        {
+          "piece": "lamp_post",
+          "at": "center_left",
+          "dx": -90
+        }
+      ]
+    },
+    {
+      "id": "calle",
+      "base": "city"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "caminatas",
+      "set": "parque",
+      "cast": [
+        {
+          "who": "leo",
+          "at": "far_left",
+          "facing": "right"
+        },
+        {
+          "who": "ana",
+          "at": "far_right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "leo",
+          "action": "walk",
+          "to": "left",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "leo",
+          "action": "walk",
+          "variant": "sneak",
+          "to": "center_left",
+          "emotion": "scared",
+          "intensity": 1
+        },
+        {
+          "actor": "leo",
+          "action": "walk",
+          "variant": "strut",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 2
+        },
+        {
+          "actor": "leo",
+          "action": "walk",
+          "variant": "stomp",
+          "to": "left",
+          "emotion": "angry",
+          "intensity": 1
+        },
+        {
+          "actor": "ana",
+          "action": "run",
+          "to": "right",
+          "say": "¡Allá voy!"
+        },
+        {
+          "actor": "ana",
+          "action": "run",
+          "variant": "dash",
+          "to": "center_right"
+        },
+        {
+          "actor": "ana",
+          "action": "run",
+          "variant": "panic",
+          "to": "offstage_right",
+          "emotion": "scared",
+          "intensity": 2
+        },
+        {
+          "actor": "ana",
+          "action": "run",
+          "to": "far_right",
+          "emotion": "neutral"
+        },
+        {
+          "actor": "leo",
+          "action": "think",
+          "say": "¿Y ahora qué?"
+        },
+        {
+          "actor": "ana",
+          "emotion": "surprised",
+          "intensity": 1,
+          "target": "leo",
+          "together": true
+        }
+      ]
+    },
+    {
+      "id": "saltos",
+      "set": "parque",
+      "cast": [
+        {
+          "who": "leo",
+          "at": "center_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "leo",
+          "action": "jump",
+          "height": "low",
+          "emotion": "happy",
+          "intensity": 3
+        },
+        {
+          "actor": "leo",
+          "action": "jump",
+          "variant": "flip",
+          "height": "high",
+          "say": "¡Mortal!"
+        },
+        {
+          "actor": "leo",
+          "action": "jump",
+          "variant": "backflip",
+          "emotion": "surprised",
+          "intensity": 2
+        },
+        {
+          "actor": "leo",
+          "action": "jump",
+          "variant": "spin"
+        },
+        {
+          "actor": "leo",
+          "action": "jump",
+          "variant": "cartwheel",
+          "to": "center_right",
+          "emotion": "happy",
+          "intensity": 2
+        },
+        {
+          "actor": "leo",
+          "action": "jump",
+          "variant": "split",
+          "to": "center",
+          "height": "high"
+        },
+        {
+          "actor": "leo",
+          "emotion": "surprised",
+          "intensity": 3
+        }
+      ]
+    },
+    {
+      "id": "gestos",
+      "set": "calle",
+      "cast": [
+        {
+          "who": "tomas",
+          "at": "center_left",
+          "facing": "right"
+        },
+        {
+          "who": "lucia",
+          "at": "center_right",
+          "facing": "left"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "tomas",
+          "action": "wave",
+          "target": "lucia",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "lucia",
+          "action": "wave",
+          "variant": "big",
+          "emotion": "happy",
+          "intensity": 3
+        },
+        {
+          "actor": "tomas",
+          "action": "talk",
+          "target": "lucia",
+          "say": "Hola, vecina. ¿Qué tal el día?"
+        },
+        {
+          "actor": "lucia",
+          "action": "talk",
+          "variant": "shout",
+          "say": "¡Perdí mi llave!",
+          "emotion": "angry",
+          "intensity": 2
+        },
+        {
+          "actor": "tomas",
+          "action": "talk",
+          "variant": "whisper",
+          "target": "lucia",
+          "say": "Está en tu bolsillo."
+        },
+        {
+          "actor": "lucia",
+          "action": "point",
+          "target": "tomas",
+          "emotion": "surprised",
+          "intensity": 1
+        },
+        {
+          "actor": "tomas",
+          "action": "point",
+          "variant": "accuse",
+          "target": "lucia",
+          "emotion": "angry",
+          "intensity": 3
+        },
+        {
+          "actor": "lucia",
+          "action": "point",
+          "variant": "up",
+          "say": "¡Mira, un ave!"
+        },
+        {
+          "actor": "tomas",
+          "action": "think",
+          "say": "Mmm... no veo nada.",
+          "emotion": "sad",
+          "intensity": 1
+        },
+        {
+          "actor": "lucia",
+          "action": "think",
+          "variant": "idea",
+          "say": "¡Ya sé!",
+          "emotion": "happy",
+          "intensity": 2
+        }
+      ]
+    },
+    {
+      "id": "objetos",
+      "set": "parque",
+      "cast": [
+        {
+          "who": "abuelo",
+          "at": "right",
+          "facing": "left"
+        },
+        {
+          "who": "abuela",
+          "at": "center_right",
+          "facing": "right"
+        }
+      ],
+      "items": [
+        {
+          "id": "libro",
+          "item": "book",
+          "at": "right"
+        },
+        {
+          "id": "manzana",
+          "item": "apple",
+          "at": "center_right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "abuelo",
+          "action": "pick_up",
+          "item": "libro",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "abuelo",
+          "action": "give",
+          "target": "abuela"
+        },
+        {
+          "actor": "abuela",
+          "action": "sit",
+          "variant": "flop",
+          "emotion": "surprised",
+          "intensity": 1
+        },
+        {
+          "actor": "abuelo",
+          "action": "sit",
+          "emotion": "sad",
+          "intensity": 2
+        },
+        {
+          "actor": "abuelo",
+          "action": "talk",
+          "say": "Qué cansancio..."
+        },
+        {
+          "actor": "abuela",
+          "action": "give",
+          "variant": "toss",
+          "target": "abuelo",
+          "say": "¡Atrapa!"
+        },
+        {
+          "actor": "abuelo",
+          "action": "wave",
+          "target": "abuela",
+          "emotion": "happy",
+          "intensity": 2
+        },
+        {
+          "actor": "abuela",
+          "action": "pick_up",
+          "variant": "snatch",
+          "item": "manzana",
+          "emotion": "happy",
+          "intensity": 3
+        },
+        {
+          "actor": "abuela",
+          "action": "point",
+          "target": "abuelo"
+        }
+      ]
+    },
+    {
+      "id": "caidas",
+      "set": "calle",
+      "cast": [
+        {
+          "who": "leo",
+          "at": "center",
+          "facing": "right"
+        },
+        {
+          "who": "ana",
+          "at": "center_right",
+          "facing": "left"
+        },
+        {
+          "who": "tomas",
+          "at": "far_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "leo",
+          "action": "hug",
+          "target": "ana",
+          "emotion": "happy",
+          "intensity": 2
+        },
+        {
+          "actor": "ana",
+          "action": "hug",
+          "variant": "bear",
+          "target": "leo",
+          "emotion": "happy",
+          "intensity": 3
+        },
+        {
+          "actor": "leo",
+          "action": "fall",
+          "emotion": "surprised",
+          "intensity": 2
+        },
+        {
+          "actor": "ana",
+          "action": "fall",
+          "variant": "faint",
+          "emotion": "scared",
+          "intensity": 3
+        },
+        {
+          "actor": "tomas",
+          "emotion": "scared",
+          "intensity": 2,
+          "target": "leo"
+        },
+        {
+          "actor": "leo",
+          "action": "jump",
+          "height": "low",
+          "say": "¡Estoy bien!"
+        },
+        {
+          "actor": "leo",
+          "action": "fall",
+          "variant": "slip",
+          "emotion": "sad",
+          "intensity": 3
+        },
+        {
+          "actor": "tomas",
+          "action": "walk",
+          "to": "left",
+          "emotion": "neutral"
+        },
+        {
+          "actor": "tomas",
+          "emotion": "angry",
+          "intensity": 3,
+          "duration": 1.5
+        },
+        {
+          "actor": "leo",
+          "action": "talk",
+          "say": "Ay. Otra vez no.",
+          "emotion": "sad",
+          "intensity": 2
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "after": "saltos",
+      "options": [
+        {
+          "id": "otra",
+          "label": "¡Otra vuelta!",
+          "effects": [
+            {
+              "var": "risa",
+              "add": 1
+            }
+          ],
+          "scenes": [
+            {
+              "id": "vuelta",
+              "set": "parque",
+              "cast": [
+                {
+                  "who": "leo",
+                  "at": "left",
+                  "facing": "right"
+                }
+              ],
+              "beats": [
+                {
+                  "actor": "leo",
+                  "action": "jump",
+                  "variant": "cartwheel",
+                  "to": "center",
+                  "emotion": "happy",
+                  "intensity": 3,
+                  "say": "¡Weee!"
+                }
+              ]
+            }
+          ],
+          "rejoin": "gestos"
+        },
+        {
+          "id": "basta",
+          "label": "Ya basta",
+          "rejoin": "gestos"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "after": "caidas",
+      "options": [
+        {
+          "id": "fiesta",
+          "label": "¡A celebrar!",
+          "effects": [
+            {
+              "var": "risa",
+              "add": 2
+            }
+          ],
+          "rejoin": "@endings"
+        },
+        {
+          "id": "casa",
+          "label": "A casa",
+          "rejoin": "@endings"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "fiesta",
+      "title": "Fiesta",
+      "scenes": [
+        {
+          "id": "end_fiesta",
+          "set": "parque",
+          "cast": [
+            {
+              "who": "leo",
+              "at": "center"
+            },
+            {
+              "who": "ana",
+              "at": "center_right"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "leo",
+              "action": "jump",
+              "variant": "spin",
+              "emotion": "happy",
+              "intensity": 3,
+              "say": "¡Fiesta!"
+            },
+            {
+              "actor": "ana",
+              "action": "jump",
+              "emotion": "happy",
+              "intensity": 3,
+              "together": true
+            }
+          ]
+        }
+      ],
+      "when": {
+        "all": [
+          {
+            "choice": "d1",
+            "is": "otra"
+          },
+          {
+            "choice": "d2",
+            "is": "fiesta"
+          }
+        ]
+      }
+    },
+    {
+      "id": "risas",
+      "title": "Risas",
+      "scenes": [
+        {
+          "id": "end_risas",
+          "set": "parque",
+          "cast": [
+            {
+              "who": "leo",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "leo",
+              "action": "wave",
+              "variant": "big",
+              "emotion": "happy",
+              "intensity": 2,
+              "say": "¡Chao!"
+            }
+          ]
+        }
+      ],
+      "when": {
+        "var": "risa",
+        "op": ">=",
+        "value": 1
+      }
+    },
+    {
+      "id": "casa",
+      "title": "Casa",
+      "scenes": [
+        {
+          "id": "end_casa",
+          "set": "calle",
+          "cast": [
+            {
+              "who": "leo",
+              "at": "center",
+              "posture": "sitting",
+              "emotion": "sad",
+              "intensity": 1
+            }
+          ],
+          "beats": [
+            {
+              "actor": "leo",
+              "action": "talk",
+              "say": "Mañana más."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "invented": [
+      "Todo: es una prueba del motor."
+    ],
+    "comment": "Engine test fixture: every person kind, action and variant, emotions 1-3."
+  }
+}

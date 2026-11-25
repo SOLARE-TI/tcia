@@ -1,0 +1,302 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "O passeio mais longo do mundo",
+    "slug": "test-flow-max",
+    "lang": "pt",
+    "light": "day",
+    "ui": { "start": "Começar", "restart": "Começar de novo", "decision": "Decisão" }
+  },
+  "state": [
+    { "var": "coragem", "initial": 0 }
+  ],
+  "characters": [
+    {
+      "id": "tiago", "name": "Tiago", "kind": "man",
+      "look": { "height": "medium", "build": "average", "skin": "medium", "head": "oval", "hair": "short", "hair_color": "brown",
+                "outfit": "shirt_pants", "top_color": "white", "bottom_color": "brown", "accessory": "hat", "accessory_color": "black" }
+    },
+    {
+      "id": "luana", "name": "Luana", "kind": "woman",
+      "look": { "height": "tall", "build": "slim", "skin": "deep", "head": "circle", "hair": "afro", "hair_color": "black",
+                "outfit": "jacket_pants", "top_color": "green", "bottom_color": "gray", "accessory": "headband", "accessory_color": "yellow" }
+    },
+    {
+      "id": "bia", "name": "Bia", "kind": "girl",
+      "look": { "height": "short", "skin": "light", "head": "triangle_down", "hair": "ponytail", "hair_color": "red",
+                "outfit": "hoodie_pants", "top_color": "pink", "bottom_color": "purple", "accessory": "scarf", "accessory_color": "teal" }
+    },
+    {
+      "id": "caio", "name": "Caio", "kind": "boy",
+      "look": { "skin": "brown", "head": "square", "hair": "curly", "hair_color": "dark_brown",
+                "outfit": "tee_pants", "top_color": "blue", "bottom_color": "navy", "accessory": "helmet", "accessory_color": "orange" }
+    },
+    {
+      "id": "dita", "name": "Vó Dita", "kind": "old_woman",
+      "look": { "skin": "pale", "head": "oval", "hair": "long", "hair_color": "white", "outfit": "dress", "top_color": "purple", "accessory": "none" }
+    },
+    { "id": "pipoca", "name": "Pipoca", "kind": "bird", "look": { "size": "medium", "plumage": "teal" } }
+  ],
+  "sets": [
+    { "id": "casa", "base": "room" },
+    { "id": "rua", "base": "city" },
+    { "id": "praca", "base": "park" },
+    { "id": "praia", "base": "beach" }
+  ],
+  "scenes": [
+    {
+      "id": "m01_cafe", "set": "casa", "light": "indoor",
+      "cast": [ { "who": "tiago", "at": "center_left", "facing": "right" }, { "who": "caio", "at": "center", "facing": "left" } ],
+      "beats": [
+        { "actor": "tiago", "action": "talk", "target": "caio", "say": "Hoje tem passeio!", "emotion": "happy", "intensity": 2 },
+        { "actor": "caio", "action": "jump", "variant": "flip", "height": "high", "emotion": "happy", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "m02_porta", "set": "casa", "light": "indoor",
+      "cast": [ { "who": "bia", "at": "center", "facing": "right" } ],
+      "beats": [
+        { "actor": "bia", "action": "run", "to": "right", "say": "Eu primeiro!" },
+        { "actor": "bia", "action": "fall", "variant": "trip", "emotion": "surprised", "intensity": 2 }
+      ]
+    },
+    {
+      "id": "m03_calcada", "set": "rua",
+      "cast": [ { "who": "luana", "at": "left", "facing": "right" }, { "who": "pipoca", "at": "offstage_right" } ],
+      "beats": [
+        { "actor": "luana", "action": "walk", "variant": "strut", "to": "center" },
+        { "actor": "pipoca", "action": "run", "to": "center_right" },
+        { "actor": "luana", "target": "pipoca", "emotion": "surprised", "intensity": 2 },
+        { "actor": "pipoca", "action": "talk", "target": "luana", "say": "Piu! Bom dia!" }
+      ]
+    },
+    {
+      "id": "m04_onibus", "set": "rua",
+      "cast": [ { "who": "tiago", "at": "left", "facing": "right" } ],
+      "beats": [
+        { "actor": "tiago", "action": "run", "variant": "panic", "to": "right", "say": "O ônibus!", "emotion": "scared", "intensity": 2 }
+      ]
+    },
+    {
+      "id": "m05_banco", "set": "praca",
+      "cast": [ { "who": "dita", "at": "center_right", "posture": "sitting", "facing": "left" }, { "who": "pipoca", "at": "center", "facing": "right" } ],
+      "beats": [
+        { "actor": "pipoca", "action": "talk", "target": "dita", "say": "Piu?" },
+        { "actor": "dita", "target": "pipoca", "emotion": "surprised", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "m06_sorvete", "set": "praca",
+      "cast": [ { "who": "caio", "at": "center_left", "facing": "right" }, { "who": "bia", "at": "center", "facing": "left" } ],
+      "beats": [
+        { "actor": "caio", "action": "jump", "variant": "spin", "say": "Sorvete duplo!" },
+        { "actor": "bia", "target": "caio", "emotion": "angry", "intensity": 2 }
+      ]
+    },
+    {
+      "id": "m07_lago", "set": "praca",
+      "cast": [ { "who": "tiago", "at": "left", "facing": "right" } ],
+      "beats": [
+        { "actor": "tiago", "action": "walk", "variant": "sneak", "to": "center" },
+        { "actor": "tiago", "action": "fall", "variant": "slip", "say": "Opa!", "emotion": "surprised", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "m08_praia", "set": "praia", "light": "sunset",
+      "cast": [ { "who": "bia", "at": "left", "facing": "right" }, { "who": "luana", "at": "far_right", "facing": "left" } ],
+      "beats": [
+        { "actor": "bia", "action": "jump", "variant": "cartwheel", "to": "center", "emotion": "happy", "intensity": 3 },
+        { "actor": "luana", "action": "talk", "variant": "shout", "say": "Protetor solar!" }
+      ]
+    },
+    {
+      "id": "m09_castelo", "set": "praia", "light": "sunset",
+      "cast": [ { "who": "caio", "at": "center", "facing": "left" }, { "who": "luana", "at": "center_left", "facing": "right" } ],
+      "beats": [
+        { "actor": "luana", "action": "sit" },
+        { "actor": "caio", "action": "jump", "variant": "split", "say": "Olha a pose!" },
+        { "actor": "luana", "target": "caio", "emotion": "happy", "intensity": 2 }
+      ]
+    },
+    {
+      "id": "m10_gaivota", "set": "praia", "light": "sunset",
+      "cast": [ { "who": "dita", "at": "center_right", "facing": "left" }, { "who": "pipoca", "at": "far_left", "facing": "right" } ],
+      "beats": [
+        { "actor": "pipoca", "action": "run", "variant": "dash", "to": "center" },
+        { "actor": "dita", "target": "pipoca", "emotion": "scared", "intensity": 3 },
+        { "actor": "dita", "action": "talk", "say": "Que pássaro apressado!" }
+      ]
+    },
+    {
+      "id": "m11_volta", "set": "rua", "light": "dusk",
+      "cast": [ { "who": "tiago", "at": "center", "facing": "left" }, { "who": "bia", "at": "center_left", "facing": "right" } ],
+      "beats": [
+        { "actor": "tiago", "action": "point", "target": "far_right", "say": "Cadê o carro?" },
+        { "actor": "bia", "target": "tiago", "emotion": "surprised", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "m12_sofa", "set": "casa", "light": "indoor",
+      "cast": [ { "who": "dita", "at": "center_right", "facing": "left" }, { "who": "caio", "at": "center", "facing": "right" } ],
+      "beats": [
+        { "actor": "dita", "action": "sit", "variant": "flop", "say": "Ufa!" },
+        { "actor": "caio", "action": "fall", "variant": "faint", "emotion": "happy", "intensity": 1 }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1", "after": "m04_onibus",
+      "options": [
+        { "id": "correr", "label": "Correr atrás do ônibus", "effects": [ { "var": "coragem", "add": 1 } ], "rejoin": "m05_banco" },
+        {
+          "id": "ape", "label": "Ir a pé",
+          "scenes": [
+            {
+              "id": "b_ape", "set": "rua",
+              "cast": [ { "who": "caio", "at": "left", "facing": "right" } ],
+              "beats": [
+                { "actor": "caio", "action": "walk", "variant": "stomp", "to": "center", "say": "A pé? Sério?" },
+                { "actor": "caio", "action": "fall", "variant": "trip", "emotion": "surprised", "intensity": 2 }
+              ]
+            }
+          ],
+          "rejoin": "m05_banco"
+        },
+        {
+          "id": "atalho", "label": "Pegar um atalho", "effects": [ { "var": "coragem", "add": 2 } ],
+          "scenes": [
+            {
+              "id": "b_atalho_1", "set": "praca",
+              "cast": [ { "who": "luana", "at": "left", "facing": "right" } ],
+              "beats": [
+                { "actor": "luana", "action": "jump", "variant": "backflip", "to": "center", "height": "high", "say": "Atalho!" }
+              ]
+            },
+            {
+              "id": "b_atalho_2", "set": "praca",
+              "cast": [ { "who": "luana", "at": "center", "facing": "right" } ],
+              "beats": [
+                { "actor": "luana", "action": "fall", "variant": "slip", "emotion": "surprised", "intensity": 3 },
+                { "actor": "luana", "action": "think", "say": "Era um atalho para o lago." }
+              ]
+            }
+          ],
+          "rejoin": "m05_banco"
+        }
+      ]
+    },
+    {
+      "id": "d2", "after": "m08_praia",
+      "options": [
+        {
+          "id": "castelo", "label": "Fazer um castelo",
+          "scenes": [
+            {
+              "id": "b_castelo", "set": "praia", "light": "sunset",
+              "cast": [ { "who": "bia", "at": "center", "facing": "left" } ],
+              "beats": [
+                { "actor": "bia", "action": "sit" },
+                { "actor": "bia", "target": "far_left", "emotion": "sad", "intensity": 3 },
+                { "actor": "bia", "action": "talk", "say": "A onda comeu meu castelo!" }
+              ]
+            }
+          ],
+          "rejoin": "m09_castelo"
+        },
+        { "id": "nadar", "label": "Nadar (de mentirinha)", "effects": [ { "var": "coragem", "add": 1 } ], "rejoin": "m09_castelo" },
+        { "id": "dormir", "label": "Cochilar na areia", "rejoin": "m09_castelo" }
+      ]
+    },
+    {
+      "id": "d3", "after": "m12_sofa",
+      "options": [
+        { "id": "historias", "label": "Contar histórias", "rejoin": "@endings" },
+        {
+          "id": "fotos", "label": "Ver as fotos",
+          "scenes": [
+            {
+              "id": "b_fotos", "set": "casa", "light": "indoor",
+              "cast": [ { "who": "tiago", "at": "center_left", "facing": "right" }, { "who": "bia", "at": "center", "facing": "left" } ],
+              "items": [ { "id": "celular", "item": "phone", "held_by": "tiago" } ],
+              "beats": [
+                { "actor": "tiago", "action": "give", "target": "bia", "say": "Olha você caindo!" },
+                { "actor": "bia", "target": "tiago", "emotion": "angry", "intensity": 3 }
+              ]
+            }
+          ],
+          "rejoin": "@endings"
+        },
+        { "id": "cama", "label": "Cama, já!", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "heroi", "title": "Herói do atalho",
+      "when": { "all": [ { "choice": "d1", "is": "atalho" }, { "var": "coragem", "op": ">=", "value": 3 } ] },
+      "scenes": [
+        {
+          "id": "f_heroi", "set": "praca", "light": "dusk",
+          "cast": [ { "who": "luana", "at": "center", "facing": "right" }, { "who": "caio", "at": "center_right", "facing": "left" } ],
+          "beats": [
+            { "actor": "luana", "action": "jump", "variant": "flip", "height": "high", "say": "Rainha do atalho!" },
+            { "actor": "caio", "target": "luana", "emotion": "surprised", "intensity": 3 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festa", "title": "Festa na sala",
+      "when": { "any": [ { "choice": "d2", "is": "castelo" }, { "choice": "d3", "is": "fotos" } ] },
+      "scenes": [
+        {
+          "id": "f_festa", "set": "casa", "light": "indoor",
+          "cast": [ { "who": "bia", "at": "center_left", "facing": "right" }, { "who": "tiago", "at": "center", "facing": "left" } ],
+          "beats": [
+            { "actor": "bia", "action": "jump", "variant": "spin", "emotion": "happy", "intensity": 3 },
+            { "actor": "tiago", "action": "jump", "variant": "split", "say": "Ai, minhas costas!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calma", "title": "Noite tranquila",
+      "when": { "not": { "choice": "d3", "is": "cama" } },
+      "scenes": [
+        {
+          "id": "f_calma", "set": "casa", "light": "indoor",
+          "cast": [ { "who": "dita", "at": "center", "facing": "right" }, { "who": "pipoca", "at": "center_right", "facing": "left" } ],
+          "beats": [
+            { "actor": "dita", "action": "talk", "target": "pipoca", "say": "Era uma vez um pássaro..." },
+            { "actor": "pipoca", "action": "fall", "variant": "faint", "emotion": "happy", "intensity": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ronco", "title": "Todos roncando",
+      "scenes": [
+        {
+          "id": "f_ronco", "set": "casa", "light": "indoor",
+          "cast": [ { "who": "tiago", "at": "center_left", "facing": "right" }, { "who": "caio", "at": "center", "facing": "left" } ],
+          "beats": [
+            { "actor": "tiago", "action": "sit", "variant": "flop" },
+            { "actor": "caio", "action": "fall", "variant": "trip", "say": "Zzz..." },
+            { "actor": "tiago", "target": "caio", "emotion": "neutral", "intensity": 3 }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "approximations": [
+      { "requested": "dormir", "used": "fall.faint", "reason": "There is no lie-down action; a soft faint leaves the character lying." }
+    ],
+    "invented": [
+      "Everything beyond the 12 main scenes: this is a flow test story",
+      "Decisions d1, d2 and d3; branch scenes b_ape, b_atalho_1, b_atalho_2, b_castelo and b_fotos; four endings"
+    ],
+    "comment": "Test story 5 of TCIA 0.1.0: 12 main scenes, 3 decisions with 3 options (27 paths), 4 endings with the 5 condition types, branches of 0, 1 and 2 scenes and a decision after the last scene. Portuguese with meta.ui."
+  }
+}

@@ -1,0 +1,487 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "Animal test",
+    "slug": "animal-test",
+    "lang": "en",
+    "light": "day"
+  },
+  "characters": [
+    {
+      "id": "max",
+      "name": "Max",
+      "kind": "dog",
+      "look": {
+        "size": "large",
+        "coat": "brown",
+        "pattern": "spots",
+        "ears": "pointy",
+        "accessory": "bandana",
+        "accessory_color": "blue"
+      }
+    },
+    {
+      "id": "tom",
+      "name": "Tom",
+      "kind": "cat",
+      "look": {
+        "size": "small",
+        "coat": "gray",
+        "pattern": "stripes",
+        "accessory": "collar",
+        "accessory_color": "red"
+      }
+    },
+    {
+      "id": "pip",
+      "name": "Pip",
+      "kind": "bird",
+      "look": {
+        "size": "medium",
+        "plumage": "yellow"
+      }
+    }
+  ],
+  "sets": [
+    {
+      "id": "yard",
+      "base": "countryside"
+    },
+    {
+      "id": "den",
+      "base": "room"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "moves",
+      "set": "yard",
+      "cast": [
+        {
+          "who": "max",
+          "at": "far_left",
+          "facing": "right"
+        },
+        {
+          "who": "tom",
+          "at": "center",
+          "facing": "left"
+        },
+        {
+          "who": "pip",
+          "at": "far_right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "max",
+          "action": "walk",
+          "variant": "sneak",
+          "to": "left",
+          "emotion": "scared",
+          "intensity": 1
+        },
+        {
+          "actor": "tom",
+          "action": "walk",
+          "variant": "strut",
+          "to": "center_left",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "pip",
+          "action": "walk",
+          "to": "right"
+        },
+        {
+          "actor": "pip",
+          "action": "run",
+          "variant": "dash",
+          "to": "offstage_right"
+        },
+        {
+          "actor": "pip",
+          "action": "run",
+          "to": "far_right"
+        },
+        {
+          "actor": "max",
+          "action": "walk",
+          "variant": "stomp",
+          "to": "far_left",
+          "emotion": "angry",
+          "intensity": 2
+        },
+        {
+          "actor": "max",
+          "action": "run",
+          "variant": "panic",
+          "to": "left",
+          "emotion": "scared",
+          "intensity": 3
+        },
+        {
+          "actor": "max",
+          "action": "jump",
+          "variant": "flip",
+          "height": "high",
+          "emotion": "happy",
+          "intensity": 3
+        },
+        {
+          "actor": "tom",
+          "action": "jump",
+          "variant": "spin",
+          "emotion": "surprised",
+          "intensity": 2
+        },
+        {
+          "actor": "pip",
+          "action": "jump",
+          "variant": "backflip"
+        },
+        {
+          "actor": "max",
+          "action": "wave",
+          "variant": "big",
+          "target": "tom"
+        },
+        {
+          "actor": "tom",
+          "action": "talk",
+          "variant": "shout",
+          "say": "Mrrrow!",
+          "emotion": "angry",
+          "intensity": 3
+        },
+        {
+          "actor": "pip",
+          "action": "think",
+          "variant": "idea",
+          "say": "Tweet! An idea!"
+        },
+        {
+          "actor": "max",
+          "action": "point",
+          "variant": "up"
+        },
+        {
+          "actor": "pip",
+          "action": "jump",
+          "variant": "split",
+          "to": "right"
+        },
+        {
+          "actor": "tom",
+          "action": "jump",
+          "variant": "cartwheel",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 2
+        }
+      ]
+    },
+    {
+      "id": "stuff",
+      "set": "den",
+      "light": "dusk",
+      "cast": [
+        {
+          "who": "max",
+          "at": "center_left",
+          "facing": "right"
+        },
+        {
+          "who": "tom",
+          "at": "center",
+          "facing": "left"
+        },
+        {
+          "who": "pip",
+          "at": "right",
+          "facing": "left"
+        }
+      ],
+      "items": [
+        {
+          "id": "ball",
+          "item": "ball",
+          "at": "center_left"
+        },
+        {
+          "id": "key",
+          "item": "key",
+          "at": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "max",
+          "action": "pick_up",
+          "item": "ball",
+          "emotion": "happy",
+          "intensity": 2
+        },
+        {
+          "actor": "max",
+          "action": "give",
+          "target": "tom"
+        },
+        {
+          "actor": "tom",
+          "action": "sit",
+          "variant": "flop",
+          "emotion": "sad",
+          "intensity": 1
+        },
+        {
+          "actor": "tom",
+          "action": "give",
+          "variant": "toss",
+          "target": "pip",
+          "say": "Catch!"
+        },
+        {
+          "actor": "pip",
+          "action": "sit",
+          "emotion": "sad",
+          "intensity": 3
+        },
+        {
+          "actor": "max",
+          "action": "hug",
+          "variant": "bear",
+          "target": "tom",
+          "emotion": "happy",
+          "intensity": 3
+        },
+        {
+          "actor": "tom",
+          "action": "hug",
+          "target": "max"
+        },
+        {
+          "actor": "tom",
+          "action": "fall",
+          "variant": "faint",
+          "emotion": "scared",
+          "intensity": 2
+        },
+        {
+          "actor": "max",
+          "action": "fall",
+          "emotion": "surprised",
+          "intensity": 3
+        },
+        {
+          "actor": "pip",
+          "action": "fall",
+          "variant": "slip",
+          "emotion": "surprised",
+          "intensity": 1
+        },
+        {
+          "actor": "pip",
+          "action": "talk",
+          "say": "Oops.",
+          "emotion": "neutral"
+        },
+        {
+          "actor": "max",
+          "action": "think",
+          "say": "Hmm.",
+          "emotion": "sad",
+          "intensity": 2
+        },
+        {
+          "actor": "pip",
+          "action": "point",
+          "variant": "accuse",
+          "target": "max",
+          "emotion": "angry",
+          "intensity": 1
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "after": "moves",
+      "options": [
+        {
+          "id": "nap",
+          "label": "Nap time",
+          "rejoin": "stuff"
+        },
+        {
+          "id": "play",
+          "label": "Keep playing",
+          "scenes": [
+            {
+              "id": "play_more",
+              "set": "yard",
+              "light": "sunset",
+              "cast": [
+                {
+                  "who": "tom",
+                  "at": "center"
+                },
+                {
+                  "who": "pip",
+                  "at": "center_right",
+                  "facing": "left"
+                }
+              ],
+              "items": [
+                {
+                  "id": "f",
+                  "item": "flower",
+                  "held_by": "tom"
+                }
+              ],
+              "beats": [
+                {
+                  "actor": "tom",
+                  "action": "talk",
+                  "variant": "whisper",
+                  "target": "pip",
+                  "say": "Psst!"
+                },
+                {
+                  "actor": "tom",
+                  "action": "give",
+                  "target": "pip"
+                },
+                {
+                  "actor": "pip",
+                  "action": "wave",
+                  "emotion": "happy",
+                  "intensity": 2
+                },
+                {
+                  "actor": "tom",
+                  "action": "point",
+                  "target": "pip"
+                }
+              ]
+            }
+          ],
+          "rejoin": "stuff"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "after": "stuff",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wake up",
+          "rejoin": "@endings"
+        },
+        {
+          "id": "b",
+          "label": "Sleep on",
+          "rejoin": "@endings"
+        },
+        {
+          "id": "c",
+          "label": "Snack!",
+          "rejoin": "@endings"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "snack",
+      "title": "Snack",
+      "scenes": [
+        {
+          "id": "end_snack",
+          "set": "den",
+          "cast": [
+            {
+              "who": "max",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "max",
+              "action": "jump",
+              "variant": "spin",
+              "emotion": "happy",
+              "intensity": 3
+            }
+          ]
+        }
+      ],
+      "when": {
+        "choice": "d2",
+        "is": "c"
+      }
+    },
+    {
+      "id": "awake",
+      "title": "Awake",
+      "scenes": [
+        {
+          "id": "end_awake",
+          "set": "yard",
+          "cast": [
+            {
+              "who": "pip",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "pip",
+              "action": "run",
+              "to": "offstage_left"
+            }
+          ]
+        }
+      ],
+      "when": {
+        "any": [
+          {
+            "choice": "d2",
+            "is": "a"
+          },
+          {
+            "choice": "d1",
+            "is": "play"
+          }
+        ]
+      }
+    },
+    {
+      "id": "zzz",
+      "title": "Zzz",
+      "scenes": [
+        {
+          "id": "end_zzz",
+          "set": "den",
+          "cast": [
+            {
+              "who": "tom",
+              "at": "center",
+              "posture": "sitting"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "tom",
+              "emotion": "neutral",
+              "duration": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "Rulo and the Mountain Race",
+    "slug": "rulo-and-the-mountain-race",
+    "lang": "en",
+    "light": "day"
+  },
+  "characters": [
+    {
+      "id": "rulo",
+      "name": "Rulo",
+      "kind": "boy",
+      "look": {
+        "height": "medium",
+        "build": "slim",
+        "skin": "tan",
+        "head": "square",
+        "hair": "spiky",
+        "hair_color": "black",
+        "outfit": "hoodie_pants",
+        "top_color": "red",
+        "bottom_color": "navy",
+        "accessory": "helmet",
+        "accessory_color": "yellow"
+      }
+    },
+    {
+      "id": "pia",
+      "name": "Pia",
+      "kind": "girl",
+      "look": {
+        "height": "medium",
+        "build": "average",
+        "skin": "deep",
+        "head": "circle",
+        "hair": "curly",
+        "hair_color": "dark_brown",
+        "outfit": "jacket_pants",
+        "top_color": "green",
+        "bottom_color": "black",
+        "accessory": "headband",
+        "accessory_color": "orange"
+      }
+    },
+    {
+      "id": "tornillo",
+      "name": "Tornillo",
+      "kind": "dog",
+      "look": {
+        "size": "medium",
+        "coat": "gray",
+        "pattern": "spots",
+        "ears": "pointy",
+        "accessory": "bandana",
+        "accessory_color": "red"
+      }
+    },
+    {
+      "id": "pepita",
+      "name": "Pepita",
+      "kind": "cat",
+      "look": {
+        "size": "small",
+        "coat": "cream",
+        "pattern": "solid",
+        "accessory": "collar",
+        "accessory_color": "pink"
+      }
+    }
+  ],
+  "sets": [
+    {
+      "id": "trail",
+      "base": "mountain",
+      "pieces": [
+        { "piece": "mountain", "at": "left", "layer": "far", "variant": "snowy" },
+        { "piece": "mountain", "at": "far_right", "layer": "far", "variant": "bare" },
+        { "piece": "pine", "at": "far_left" },
+        { "piece": "log", "at": "center" },
+        { "piece": "rock", "at": "right", "layer": "front" },
+        { "piece": "cloud", "at": "center_right", "layer": "sky" }
+      ]
+    },
+    {
+      "id": "summit",
+      "base": "mountain",
+      "pieces": [
+        { "piece": "mountain", "at": "center", "layer": "far", "variant": "snowy" },
+        { "piece": "pine", "at": "far_right", "layer": "far" },
+        { "piece": "rock", "at": "center_right" },
+        { "piece": "flowers", "at": "far_left", "color": "orange" },
+        { "piece": "cloud", "at": "left", "layer": "sky" }
+      ]
+    },
+    {
+      "id": "lodge",
+      "base": "room",
+      "pieces": [
+        { "piece": "window", "at": "center" },
+        { "piece": "sofa", "at": "center_left", "color": "red" },
+        { "piece": "shelf", "at": "far_right" },
+        { "piece": "floor_lamp", "at": "far_left" },
+        { "piece": "rug", "at": "center", "color": "teal" }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "the_challenge",
+      "set": "trail",
+      "cast": [
+        { "who": "rulo", "at": "left", "facing": "right" },
+        { "who": "pia", "at": "center_right", "facing": "left" },
+        { "who": "tornillo", "at": "far_left", "facing": "right" },
+        { "who": "pepita", "at": "right", "facing": "left", "posture": "sitting" }
+      ],
+      "beats": [
+        { "actor": "pia", "action": "talk", "target": "rulo", "say": "Race you to the top, helmet boy!", "emotion": "happy", "intensity": 2 },
+        { "actor": "rulo", "action": "talk", "variant": "shout", "target": "pia", "say": "Deal! My skateboard is ready!", "emotion": "happy", "intensity": 3 },
+        { "actor": "rulo", "action": "jump", "variant": "split", "say": "Ready... steady..." },
+        { "actor": "pepita", "target": "rulo", "emotion": "surprised", "intensity": 2 },
+        { "actor": "tornillo", "action": "jump", "variant": "spin", "together": true },
+        { "actor": "pepita", "action": "think", "say": "Humans. So loud." }
+      ]
+    },
+    {
+      "id": "the_slope",
+      "set": "trail",
+      "cast": [
+        { "who": "rulo", "at": "far_left", "facing": "right" },
+        { "who": "pia", "at": "left", "facing": "right" },
+        { "who": "tornillo", "at": "offstage_left" }
+      ],
+      "beats": [
+        { "actor": "rulo", "action": "run", "variant": "dash", "to": "center", "emotion": "happy", "intensity": 3, "say": "Wheee!" },
+        { "actor": "pia", "action": "jump", "variant": "cartwheel", "to": "center_left", "together": true },
+        { "actor": "rulo", "action": "jump", "variant": "flip", "to": "right", "height": "high" },
+        { "actor": "tornillo", "action": "run", "variant": "dash", "to": "center_right" },
+        { "actor": "pia", "action": "talk", "variant": "shout", "target": "rulo", "say": "Hey! Boards are cheating!", "emotion": "angry", "intensity": 3 },
+        { "actor": "rulo", "action": "wave", "variant": "big", "target": "pia", "say": "Bye-bye!" }
+      ]
+    },
+    {
+      "id": "the_rocks",
+      "set": "summit",
+      "light": "sunset",
+      "cast": [
+        { "who": "rulo", "at": "center_left", "facing": "right" },
+        { "who": "pia", "at": "far_left", "facing": "right" },
+        { "who": "tornillo", "at": "right", "facing": "left" }
+      ],
+      "beats": [
+        { "actor": "rulo", "action": "walk", "variant": "strut", "to": "center_right", "say": "Easy peasy." },
+        { "actor": "rulo", "action": "fall", "variant": "slip", "emotion": "surprised", "intensity": 3 },
+        { "actor": "tornillo", "target": "rulo", "emotion": "scared", "intensity": 3 },
+        { "actor": "pia", "action": "run", "to": "center" },
+        { "actor": "pia", "action": "talk", "target": "rulo", "say": "Need a hand, champ?" },
+        { "actor": "rulo", "action": "talk", "target": "pia", "say": "I meant to do that.", "emotion": "happy", "intensity": 1 }
+      ]
+    },
+    {
+      "id": "the_summit",
+      "set": "summit",
+      "light": "sunset",
+      "cast": [
+        { "who": "rulo", "at": "far_left", "facing": "right" },
+        { "who": "pia", "at": "left", "facing": "right" },
+        { "who": "pepita", "at": "center_right", "facing": "left", "posture": "sitting" },
+        { "who": "tornillo", "at": "offstage_left" }
+      ],
+      "beats": [
+        { "actor": "rulo", "action": "run", "variant": "dash", "to": "center" },
+        { "actor": "pia", "action": "run", "variant": "dash", "to": "center_left", "together": true },
+        { "actor": "rulo", "action": "jump", "variant": "spin", "height": "high", "emotion": "happy", "intensity": 3, "say": "I win!" },
+        { "actor": "pepita", "action": "talk", "target": "rulo", "say": "Meow." },
+        { "actor": "rulo", "target": "pepita", "emotion": "surprised", "intensity": 3 },
+        { "actor": "pia", "target": "rulo", "emotion": "happy", "intensity": 3, "together": true },
+        { "actor": "tornillo", "action": "run", "variant": "panic", "to": "left" },
+        { "actor": "tornillo", "action": "talk", "target": "pepita", "say": "Woof?!", "emotion": "surprised", "intensity": 2 }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "route",
+      "after": "the_slope",
+      "options": [
+        {
+          "id": "shortcut",
+          "label": "Take the rocky shortcut",
+          "scenes": [
+            {
+              "id": "the_shortcut",
+              "set": "trail",
+              "cast": [
+                { "who": "rulo", "at": "center_left", "facing": "right" },
+                { "who": "tornillo", "at": "left", "facing": "right" }
+              ],
+              "beats": [
+                { "actor": "rulo", "action": "jump", "variant": "backflip", "to": "right", "height": "high", "say": "Shortcut!" },
+                { "actor": "rulo", "action": "fall", "variant": "trip", "emotion": "surprised", "intensity": 2 },
+                { "actor": "tornillo", "action": "walk", "variant": "sneak", "to": "center_right" },
+                { "actor": "tornillo", "action": "talk", "target": "rulo", "say": "Woof. (Told you.)" }
+              ]
+            }
+          ],
+          "rejoin": "the_rocks"
+        },
+        { "id": "trail", "label": "Stay on the trail", "rejoin": "the_rocks" }
+      ]
+    },
+    {
+      "id": "after_race",
+      "after": "the_summit",
+      "options": [
+        { "id": "rematch", "label": "Rematch, right now!", "rejoin": "@endings" },
+        { "id": "cocoa", "label": "Hot cocoa break", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "champion",
+      "title": "Champion of the Crumbly Rocks",
+      "when": { "all": [ { "choice": "route", "is": "shortcut" }, { "choice": "after_race", "is": "rematch" } ] },
+      "scenes": [
+        {
+          "id": "end_champion",
+          "set": "summit",
+          "light": "dusk",
+          "cast": [
+            { "who": "rulo", "at": "left", "facing": "right" },
+            { "who": "pia", "at": "center_right", "facing": "left" }
+          ],
+          "beats": [
+            { "actor": "rulo", "action": "jump", "variant": "cartwheel", "to": "center", "emotion": "happy", "intensity": 3 },
+            { "actor": "rulo", "action": "jump", "variant": "flip", "height": "high", "say": "Again! Again!" },
+            { "actor": "pia", "action": "fall", "variant": "faint", "emotion": "surprised", "intensity": 2 },
+            { "actor": "pia", "action": "think", "say": "He never gets tired." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friends",
+      "title": "Cocoa With Friends",
+      "when": { "choice": "after_race", "is": "cocoa" },
+      "scenes": [
+        {
+          "id": "end_friends",
+          "set": "lodge",
+          "light": "indoor",
+          "cast": [
+            { "who": "pia", "at": "center", "facing": "left" },
+            { "who": "rulo", "at": "center_left", "facing": "right" },
+            { "who": "pepita", "at": "right", "facing": "left" }
+          ],
+          "items": [ { "id": "cocoa", "item": "cup", "held_by": "pia" } ],
+          "beats": [
+            { "actor": "pia", "action": "give", "target": "rulo", "say": "Careful, it's hot." },
+            { "actor": "rulo", "action": "talk", "variant": "shout", "say": "Hot! Hot! HOT!", "emotion": "surprised", "intensity": 3 },
+            { "actor": "rulo", "action": "jump", "variant": "spin" },
+            { "actor": "pepita", "target": "rulo", "emotion": "neutral", "intensity": 2 },
+            { "actor": "pia", "action": "hug", "target": "rulo", "emotion": "happy", "intensity": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dawn",
+      "title": "Rematch at Dawn",
+      "scenes": [
+        {
+          "id": "end_dawn",
+          "set": "trail",
+          "light": "sunset",
+          "cast": [
+            { "who": "rulo", "at": "left", "facing": "right" },
+            { "who": "pia", "at": "center_left", "facing": "right" },
+            { "who": "tornillo", "at": "far_left", "facing": "right" }
+          ],
+          "beats": [
+            { "actor": "pia", "action": "talk", "target": "rulo", "say": "Tomorrow. Six sharp. No board!" },
+            { "actor": "rulo", "action": "run", "variant": "dash", "to": "offstage_right", "say": "See you at five!" },
+            { "actor": "pia", "action": "run", "variant": "dash", "to": "offstage_right" },
+            { "actor": "tornillo", "action": "sit", "variant": "flop", "emotion": "sad", "intensity": 2 }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "approximations": [
+      { "requested": "skateboard ride", "used": "run.dash", "reason": "There are no rideable vehicles; a fast run replaces the ride." },
+      { "requested": "dawn", "used": "sunset", "reason": "There is no dawn palette; sunset is the closest." },
+      { "requested": "mug of hot cocoa", "used": "cup", "reason": "Drinks are drawn as the cup item." }
+    ],
+    "invented": [
+      "Decisions route and after_race, with their labels",
+      "Branch scene the_shortcut",
+      "Endings champion, friends and dawn",
+      "Pepita the cat reaching the summit first"
+    ],
+    "comment": "Example 2 of TCIA 0.1.0: the same daredevil hero, requested in English."
+  }
+}

@@ -1,0 +1,834 @@
+{
+  "$comment": "TCIA closed catalog, format 1. CONTRACT FILE: the engine, the validator and the skill read it; nobody edits it without a new spec. Every id is snake_case English. Aliases (es/en) are matched after normalization: Unicode NFKD, strip combining marks, lowercase, replace every character that is not a-z or 0-9 with a space, collapse runs of spaces, trim. Ids are compared with the same normalization (pick_up -> 'pick up'). Tones are always [light, base, shade].",
+  "catalogVersion": 1,
+  "format": 1,
+
+  "stage": {
+    "viewBox": [0, 0, 1920, 1080],
+    "groundY": 900,
+    "horizonY": 640,
+    "markSpacing": 240,
+    "farScale": 0.55,
+    "farFade": 0.35,
+    "ink": "#1F1D2B",
+    "outlineWidth": 4,
+    "letterbox": "#000000"
+  },
+
+  "timing": {
+    "standUpSeconds": 0.5,
+    "sceneFadeSeconds": 0.4,
+    "sceneTailSeconds": 0.8,
+    "decisionDelaySeconds": 0.3,
+    "reaction": { "default": 1.2, "min": 0.6, "max": 4 },
+    "readTime": { "base": 0.9, "perChar": 0.055, "min": 1.4, "max": 6.0 },
+    "idle": { "breathPeriod": 2.4, "breathScale": 0.015, "blinkMin": 2, "blinkMax": 5, "blinkSeconds": 0.12 }
+  },
+
+  "text": {
+    "balloonMaxChars": 80,
+    "balloonLineChars": 24,
+    "balloonMaxLines": 4,
+    "balloonFontSize": 40,
+    "balloonLineHeight": 48,
+    "balloonPadding": 36,
+    "labelMaxChars": 32,
+    "titleMaxChars": 60,
+    "nameMaxChars": 24,
+    "endingTitleMaxChars": 60,
+    "uiMaxChars": 32,
+    "fontStack": "\"Trebuchet MS\", \"Segoe UI\", \"Helvetica Neue\", Arial, system-ui, sans-serif"
+  },
+
+  "ui": {
+    "es": { "start": "Empezar", "restart": "Empezar de nuevo", "decision": "Decisión" },
+    "en": { "start": "Start", "restart": "Start over", "decision": "Decision" }
+  },
+
+  "positions": {
+    "offstage_left":  { "x": -220, "order": 0, "onstage": false, "aliases": { "es": ["fuera izquierda", "fuera de escena a la izquierda", "entra por la izquierda"], "en": ["off left", "offstage at the left"] } },
+    "far_left":       { "x": 240,  "order": 1, "onstage": true,  "aliases": { "es": ["extremo izquierdo", "muy a la izquierda", "borde izquierdo"], "en": ["leftmost", "left edge"] } },
+    "left":           { "x": 480,  "order": 2, "onstage": true,  "aliases": { "es": ["izquierda", "a la izquierda"], "en": ["stage left", "on the left"] } },
+    "center_left":    { "x": 720,  "order": 3, "onstage": true,  "aliases": { "es": ["centro izquierda", "un poco a la izquierda"], "en": ["left of center", "left of centre"] } },
+    "center":         { "x": 960,  "order": 4, "onstage": true,  "aliases": { "es": ["centro", "en medio", "al medio", "en el centro"], "en": ["centre", "middle", "in the middle"] } },
+    "center_right":   { "x": 1200, "order": 5, "onstage": true,  "aliases": { "es": ["centro derecha", "un poco a la derecha"], "en": ["right of center", "right of centre"] } },
+    "right":          { "x": 1440, "order": 6, "onstage": true,  "aliases": { "es": ["derecha", "a la derecha"], "en": ["stage right", "on the right"] } },
+    "far_right":      { "x": 1680, "order": 7, "onstage": true,  "aliases": { "es": ["extremo derecho", "muy a la derecha", "borde derecho"], "en": ["rightmost", "right edge"] } },
+    "offstage_right": { "x": 2140, "order": 8, "onstage": false, "aliases": { "es": ["fuera derecha", "fuera de escena a la derecha", "entra por la derecha"], "en": ["off right", "offstage at the right"] } }
+  },
+
+  "lights": {
+    "day": {
+      "aliases": { "es": ["día", "de día", "mañana", "mediodía", "tarde", "soleado"], "en": ["daytime", "morning", "noon", "midday", "afternoon", "sunny"] },
+      "outdoorAllowed": true,
+      "sky": ["#6EC6F0", "#9AD8F5", "#C8EBFA"],
+      "celestial": { "kind": "sun", "color": "#FFE27A", "x": 1580, "y": 170, "r": 70 },
+      "stars": false,
+      "tint": { "color": "#FFFFFF", "strength": 0 },
+      "shadow": { "color": "#1D2B4F", "opacity": 0.16 },
+      "lampsOn": false,
+      "lampGlow": "#FFF4C2",
+      "window": "#BFE6F5",
+      "cloud": "#FFFFFF"
+    },
+    "sunset": {
+      "aliases": { "es": ["atardecer", "puesta de sol", "ocaso", "caída del sol", "al atardecer"], "en": ["sundown", "evening", "golden hour", "late afternoon"] },
+      "outdoorAllowed": true,
+      "sky": ["#F2826B", "#F7A86B", "#FBD38A"],
+      "celestial": { "kind": "sun", "color": "#FFD36B", "x": 1480, "y": 560, "r": 95 },
+      "stars": false,
+      "tint": { "color": "#FF9E6B", "strength": 0.18 },
+      "shadow": { "color": "#5A2B4A", "opacity": 0.2 },
+      "lampsOn": false,
+      "lampGlow": "#FFE3A3",
+      "window": "#FFD9A0",
+      "cloud": "#F9C2A8"
+    },
+    "dusk": {
+      "aliases": { "es": ["anochecer", "noche", "de noche", "nocturno", "crepúsculo", "al anochecer"], "en": ["night", "nighttime", "twilight", "nightfall", "at night"] },
+      "outdoorAllowed": true,
+      "sky": ["#232857", "#3E3A78", "#6D4F93"],
+      "celestial": { "kind": "moon", "color": "#F4F1D0", "x": 380, "y": 190, "r": 52 },
+      "stars": true,
+      "tint": { "color": "#3A3F7A", "strength": 0.35 },
+      "shadow": { "color": "#0E1030", "opacity": 0.28 },
+      "lampsOn": true,
+      "lampGlow": "#FFE59A",
+      "window": "#FFD66B",
+      "cloud": "#4F4B82"
+    },
+    "indoor": {
+      "aliases": { "es": ["interior", "adentro", "dentro de casa", "luz de interior", "luz de lámpara"], "en": ["inside", "indoors", "interior light", "lamplight"] },
+      "outdoorAllowed": false,
+      "sky": ["#9AD8F5", "#C8EBFA", "#E4F5FC"],
+      "celestial": null,
+      "stars": false,
+      "tint": { "color": "#FFE2B8", "strength": 0.08 },
+      "shadow": { "color": "#3A2A1E", "opacity": 0.18 },
+      "lampsOn": true,
+      "lampGlow": "#FFE9B8",
+      "window": "#C8EBFA",
+      "cloud": "#FFFFFF"
+    }
+  },
+
+  "palettes": {
+    "clothing": {
+      "red":    { "tones": ["#F2635B", "#D93B3B", "#A82A2E"], "aliases": { "es": ["rojo", "roja", "colorado"], "en": ["crimson", "scarlet"] } },
+      "orange": { "tones": ["#FFA552", "#F2822E", "#C4601E"], "aliases": { "es": ["naranja", "anaranjado", "anaranjada"], "en": ["tangerine"] } },
+      "yellow": { "tones": ["#FFE27A", "#F7C948", "#D19E2A"], "aliases": { "es": ["amarillo", "amarilla", "dorado"], "en": ["gold", "mustard"] } },
+      "green":  { "tones": ["#7DD181", "#4CAF50", "#357A38"], "aliases": { "es": ["verde", "verde claro"], "en": ["lime", "lime green"] } },
+      "teal":   { "tones": ["#5FD1C4", "#2BA89C", "#1D7A71"], "aliases": { "es": ["turquesa", "verde azulado", "aguamarina"], "en": ["turquoise", "aqua", "cyan"] } },
+      "blue":   { "tones": ["#6BB2F2", "#3B82D9", "#2A5FA8"], "aliases": { "es": ["azul", "celeste", "azul claro"], "en": ["sky blue", "light blue"] } },
+      "navy":   { "tones": ["#4A5D8C", "#2E3E66", "#1E2A47"], "aliases": { "es": ["azul oscuro", "azul marino"], "en": ["navy blue", "dark blue"] } },
+      "purple": { "tones": ["#A97CE0", "#8250C4", "#5E3890"], "aliases": { "es": ["morado", "morada", "violeta", "lila"], "en": ["violet", "lilac", "lavender"] } },
+      "pink":   { "tones": ["#F7A1C4", "#EC6FA0", "#C24F7C"], "aliases": { "es": ["rosado", "rosada", "rosa", "fucsia"], "en": ["magenta", "fuchsia"] } },
+      "brown":  { "tones": ["#B07F55", "#8B5E3C", "#64422A"], "aliases": { "es": ["café", "marrón", "carmelita"], "en": ["chocolate", "khaki"] } },
+      "gray":   { "tones": ["#B5BAC2", "#8E949E", "#686E78"], "aliases": { "es": ["gris", "plateado"], "en": ["grey", "silver"] } },
+      "black":  { "tones": ["#4A4A52", "#2E2E35", "#1C1C21"], "aliases": { "es": ["negro", "negra"], "en": ["jet black"] } },
+      "white":  { "tones": ["#FFFFFF", "#ECEFF3", "#C9CFD8"], "aliases": { "es": ["blanco", "blanca"], "en": ["ivory", "off white"] } }
+    },
+    "skin": {
+      "pale":   { "tones": ["#FFE3D3", "#F8D0BA", "#E2B49A"], "aliases": { "es": ["muy clara", "pálida", "pálido"], "en": ["very fair", "porcelain"] } },
+      "light":  { "tones": ["#F9D2B0", "#EDBB93", "#D39C73"], "aliases": { "es": ["clara", "claro", "blanca", "blanco"], "en": ["fair", "light skinned"] } },
+      "medium": { "tones": ["#E3AE82", "#CE9466", "#AF7649"], "aliases": { "es": ["trigueña", "trigueño", "media"], "en": ["olive", "medium skinned"] } },
+      "tan":    { "tones": ["#C98E5E", "#B07445", "#8D5A33"], "aliases": { "es": ["morena clara", "moreno claro", "bronceada", "bronceado", "canela"], "en": ["tanned", "light brown"] } },
+      "brown":  { "tones": ["#9A6440", "#7F4F30", "#613A22"], "aliases": { "es": ["morena", "moreno", "café"], "en": ["brown skinned", "dark tan"] } },
+      "deep":   { "tones": ["#6B4429", "#53331E", "#3B2414"], "aliases": { "es": ["negra", "negro", "muy oscura", "morena oscura"], "en": ["dark", "deep brown", "dark skinned"] } }
+    },
+    "hair": {
+      "black":      { "tones": ["#3A3A40", "#25252A", "#151518"], "aliases": { "es": ["negro", "negra", "azabache"], "en": ["jet black", "raven"] } },
+      "dark_brown": { "tones": ["#6B4A36", "#4E3424", "#362318"], "aliases": { "es": ["castaño oscuro", "café oscuro"], "en": ["brunette", "dark brunette"] } },
+      "brown":      { "tones": ["#9A6A45", "#7A5132", "#5A3A23"], "aliases": { "es": ["castaño", "castaña", "café", "marrón"], "en": ["chestnut", "light brown"] } },
+      "auburn":     { "tones": ["#B5583A", "#94452B", "#70331F"], "aliases": { "es": ["caoba", "cobrizo", "cobriza"], "en": ["copper", "reddish brown"] } },
+      "red":        { "tones": ["#E0703A", "#C4562A", "#963F1E"], "aliases": { "es": ["pelirrojo", "pelirroja", "rojo", "colorado"], "en": ["ginger", "redhead"] } },
+      "blonde":     { "tones": ["#F5D77E", "#E6BD52", "#C29B37"], "aliases": { "es": ["rubio", "rubia", "mono", "mona", "güero", "güera"], "en": ["blond", "golden"] } },
+      "gray":       { "tones": ["#C4C6CC", "#A3A6AD", "#80838A"], "aliases": { "es": ["gris", "canoso", "canosa", "entrecano"], "en": ["grey", "silver"] } },
+      "white":      { "tones": ["#FAFAFA", "#E6E8EC", "#C8CBD1"], "aliases": { "es": ["blanco", "blanca", "cano", "cana"], "en": ["platinum", "snowy"] } }
+    },
+    "coat": {
+      "white":  { "tones": ["#FFFFFF", "#EEF0F2", "#CDD2D8"], "aliases": { "es": ["blanco", "blanca"], "en": ["snow white"] } },
+      "cream":  { "tones": ["#FBEBC8", "#EED7A6", "#D4B880"], "aliases": { "es": ["crema", "hueso"], "en": ["beige", "ivory"] } },
+      "tan":    { "tones": ["#E2B47C", "#C9965A", "#A5753F"], "aliases": { "es": ["canela", "caramelo", "dorado"], "en": ["caramel", "fawn", "golden"] } },
+      "brown":  { "tones": ["#B07F55", "#8B5E3C", "#64422A"], "aliases": { "es": ["café", "marrón", "chocolate"], "en": ["dark brown", "cocoa"] } },
+      "black":  { "tones": ["#4A4A52", "#2E2E35", "#1C1C21"], "aliases": { "es": ["negro", "negra"], "en": ["jet black"] } },
+      "gray":   { "tones": ["#B5BAC2", "#8E949E", "#686E78"], "aliases": { "es": ["gris", "plateado"], "en": ["grey", "silver"] } },
+      "orange": { "tones": ["#FFAE5C", "#F28C38", "#C76A24"], "aliases": { "es": ["naranja", "anaranjado", "amarillo", "amarilla"], "en": ["ginger", "marmalade"] } }
+    },
+    "materials": {
+      "leaf":     { "tones": ["#8CD47E", "#5DB65A", "#3F8A45"] },
+      "pine":     { "tones": ["#5FA877", "#3E8A5E", "#2A6544"] },
+      "trunk":    { "tones": ["#A9774E", "#8A5A36", "#663F24"] },
+      "rock":     { "tones": ["#B9BEC6", "#959BA5", "#717782"] },
+      "water":    { "tones": ["#7FD0F0", "#4AAEE0", "#2F82B8"] },
+      "sand":     { "tones": ["#F8E2A8", "#EDCB7F", "#CFAA5D"] },
+      "grass":    { "tones": ["#9BDB72", "#6FC04B", "#4E9435"] },
+      "dirt":     { "tones": ["#C79A6B", "#A57A4D", "#7D5A36"] },
+      "wood":     { "tones": ["#D9A066", "#B97F47", "#8C5E33"] },
+      "metal":    { "tones": ["#C9D0D8", "#9AA3AE", "#6E7782"] },
+      "glass":    { "tones": ["#D6F1FB", "#A9DDF2", "#7CC3E2"] },
+      "brick":    { "tones": ["#E08A6B", "#C26A4E", "#954C36"] },
+      "concrete": { "tones": ["#D5D3CE", "#B4B1AA", "#8F8C85"] },
+      "asphalt":  { "tones": ["#7A7D86", "#5E6169", "#45474E"] },
+      "cloud":    { "tones": ["#FFFFFF", "#EEF3F8", "#D3DDE8"] },
+      "snow":     { "tones": ["#FFFFFF", "#EEF4FA", "#D2DEEA"] },
+      "wall":     { "tones": ["#F6E7CF", "#EBD6B5", "#D3BB95"] },
+      "eye":      { "tones": ["#FFFFFF", "#F2F4F7", "#D9DEE6"] },
+      "mouth":    { "tones": ["#E8737A", "#C2414F", "#8E2A36"] },
+      "effect":   { "tones": ["#FFFFFF", "#9ED8FF", "#5FB4F0"] }
+    }
+  },
+
+  "attributeSets": {
+    "person": {
+      "height": {
+        "default": "medium",
+        "values": {
+          "short":  { "aliases": { "es": ["bajo", "baja", "bajito", "bajita"], "en": ["little", "small"] } },
+          "medium": { "aliases": { "es": ["mediano", "mediana", "estatura media"], "en": ["average height", "mid height"] } },
+          "tall":   { "aliases": { "es": ["alto", "alta", "grandote", "grandota"], "en": ["lanky", "towering"] } }
+        }
+      },
+      "build": {
+        "default": "average",
+        "values": {
+          "slim":    { "widthFactor": 0.8,  "shape": "tall narrow rectangle", "aliases": { "es": ["delgado", "delgada", "flaco", "flaca"], "en": ["thin", "skinny", "slender"] } },
+          "average": { "widthFactor": 1.0,  "shape": "trapezoid, wider at the shoulders", "aliases": { "es": ["normal", "promedio", "complexión media"], "en": ["regular", "medium build"] } },
+          "broad":   { "widthFactor": 1.3,  "shape": "rounded square", "aliases": { "es": ["robusto", "robusta", "gordo", "gorda", "corpulento", "fornido", "grueso"], "en": ["stocky", "chubby", "heavy", "burly", "plump"] } }
+        }
+      },
+      "skin": { "default": "medium", "palette": "skin" },
+      "head": {
+        "default": "oval",
+        "values": {
+          "circle":        { "aliases": { "es": ["redonda", "círculo", "cara redonda"], "en": ["round", "round face"] } },
+          "oval":          { "aliases": { "es": ["ovalada", "óvalo", "alargada"], "en": ["egg shaped", "oval face"] } },
+          "square":        { "aliases": { "es": ["cuadrada", "cuadrado", "cara cuadrada"], "en": ["boxy", "square face"] } },
+          "tall_rect":     { "aliases": { "es": ["rectangular", "rectángulo", "cara larga"], "en": ["rectangle", "long face"] } },
+          "triangle_down": { "aliases": { "es": ["triangular", "triángulo", "barbilla puntiaguda"], "en": ["triangle", "pointed chin", "v shaped"] } },
+          "trapezoid":     { "aliases": { "es": ["trapecio", "mandíbula ancha", "quijada ancha"], "en": ["wide jaw", "pear shaped"] } }
+        }
+      },
+      "hair": {
+        "default": "short",
+        "values": {
+          "bald":      { "aliases": { "es": ["calvo", "calva", "pelón", "sin pelo"], "en": ["no hair", "hairless"] } },
+          "buzz":      { "aliases": { "es": ["rapado", "rapada", "corte militar", "muy corto"], "en": ["crew cut", "shaved", "military cut"] } },
+          "short":     { "aliases": { "es": ["corto", "pelo corto"], "en": ["short hair", "cropped"] } },
+          "spiky":     { "aliases": { "es": ["parado", "de punta", "erizado", "en puntas"], "en": ["spikes", "spiked"] } },
+          "curly":     { "aliases": { "es": ["rizado", "crespo", "ondulado", "churco"], "en": ["wavy", "curls"] } },
+          "afro":      { "aliases": { "es": ["pelo afro", "rizos grandes"], "en": ["big curly hair", "afro hair"] } },
+          "long":      { "aliases": { "es": ["largo", "melena", "pelo largo"], "en": ["long hair", "flowing"] } },
+          "ponytail":  { "aliases": { "es": ["cola de caballo", "coleta", "colita"], "en": ["pony tail"] } },
+          "bun":       { "aliases": { "es": ["moño", "chongo", "rodete"], "en": ["topknot", "hair bun"] } },
+          "braids":    { "aliases": { "es": ["trenzas", "trenza"], "en": ["braid", "plaits", "pigtails"] } }
+        }
+      },
+      "hair_color": { "default": "dark_brown", "palette": "hair" },
+      "outfit": {
+        "default": "tee_pants",
+        "values": {
+          "tee_shorts":    { "usesBottomColor": true,  "aliases": { "es": ["camiseta y pantaloneta", "camiseta y shorts", "pantaloneta"], "en": ["t shirt and shorts", "tee and shorts", "shorts"] } },
+          "tee_pants":     { "usesBottomColor": true,  "aliases": { "es": ["camiseta y pantalón", "camiseta y jean", "jean"], "en": ["t shirt and jeans", "jeans", "tee and pants"] } },
+          "hoodie_pants":  { "usesBottomColor": true,  "aliases": { "es": ["buzo con capucha", "sudadera", "capucha"], "en": ["hoodie", "hooded sweatshirt", "sweatshirt"] } },
+          "shirt_pants":   { "usesBottomColor": true,  "aliases": { "es": ["camisa y pantalón", "camisa"], "en": ["button shirt", "shirt and trousers"] } },
+          "sweater_pants": { "usesBottomColor": true,  "aliases": { "es": ["suéter", "saco", "jersey", "chompa"], "en": ["sweater", "jumper", "pullover", "cardigan"] } },
+          "jacket_pants":  { "usesBottomColor": true,  "aliases": { "es": ["chaqueta", "chamarra", "cazadora"], "en": ["jacket", "coat"] } },
+          "dress":         { "usesBottomColor": false, "aliases": { "es": ["vestido", "bata"], "en": ["gown", "frock"] } },
+          "skirt_top":     { "usesBottomColor": true,  "aliases": { "es": ["falda", "blusa y falda", "pollera"], "en": ["skirt", "blouse and skirt"] } },
+          "suit":          { "usesBottomColor": true,  "aliases": { "es": ["traje", "vestido de paño", "terno", "saco y corbata"], "en": ["business suit", "tuxedo"] } },
+          "overalls":      { "usesBottomColor": true,  "aliases": { "es": ["overol", "jardinera", "peto", "braga"], "en": ["dungarees", "bib overalls"] } }
+        }
+      },
+      "top_color": { "default": "blue", "palette": "clothing" },
+      "bottom_color": { "default": "navy", "palette": "clothing" },
+      "accessory": {
+        "default": "none",
+        "values": {
+          "none":       { "aliases": { "es": ["ninguno", "nada", "sin accesorio"], "en": ["nothing", "no accessory"] } },
+          "cap":        { "aliases": { "es": ["gorra", "cachucha", "visera"], "en": ["baseball cap", "ballcap"] } },
+          "helmet":     { "aliases": { "es": ["casco", "casco de bici", "casco de seguridad"], "en": ["bike helmet", "crash helmet"] } },
+          "hat":        { "aliases": { "es": ["sombrero", "boina", "gorro"], "en": ["beanie", "fedora", "straw hat"] } },
+          "headband":   { "aliases": { "es": ["diadema", "balaca", "cintillo", "vincha"], "en": ["hairband", "sweatband"] } },
+          "glasses":    { "aliases": { "es": ["gafas", "lentes", "anteojos"], "en": ["spectacles", "eyeglasses"] } },
+          "sunglasses": { "aliases": { "es": ["gafas de sol", "lentes oscuros", "gafas oscuras"], "en": ["shades"] } },
+          "scarf":      { "aliases": { "es": ["bufanda", "pañoleta"], "en": ["muffler"] } },
+          "bow_tie":    { "aliases": { "es": ["corbatín", "pajarita", "corbata"], "en": ["bowtie", "tie"] } },
+          "backpack":   { "aliases": { "es": ["mochila", "morral", "maleta"], "en": ["rucksack", "schoolbag", "bag"] } },
+          "cane":       { "aliases": { "es": ["bastón"], "en": ["walking stick"] } }
+        }
+      },
+      "accessory_color": { "default": "red", "palette": "clothing" }
+    },
+    "dog": {
+      "size": {
+        "default": "medium",
+        "values": {
+          "small":  { "aliases": { "es": ["pequeño", "pequeña", "chiquito", "chiquita"], "en": ["tiny", "little"] } },
+          "medium": { "aliases": { "es": ["mediano", "mediana"], "en": ["mid size", "average size"] } },
+          "large":  { "aliases": { "es": ["grande", "grandote", "enorme"], "en": ["big", "huge"] } }
+        }
+      },
+      "coat": { "default": "tan", "palette": "coat" },
+      "pattern": {
+        "default": "solid",
+        "values": {
+          "solid": { "aliases": { "es": ["liso", "de un color", "sin manchas"], "en": ["plain", "single color"] } },
+          "spots": { "aliases": { "es": ["manchas", "manchado", "con pintas", "dálmata"], "en": ["spotted", "dalmatian"] } }
+        }
+      },
+      "ears": {
+        "default": "floppy",
+        "values": {
+          "floppy": { "aliases": { "es": ["caídas", "orejas caídas", "orejón"], "en": ["droopy", "floppy ears"] } },
+          "pointy": { "aliases": { "es": ["paradas", "puntiagudas", "orejas paradas"], "en": ["pointed", "upright", "pointy ears"] } }
+        }
+      },
+      "accessory": {
+        "default": "none",
+        "values": {
+          "none":    { "aliases": { "es": ["ninguno", "nada", "sin accesorio"], "en": ["nothing", "no accessory"] } },
+          "collar":  { "aliases": { "es": ["collar con placa", "correa"], "en": ["dog collar", "tag"] } },
+          "bandana": { "aliases": { "es": ["pañoleta", "pañuelo"], "en": ["kerchief", "neckerchief"] } }
+        }
+      },
+      "accessory_color": { "default": "red", "palette": "clothing" }
+    },
+    "cat": {
+      "size": {
+        "default": "medium",
+        "values": {
+          "small":  { "aliases": { "es": ["pequeño", "pequeña", "chiquito", "chiquita"], "en": ["tiny", "little"] } },
+          "medium": { "aliases": { "es": ["mediano", "mediana", "grande"], "en": ["mid size", "big"] } }
+        }
+      },
+      "coat": { "default": "orange", "palette": "coat" },
+      "pattern": {
+        "default": "solid",
+        "values": {
+          "solid":   { "aliases": { "es": ["liso", "de un color"], "en": ["plain", "single color"] } },
+          "stripes": { "aliases": { "es": ["rayas", "atigrado", "rayado"], "en": ["striped", "tabby"] } }
+        }
+      },
+      "accessory": {
+        "default": "none",
+        "values": {
+          "none":   { "aliases": { "es": ["ninguno", "nada", "sin accesorio"], "en": ["nothing", "no accessory"] } },
+          "collar": { "aliases": { "es": ["collar con cascabel", "cascabel"], "en": ["bell collar", "bell"] } }
+        }
+      },
+      "accessory_color": { "default": "red", "palette": "clothing" }
+    },
+    "bird": {
+      "size": {
+        "default": "small",
+        "values": {
+          "small":  { "aliases": { "es": ["pequeño", "pequeña", "pajarito"], "en": ["tiny", "little"] } },
+          "medium": { "aliases": { "es": ["mediano", "mediana", "grande"], "en": ["mid size", "big"] } }
+        }
+      },
+      "plumage": { "default": "blue", "palette": "clothing" }
+    }
+  },
+
+  "kinds": {
+    "man": {
+      "group": "person", "rig": "biped", "attributeSet": "person", "heightBy": "height",
+      "heightPx": { "short": 480, "medium": 540, "tall": 600 },
+      "defaults": { "hair": "short", "hair_color": "dark_brown" },
+      "aliases": { "es": ["hombre", "señor", "papá", "padre", "tío", "profesor", "adulto"], "en": ["guy", "dad", "father", "uncle", "gentleman", "adult man"] }
+    },
+    "woman": {
+      "group": "person", "rig": "biped", "attributeSet": "person", "heightBy": "height",
+      "heightPx": { "short": 460, "medium": 520, "tall": 580 },
+      "defaults": { "hair": "long", "hair_color": "brown" },
+      "aliases": { "es": ["mujer", "señora", "mamá", "madre", "tía", "profesora", "adulta"], "en": ["lady", "mom", "mum", "mother", "aunt", "adult woman"] }
+    },
+    "boy": {
+      "group": "person", "rig": "biped", "attributeSet": "person", "heightBy": "height",
+      "heightPx": { "short": 320, "medium": 360, "tall": 410 },
+      "defaults": { "hair": "short", "outfit": "tee_shorts" },
+      "aliases": { "es": ["niño", "chico", "muchacho", "nene", "pelado", "chamo"], "en": ["young boy", "schoolboy", "lad"] }
+    },
+    "girl": {
+      "group": "person", "rig": "biped", "attributeSet": "person", "heightBy": "height",
+      "heightPx": { "short": 310, "medium": 350, "tall": 400 },
+      "defaults": { "hair": "ponytail", "outfit": "skirt_top" },
+      "aliases": { "es": ["niña", "chica", "muchacha", "nena", "peladita"], "en": ["young girl", "schoolgirl", "lass"] }
+    },
+    "old_man": {
+      "group": "person", "rig": "biped", "attributeSet": "person", "heightBy": "height",
+      "heightPx": { "short": 440, "medium": 490, "tall": 540 },
+      "defaults": { "hair": "bald", "hair_color": "gray", "outfit": "sweater_pants" },
+      "aliases": { "es": ["anciano", "abuelo", "viejito", "señor mayor"], "en": ["grandpa", "grandfather", "elderly man", "senior man"] }
+    },
+    "old_woman": {
+      "group": "person", "rig": "biped", "attributeSet": "person", "heightBy": "height",
+      "heightPx": { "short": 420, "medium": 470, "tall": 520 },
+      "defaults": { "hair": "bun", "hair_color": "white", "outfit": "dress" },
+      "aliases": { "es": ["anciana", "abuela", "viejita", "señora mayor"], "en": ["grandma", "granny", "grandmother", "elderly woman"] }
+    },
+    "dog": {
+      "group": "animal", "rig": "quadruped", "attributeSet": "dog", "heightBy": "size",
+      "heightPx": { "small": 150, "medium": 210, "large": 290 },
+      "defaults": {},
+      "aliases": { "es": ["perro", "perrito", "cachorro", "can"], "en": ["puppy", "doggy", "hound"] }
+    },
+    "cat": {
+      "group": "animal", "rig": "quadruped", "attributeSet": "cat", "heightBy": "size",
+      "heightPx": { "small": 130, "medium": 170 },
+      "defaults": {},
+      "aliases": { "es": ["gato", "gatito", "minino", "michi"], "en": ["kitten", "kitty"] }
+    },
+    "bird": {
+      "group": "animal", "rig": "bird", "attributeSet": "bird", "heightBy": "size",
+      "heightPx": { "small": 80, "medium": 120 },
+      "defaults": {},
+      "aliases": { "es": ["pájaro", "ave", "pajarito", "loro", "paloma", "canario"], "en": ["parrot", "pigeon", "canary", "sparrow", "songbird"] }
+    }
+  },
+
+  "items": {
+    "ball":   { "size": 54, "aliases": { "es": ["pelota", "balón", "bola"], "en": ["soccer ball", "beach ball", "football"] } },
+    "book":   { "size": 56, "aliases": { "es": ["libro", "cuaderno", "libreta"], "en": ["notebook", "storybook"] } },
+    "flower": { "size": 60, "aliases": { "es": ["flor", "rosa", "ramo"], "en": ["rose", "bouquet"] } },
+    "letter": { "size": 50, "aliases": { "es": ["carta", "sobre", "nota", "mensaje"], "en": ["envelope", "note", "message"] } },
+    "key":    { "size": 40, "aliases": { "es": ["llave", "llavero"], "en": ["keys", "keychain"] } },
+    "apple":  { "size": 44, "aliases": { "es": ["manzana", "fruta"], "en": ["fruit"] } },
+    "gift":   { "size": 60, "aliases": { "es": ["regalo", "obsequio", "paquete", "caja de regalo"], "en": ["present", "package", "parcel", "gift box"] } },
+    "cup":    { "size": 46, "aliases": { "es": ["taza", "vaso", "pocillo"], "en": ["mug", "glass"] } },
+    "map":    { "size": 58, "aliases": { "es": ["mapa", "plano", "mapa del tesoro"], "en": ["treasure map", "street map"] } },
+    "phone":  { "size": 44, "aliases": { "es": ["celular", "teléfono", "móvil"], "en": ["cellphone", "cell phone", "mobile", "smartphone"] } }
+  },
+
+  "bases": {
+    "city": {
+      "outdoor": true, "ground": "concrete", "groundAccent": "asphalt", "far": "skyline", "farMaterial": "concrete",
+      "aliases": { "es": ["ciudad", "calle", "barrio", "urbano", "avenida", "pueblo", "andén"], "en": ["town", "street", "downtown", "urban", "neighborhood", "neighbourhood", "sidewalk"] },
+      "defaultPieces": [
+        { "piece": "building", "at": "far_left", "layer": "far", "variant": "tall", "color": "blue" },
+        { "piece": "building", "at": "center", "layer": "far", "variant": "wide", "color": "gray" },
+        { "piece": "building", "at": "far_right", "layer": "far", "variant": "tall", "color": "teal" },
+        { "piece": "lamp_post", "at": "center_left", "layer": "back" },
+        { "piece": "bench", "at": "center_right", "layer": "back" },
+        { "piece": "hydrant", "at": "far_right", "layer": "back" },
+        { "piece": "cloud", "at": "left", "layer": "sky" }
+      ]
+    },
+    "forest": {
+      "outdoor": true, "ground": "grass", "groundAccent": "dirt", "far": "treeline", "farMaterial": "pine",
+      "aliases": { "es": ["bosque", "selva", "arboleda", "monte"], "en": ["woods", "woodland", "jungle"] },
+      "defaultPieces": [
+        { "piece": "pine", "at": "far_left", "layer": "far" },
+        { "piece": "pine", "at": "center", "layer": "far" },
+        { "piece": "pine", "at": "far_right", "layer": "far" },
+        { "piece": "tree", "at": "far_left", "layer": "back", "variant": "tall" },
+        { "piece": "pine", "at": "far_right", "layer": "back" },
+        { "piece": "log", "at": "center_right", "layer": "back" }
+      ]
+    },
+    "beach": {
+      "outdoor": true, "ground": "sand", "groundAccent": "water", "far": "sea", "farMaterial": "water",
+      "aliases": { "es": ["playa", "costa", "orilla del mar", "mar"], "en": ["seaside", "shore", "coast", "seashore"] },
+      "defaultPieces": [
+        { "piece": "palm", "at": "far_left", "layer": "back" },
+        { "piece": "beach_umbrella", "at": "right", "layer": "back", "color": "red" },
+        { "piece": "cloud", "at": "left", "layer": "sky" },
+        { "piece": "cloud", "at": "center_right", "layer": "sky" }
+      ]
+    },
+    "mountain": {
+      "outdoor": true, "ground": "grass", "groundAccent": "rock", "far": "peaks", "farMaterial": "rock",
+      "aliases": { "es": ["montaña", "cerro", "sierra", "cordillera", "páramo"], "en": ["mountains", "peak", "highlands", "trail"] },
+      "defaultPieces": [
+        { "piece": "mountain", "at": "left", "layer": "far", "variant": "snowy" },
+        { "piece": "mountain", "at": "right", "layer": "far", "variant": "bare" },
+        { "piece": "pine", "at": "far_right", "layer": "back" },
+        { "piece": "rock", "at": "center_left", "layer": "back" },
+        { "piece": "cloud", "at": "center", "layer": "sky" }
+      ]
+    },
+    "park": {
+      "outdoor": true, "ground": "grass", "groundAccent": "dirt", "far": "hills", "farMaterial": "grass",
+      "aliases": { "es": ["parque", "plaza", "jardín", "patio"], "en": ["garden", "yard", "backyard", "square"] },
+      "defaultPieces": [
+        { "piece": "hill", "at": "center", "layer": "far" },
+        { "piece": "tree", "at": "left", "layer": "back", "variant": "round" },
+        { "piece": "bench", "at": "center_right", "layer": "back" },
+        { "piece": "lamp_post", "at": "far_right", "layer": "back" },
+        { "piece": "flowers", "at": "far_left", "layer": "front", "color": "pink" },
+        { "piece": "cloud", "at": "right", "layer": "sky" }
+      ]
+    },
+    "countryside": {
+      "outdoor": true, "ground": "grass", "groundAccent": "dirt", "far": "rolling_hills", "farMaterial": "grass",
+      "aliases": { "es": ["campo", "granja", "finca", "rancho", "aldea", "pradera"], "en": ["farm", "field", "meadow", "village", "ranch"] },
+      "defaultPieces": [
+        { "piece": "hill", "at": "left", "layer": "far" },
+        { "piece": "hill", "at": "far_right", "layer": "far" },
+        { "piece": "house", "at": "far_left", "layer": "back", "variant": "small", "color": "red" },
+        { "piece": "fence", "at": "center_right", "layer": "back" },
+        { "piece": "fence", "at": "right", "layer": "back" },
+        { "piece": "tree", "at": "far_right", "layer": "back", "variant": "round" },
+        { "piece": "cloud", "at": "center", "layer": "sky" }
+      ]
+    },
+    "room": {
+      "outdoor": false, "ground": "wood", "groundAccent": "wood", "far": "wall", "farMaterial": "wall",
+      "aliases": { "es": ["habitación", "cuarto", "sala", "casa", "cocina", "salón", "dormitorio", "oficina", "aula"], "en": ["bedroom", "living room", "house", "kitchen", "office", "classroom"] },
+      "defaultPieces": [
+        { "piece": "window", "at": "center_left", "layer": "back" },
+        { "piece": "door", "at": "far_right", "layer": "back", "color": "brown" },
+        { "piece": "sofa", "at": "center_right", "layer": "back", "color": "teal" },
+        { "piece": "floor_lamp", "at": "far_left", "layer": "back" },
+        { "piece": "rug", "at": "center", "layer": "back", "color": "red" },
+        { "piece": "potted_plant", "at": "left", "layer": "back" }
+      ]
+    },
+    "plain": {
+      "outdoor": true, "ground": "grass", "groundAccent": null, "far": "none", "farMaterial": null,
+      "aliases": { "es": ["vacío", "liso", "escenario vacío", "fondo simple", "otro"], "en": ["empty", "blank", "plain stage", "custom"] },
+      "defaultPieces": []
+    }
+  },
+
+  "layers": {
+    "sky":   { "order": 0, "scale": 1, "aliases": { "es": ["cielo"], "en": ["in the sky"] } },
+    "far":   { "order": 1, "scale": 0.55, "aliases": { "es": ["fondo", "lejos", "al fondo"], "en": ["background", "far away", "distance"] } },
+    "back":  { "order": 2, "scale": 1, "aliases": { "es": ["detrás", "atrás", "detrás de los personajes"], "en": ["behind", "behind the characters"] } },
+    "front": { "order": 3, "scale": 1, "aliases": { "es": ["delante", "adelante", "primer plano"], "en": ["foreground", "in front"] } }
+  },
+
+  "pieces": {
+    "tree":           { "width": 300, "height": 460, "layers": ["far", "back"], "defaultLayer": "back", "variants": ["round", "tall"], "colorable": false, "seat": null, "lit": false, "materials": ["leaf", "trunk"], "aliases": { "es": ["árbol", "roble", "árbol frondoso"], "en": ["oak", "maple", "big tree"] }, "variantAliases": { "round": { "es": ["redondo", "frondoso"], "en": ["bushy", "leafy"] }, "tall": { "es": ["alto", "delgado"], "en": ["slim", "high"] } } },
+    "pine":           { "width": 200, "height": 480, "layers": ["far", "back"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["pine", "trunk"], "aliases": { "es": ["pino", "abeto", "conífera"], "en": ["fir", "spruce", "conifer", "pine tree"] } },
+    "palm":           { "width": 260, "height": 500, "layers": ["far", "back"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["leaf", "trunk"], "aliases": { "es": ["palmera", "palma", "cocotero"], "en": ["palm tree", "coconut tree"] } },
+    "bush":           { "width": 200, "height": 140, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["leaf"], "aliases": { "es": ["arbusto", "matorral", "seto"], "en": ["shrub", "hedge"] } },
+    "flowers":        { "width": 160, "height": 90, "layers": ["back", "front"], "defaultLayer": "front", "variants": [], "colorable": true, "defaultColor": "pink", "seat": null, "lit": false, "materials": ["leaf"], "aliases": { "es": ["flores", "jardinera", "macizo de flores"], "en": ["flower bed", "flowerbed", "blossoms"] } },
+    "rock":           { "width": 180, "height": 110, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": 80, "lit": false, "materials": ["rock"], "aliases": { "es": ["roca", "piedra", "peña"], "en": ["stone", "boulder"] } },
+    "log":            { "width": 260, "height": 70, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": 60, "lit": false, "materials": ["trunk", "wood"], "aliases": { "es": ["tronco", "tronco caído", "leño"], "en": ["fallen log", "trunk"] } },
+    "hill":           { "width": 900, "height": 260, "layers": ["far"], "defaultLayer": "far", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["grass"], "aliases": { "es": ["colina", "loma", "lomita"], "en": ["hillside", "knoll"] } },
+    "mountain":       { "width": 1000, "height": 520, "layers": ["far"], "defaultLayer": "far", "variants": ["snowy", "bare"], "colorable": false, "seat": null, "lit": false, "materials": ["rock", "snow"], "aliases": { "es": ["montaña", "pico", "cumbre"], "en": ["peak", "summit", "mount"] }, "variantAliases": { "snowy": { "es": ["nevado", "con nieve"], "en": ["snow capped", "snowcapped"] }, "bare": { "es": ["sin nieve", "rocoso"], "en": ["rocky", "no snow"] } } },
+    "cloud":          { "width": 280, "height": 120, "layers": ["sky"], "defaultLayer": "sky", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["cloud"], "aliases": { "es": ["nube", "nubes"], "en": ["clouds"] } },
+    "water":          { "width": 480, "height": 70, "layers": ["back"], "defaultLayer": "back", "variants": ["pond", "stream"], "colorable": false, "seat": null, "lit": false, "materials": ["water"], "aliases": { "es": ["agua", "estanque", "laguna", "charco", "río", "arroyo"], "en": ["pond", "lake", "puddle", "river", "creek"] }, "variantAliases": { "pond": { "es": ["estanque", "laguna", "charco"], "en": ["lake", "puddle"] }, "stream": { "es": ["río", "arroyo", "quebrada"], "en": ["river", "creek", "brook"] } } },
+    "sand":           { "width": 420, "height": 80, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["sand"], "aliases": { "es": ["arena", "duna", "montículo de arena"], "en": ["dune", "sand pile", "sandbox"] } },
+    "building":       { "width": 360, "height": 620, "layers": ["far", "back"], "defaultLayer": "back", "variants": ["tall", "short", "wide"], "colorable": true, "defaultColor": "blue", "seat": null, "lit": true, "materials": ["concrete", "glass"], "aliases": { "es": ["edificio", "rascacielos", "torre", "bloque"], "en": ["skyscraper", "tower", "apartment block", "office building"] }, "variantAliases": { "tall": { "es": ["alto", "rascacielos"], "en": ["skyscraper", "high"] }, "short": { "es": ["bajo", "pequeño"], "en": ["low", "small"] }, "wide": { "es": ["ancho", "largo"], "en": ["broad", "long"] } } },
+    "house":          { "width": 420, "height": 400, "layers": ["far", "back"], "defaultLayer": "back", "variants": ["small", "two_story"], "colorable": true, "defaultColor": "yellow", "seat": null, "lit": true, "materials": ["brick", "wood", "glass"], "aliases": { "es": ["casa", "casita", "vivienda", "cabaña"], "en": ["home", "cottage", "cabin"] }, "variantAliases": { "small": { "es": ["pequeña", "de un piso", "casita"], "en": ["one story", "cottage"] }, "two_story": { "es": ["de dos pisos", "grande"], "en": ["two floors", "big"] } } },
+    "shop":           { "width": 400, "height": 380, "layers": ["back"], "defaultLayer": "back", "variants": [], "colorable": true, "defaultColor": "red", "seat": null, "lit": true, "materials": ["brick", "glass"], "aliases": { "es": ["tienda", "almacén", "panadería", "kiosco", "local"], "en": ["store", "bakery", "kiosk", "storefront"] } },
+    "lamp_post":      { "width": 70, "height": 420, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": true, "materials": ["metal"], "aliases": { "es": ["farol", "poste de luz", "farola", "lámpara de calle"], "en": ["street lamp", "streetlight", "lamppost"] } },
+    "bench":          { "width": 260, "height": 120, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": 100, "lit": false, "materials": ["wood", "metal"], "aliases": { "es": ["banca", "banco", "banquito"], "en": ["park bench", "seat"] } },
+    "fence":          { "width": 300, "height": 130, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["wood"], "aliases": { "es": ["cerca", "valla", "reja", "cerco"], "en": ["railing", "picket fence"] } },
+    "trash_can":      { "width": 90, "height": 130, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["metal"], "aliases": { "es": ["caneca", "basurero", "bote de basura", "papelera", "contenedor"], "en": ["trash bin", "garbage can", "bin", "dumpster"] } },
+    "hydrant":        { "width": 70, "height": 100, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": true, "defaultColor": "red", "seat": null, "lit": false, "materials": ["metal"], "aliases": { "es": ["hidrante", "boca de incendio"], "en": ["fire hydrant"] } },
+    "car":            { "width": 420, "height": 180, "layers": ["back"], "defaultLayer": "back", "variants": [], "colorable": true, "defaultColor": "blue", "seat": null, "lit": false, "materials": ["metal", "glass"], "aliases": { "es": ["carro", "auto", "coche", "automóvil", "taxi"], "en": ["automobile", "cab", "vehicle"] } },
+    "ramp":           { "width": 280, "height": 120, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["wood"], "aliases": { "es": ["rampa", "rampa de madera"], "en": ["jump ramp", "skate ramp"] } },
+    "crate":          { "width": 120, "height": 110, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": 105, "lit": false, "materials": ["wood"], "aliases": { "es": ["caja de madera", "cajón", "huacal", "caja"], "en": ["wooden box", "box"] } },
+    "beach_umbrella": { "width": 280, "height": 300, "layers": ["back"], "defaultLayer": "back", "variants": [], "colorable": true, "defaultColor": "red", "seat": null, "lit": false, "materials": ["wood"], "aliases": { "es": ["sombrilla", "quitasol", "sombrilla de playa"], "en": ["parasol", "sunshade"] } },
+    "window":         { "width": 220, "height": 260, "layers": ["back"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": true, "materials": ["glass", "wood"], "aliases": { "es": ["ventana", "ventanal"], "en": ["windowpane"] } },
+    "door":           { "width": 180, "height": 340, "layers": ["back"], "defaultLayer": "back", "variants": [], "colorable": true, "defaultColor": "brown", "seat": null, "lit": false, "materials": ["wood"], "aliases": { "es": ["puerta", "portón", "entrada"], "en": ["doorway", "entrance", "gate"] } },
+    "table":          { "width": 300, "height": 150, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["wood"], "aliases": { "es": ["mesa", "escritorio", "mesa de comedor"], "en": ["desk", "dining table"] } },
+    "chair":          { "width": 120, "height": 200, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": 105, "lit": false, "materials": ["wood"], "aliases": { "es": ["silla", "taburete", "asiento"], "en": ["stool"] } },
+    "sofa":           { "width": 380, "height": 180, "layers": ["back"], "defaultLayer": "back", "variants": [], "colorable": true, "defaultColor": "teal", "seat": 95, "lit": false, "materials": ["wood"], "aliases": { "es": ["sillón", "mueble", "diván"], "en": ["couch", "armchair", "settee"] } },
+    "bed":            { "width": 420, "height": 170, "layers": ["back"], "defaultLayer": "back", "variants": [], "colorable": true, "defaultColor": "blue", "seat": 110, "lit": false, "materials": ["wood"], "aliases": { "es": ["cama", "litera", "catre"], "en": ["bunk bed", "cot"] } },
+    "shelf":          { "width": 220, "height": 360, "layers": ["back"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["wood"], "aliases": { "es": ["estante", "estantería", "librero", "repisa", "biblioteca"], "en": ["bookshelf", "bookcase", "shelves"] } },
+    "floor_lamp":     { "width": 90, "height": 330, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": true, "materials": ["metal"], "aliases": { "es": ["lámpara", "lámpara de pie"], "en": ["lamp", "standing lamp"] } },
+    "rug":            { "width": 420, "height": 30, "layers": ["back"], "defaultLayer": "back", "variants": [], "colorable": true, "defaultColor": "red", "seat": null, "lit": false, "materials": [], "aliases": { "es": ["alfombra", "tapete"], "en": ["carpet", "mat"] } },
+    "potted_plant":   { "width": 110, "height": 170, "layers": ["back", "front"], "defaultLayer": "back", "variants": [], "colorable": false, "seat": null, "lit": false, "materials": ["leaf", "brick"], "aliases": { "es": ["matera", "maceta", "planta", "planta en maceta", "matero"], "en": ["plant", "houseplant", "pot plant"] } }
+  },
+
+  "actions": {
+    "walk": {
+      "aliases": { "es": ["caminar", "andar", "ir", "pasear", "avanzar", "acercarse", "entrar", "salir", "moverse"], "en": ["go", "stroll", "step", "approach", "enter", "exit", "leave", "move"] },
+      "motion": "travel",
+      "params": { "to": "required", "target": "forbidden", "item": "forbidden", "height": "forbidden", "say": "optional" },
+      "startPostures": ["standing"],
+      "resultPosture": "standing",
+      "balloon": "speech",
+      "duration": { "min": 0.6, "max": 8 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal": { "secondsPerMark": 0.55, "aliases": { "es": ["tranquilo", "caminando"], "en": ["regular", "casual"] } },
+        "sneak":  { "secondsPerMark": 0.9,  "aliases": { "es": ["sigilo", "de puntillas", "a escondidas", "sigilosamente"], "en": ["tiptoe", "creep", "sneaky"] } },
+        "strut":  { "secondsPerMark": 0.6,  "aliases": { "es": ["pavonearse", "con orgullo", "pecho inflado", "desfilar"], "en": ["swagger", "proud walk", "march"] } },
+        "stomp":  { "secondsPerMark": 0.7,  "aliases": { "es": ["pisotones", "pisando fuerte", "zapateando"], "en": ["stamp", "angry walk"] } }
+      }
+    },
+    "run": {
+      "aliases": { "es": ["correr", "huir", "escapar", "apurarse", "perseguir"], "en": ["rush", "flee", "escape", "chase", "hurry"] },
+      "motion": "travel",
+      "params": { "to": "required", "target": "forbidden", "item": "forbidden", "height": "forbidden", "say": "optional" },
+      "startPostures": ["standing"],
+      "resultPosture": "standing",
+      "balloon": "speech",
+      "duration": { "min": 0.4, "max": 6 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal": { "secondsPerMark": 0.28, "aliases": { "es": ["trotar", "corriendo"], "en": ["jog", "regular"] } },
+        "dash":   { "secondsPerMark": 0.14, "aliases": { "es": ["a toda velocidad", "como un rayo", "rapidísimo", "embalado"], "en": ["sprint", "zoom", "full speed"] } },
+        "panic":  { "secondsPerMark": 0.3,  "aliases": { "es": ["pánico", "despavorido", "desesperado", "huyendo"], "en": ["frantic", "flailing", "in a panic"] } }
+      }
+    },
+    "jump": {
+      "aliases": { "es": ["saltar", "brincar", "pegar un salto", "dar un brinco"], "en": ["leap", "bounce", "spring"] },
+      "motion": "optional_travel",
+      "params": { "to": "optional", "target": "forbidden", "item": "forbidden", "height": "optional", "say": "optional" },
+      "maxDistance": 3,
+      "startPostures": ["standing"],
+      "resultPosture": "standing",
+      "balloon": "speech",
+      "duration": { "base": 1.1, "perMark": 0.25, "min": 0.7, "max": 3 },
+      "defaultVariant": "normal",
+      "defaultHeight": "mid",
+      "heights": {
+        "low":  { "px": 120, "aliases": { "es": ["bajo", "pequeño", "saltito"], "en": ["small", "little"] } },
+        "mid":  { "px": 220, "aliases": { "es": ["medio", "normal"], "en": ["medium", "regular"] } },
+        "high": { "px": 360, "aliases": { "es": ["alto", "altísimo", "muy alto"], "en": ["big", "huge", "tall"] } }
+      },
+      "variants": {
+        "normal":    { "aliases": { "es": ["sencillo", "brinco"], "en": ["simple", "plain"] } },
+        "flip":      { "aliases": { "es": ["voltereta", "mortal", "mortal adelante", "pirueta"], "en": ["front flip", "somersault"] } },
+        "backflip":  { "aliases": { "es": ["mortal atrás", "mortal hacia atrás", "voltereta hacia atrás"], "en": ["back flip", "back somersault"] } },
+        "spin":      { "aliases": { "es": ["giro", "giro en el aire", "vuelta", "tirabuzón"], "en": ["twirl", "pirouette", "360"] } },
+        "cartwheel": { "requires": ["to"], "aliases": { "es": ["rueda", "medialuna", "voltereta lateral"], "en": ["side flip", "wheel"] } },
+        "split":     { "aliases": { "es": ["abrirse de piernas", "salto de tijera", "tijera"], "en": ["split jump", "star jump"] } }
+      }
+    },
+    "wave": {
+      "aliases": { "es": ["saludar", "despedirse", "hacer señas", "agitar la mano"], "en": ["greet", "say hi", "say goodbye", "hail"] },
+      "motion": "in_place",
+      "params": { "to": "forbidden", "target": "optional", "item": "forbidden", "height": "forbidden", "say": "optional" },
+      "targetKinds": ["character"],
+      "startPostures": ["standing", "sitting"],
+      "resultPosture": null,
+      "balloon": "speech",
+      "duration": { "default": 1.2, "min": 0.6, "max": 4 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal": { "aliases": { "es": ["con la mano"], "en": ["hello", "regular"] } },
+        "big":    { "aliases": { "es": ["efusivo", "con los dos brazos", "eufórico"], "en": ["enthusiastic", "both arms", "excited wave"] } }
+      }
+    },
+    "talk": {
+      "aliases": { "es": ["hablar", "decir", "contar", "preguntar", "responder", "explicar", "conversar", "comentar"], "en": ["say", "tell", "ask", "answer", "speak", "chat", "reply"] },
+      "motion": "in_place",
+      "params": { "to": "forbidden", "target": "optional", "item": "forbidden", "height": "forbidden", "say": "required" },
+      "targetKinds": ["character"],
+      "startPostures": ["standing", "sitting", "lying"],
+      "resultPosture": null,
+      "balloon": "speech",
+      "duration": { "default": 1.5, "min": 0.8, "max": 7 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal":  { "aliases": { "es": ["tranquilo", "en voz normal"], "en": ["regular", "calm"] } },
+        "shout":   { "aliases": { "es": ["gritar", "grito", "a gritos", "exclamar"], "en": ["yell", "scream", "exclaim"] } },
+        "whisper": { "aliases": { "es": ["susurrar", "en voz baja", "al oído", "en secreto"], "en": ["murmur", "mutter"] } }
+      }
+    },
+    "point": {
+      "aliases": { "es": ["señalar", "apuntar", "indicar", "mostrar"], "en": ["show", "indicate", "gesture at"] },
+      "motion": "in_place",
+      "params": { "to": "forbidden", "target": "optional", "item": "forbidden", "height": "forbidden", "say": "optional" },
+      "targetKinds": ["character", "position"],
+      "startPostures": ["standing", "sitting"],
+      "resultPosture": null,
+      "balloon": "speech",
+      "duration": { "default": 1.2, "min": 0.6, "max": 4 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal": { "aliases": { "es": ["con el dedo"], "en": ["regular", "finger"] } },
+        "accuse": { "aliases": { "es": ["acusar", "culpar", "acusador"], "en": ["blame", "accusing"] } },
+        "up":     { "params": { "target": "forbidden" }, "aliases": { "es": ["al cielo", "hacia arriba", "arriba"], "en": ["skyward", "upward", "point up"] } }
+      }
+    },
+    "sit": {
+      "aliases": { "es": ["sentarse", "sentado", "descansar", "tomar asiento"], "en": ["sit down", "rest", "take a seat"] },
+      "motion": "in_place",
+      "params": { "to": "forbidden", "target": "forbidden", "item": "forbidden", "height": "forbidden", "say": "optional" },
+      "startPostures": ["standing"],
+      "resultPosture": "sitting",
+      "balloon": "speech",
+      "duration": { "default": 0.9, "min": 0.5, "max": 2 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal": { "aliases": { "es": ["con calma"], "en": ["regular", "gently"] } },
+        "flop":   { "aliases": { "es": ["desplomarse", "tirarse", "dejarse caer"], "en": ["plop", "slump", "collapse into"] } }
+      }
+    },
+    "pick_up": {
+      "aliases": { "es": ["recoger", "agarrar", "tomar", "coger", "levantar"], "en": ["grab", "take", "lift", "get"] },
+      "motion": "in_place",
+      "params": { "to": "forbidden", "target": "forbidden", "item": "required", "height": "forbidden", "say": "optional" },
+      "startPostures": ["standing"],
+      "resultPosture": null,
+      "balloon": "speech",
+      "duration": { "default": 1.0, "min": 0.4, "max": 3 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal": { "aliases": { "es": ["con cuidado"], "en": ["regular", "carefully"] } },
+        "snatch": { "defaultDuration": 0.6, "aliases": { "es": ["arrebatar", "rápido", "atrapar", "de un tirón"], "en": ["grab fast", "swipe", "catch"] } }
+      }
+    },
+    "give": {
+      "aliases": { "es": ["entregar", "dar", "pasar", "regalar", "ofrecer"], "en": ["hand", "hand over", "pass", "offer"] },
+      "motion": "in_place",
+      "params": { "to": "forbidden", "target": "required", "item": "forbidden", "height": "forbidden", "say": "optional" },
+      "targetKinds": ["character"],
+      "targetPostures": ["standing", "sitting"],
+      "startPostures": ["standing"],
+      "resultPosture": null,
+      "balloon": "speech",
+      "duration": { "default": 1.2, "min": 0.6, "max": 3 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal": { "distance": [1, 1], "aliases": { "es": ["en la mano", "de mano en mano"], "en": ["regular", "hand to hand"] } },
+        "toss":   { "distance": [1, 3], "aliases": { "es": ["lanzar", "tirar", "arrojar", "aventar"], "en": ["throw", "pitch", "lob"] } }
+      }
+    },
+    "fall": {
+      "aliases": { "es": ["caer", "caerse", "irse al suelo", "darse un golpe"], "en": ["tumble", "fall down", "crash"] },
+      "motion": "in_place",
+      "params": { "to": "forbidden", "target": "forbidden", "item": "forbidden", "height": "forbidden", "say": "optional" },
+      "startPostures": ["standing"],
+      "resultPosture": "lying",
+      "balloon": "speech",
+      "duration": { "default": 1.2, "min": 0.8, "max": 3 },
+      "defaultVariant": "trip",
+      "variants": {
+        "trip":  { "aliases": { "es": ["tropezar", "tropezón", "de cara"], "en": ["stumble", "faceplant"] } },
+        "slip":  { "aliases": { "es": ["resbalar", "resbalón", "de espaldas"], "en": ["slide", "slip over"] } },
+        "faint": { "aliases": { "es": ["desmayarse", "desmayo"], "en": ["pass out", "swoon"] } }
+      }
+    },
+    "hug": {
+      "aliases": { "es": ["abrazar", "abrazo", "apapachar"], "en": ["embrace", "cuddle"] },
+      "motion": "in_place",
+      "params": { "to": "forbidden", "target": "required", "item": "forbidden", "height": "forbidden", "say": "optional" },
+      "targetKinds": ["character"],
+      "targetPostures": ["standing"],
+      "distance": [1, 1],
+      "startPostures": ["standing"],
+      "resultPosture": null,
+      "balloon": "speech",
+      "duration": { "default": 1.6, "min": 0.8, "max": 4 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal": { "aliases": { "es": ["con cariño"], "en": ["regular", "warm"] } },
+        "bear":   { "aliases": { "es": ["abrazo de oso", "alzar", "levantar en brazos"], "en": ["bear hug", "lift"] } }
+      }
+    },
+    "think": {
+      "aliases": { "es": ["pensar", "imaginar", "dudar", "preguntarse", "recordar"], "en": ["wonder", "ponder", "imagine", "consider"] },
+      "motion": "in_place",
+      "params": { "to": "forbidden", "target": "forbidden", "item": "forbidden", "height": "forbidden", "say": "required" },
+      "startPostures": ["standing", "sitting", "lying"],
+      "resultPosture": null,
+      "balloon": "thought",
+      "duration": { "default": 1.8, "min": 0.8, "max": 7 },
+      "defaultVariant": "normal",
+      "variants": {
+        "normal": { "aliases": { "es": ["pensativo", "pensativa"], "en": ["regular", "thoughtful"] } },
+        "idea":   { "aliases": { "es": ["ocurrencia", "se le ocurre", "bombillo"], "en": ["eureka", "lightbulb", "aha"] } }
+      }
+    }
+  },
+
+  "emotions": {
+    "happy": {
+      "aliases": { "es": ["alegre", "feliz", "contento", "contenta", "emocionado", "emocionada", "entusiasmado"], "en": ["glad", "joyful", "cheerful", "excited"] },
+      "levels": { "1": { "face": "smile", "effects": [] }, "2": { "face": "grin", "effects": ["bounce"] }, "3": { "face": "grin", "effects": ["bounce", "sparkles"] } }
+    },
+    "sad": {
+      "aliases": { "es": ["triste", "deprimido", "deprimida", "desanimado", "desanimada", "decepcionado"], "en": ["unhappy", "down", "disappointed", "gloomy"] },
+      "levels": { "1": { "face": "sad", "effects": ["droop"] }, "2": { "face": "sad", "effects": ["droop", "tears"] }, "3": { "face": "sob", "effects": ["droop", "tear_streams"] } }
+    },
+    "angry": {
+      "aliases": { "es": ["enojado", "enojada", "enfadado", "bravo", "brava", "furioso", "molesto", "rabioso"], "en": ["mad", "furious", "annoyed", "grumpy", "cross"] },
+      "levels": { "1": { "face": "annoyed", "effects": [] }, "2": { "face": "furious", "effects": ["red_face", "shake"] }, "3": { "face": "furious", "effects": ["red_face", "shake", "steam"] } }
+    },
+    "surprised": {
+      "aliases": { "es": ["sorprendido", "sorprendida", "asombrado", "impresionado", "boquiabierto", "sorpresa"], "en": ["amazed", "astonished", "shocked", "stunned"] },
+      "levels": { "1": { "face": "wide", "effects": [] }, "2": { "face": "shocked", "effects": ["jump_back", "jaw_drop"] }, "3": { "face": "shocked", "effects": ["jump_back", "jaw_drop", "eyes_pop"] } }
+    },
+    "scared": {
+      "aliases": { "es": ["asustado", "asustada", "miedo", "aterrado", "nervioso", "nerviosa", "temeroso"], "en": ["afraid", "frightened", "terrified", "nervous", "fearful"] },
+      "levels": { "1": { "face": "worried", "effects": ["sweat_drops"] }, "2": { "face": "worried", "effects": ["sweat_drops", "tremble"] }, "3": { "face": "terrified", "effects": ["tremble", "sweat_drops", "pale_face", "hair_stand"] } }
+    },
+    "neutral": {
+      "aliases": { "es": ["tranquilo", "tranquila", "normal", "serio", "seria", "calmado"], "en": ["calm", "serious", "plain", "expressionless"] },
+      "levels": { "1": { "face": "neutral", "effects": [] }, "2": { "face": "neutral", "effects": [] }, "3": { "face": "neutral", "effects": [] } }
+    }
+  },
+
+  "faces": {
+    "neutral":   { "description": "Relaxed eyes, flat short mouth." },
+    "smile":     { "description": "Curved eyes, closed smile." },
+    "grin":      { "description": "Squinted happy eyes, huge open grin showing teeth." },
+    "sad":       { "description": "Eyebrows up in the middle, down-turned mouth." },
+    "sob":       { "description": "Eyes squeezed shut, wide wobbling open mouth." },
+    "annoyed":   { "description": "Half-lidded eyes, slanted brows, tight mouth." },
+    "furious":   { "description": "Brows in a deep V, bared clenched teeth." },
+    "wide":      { "description": "Round wide eyes, small round mouth." },
+    "shocked":   { "description": "Tiny pupils in huge eyes, mouth open in a tall oval." },
+    "worried":   { "description": "Brows tilted up, eyes darting, wavy mouth." },
+    "terrified": { "description": "Huge eyes, pinpoint pupils, wavy open mouth with chattering teeth." }
+  },
+
+  "effects": {
+    "bounce":       { "phase": "loop",  "description": "Whole body hops in place in a short squash-and-stretch rhythm." },
+    "sparkles":     { "phase": "burst", "seconds": 0.8, "description": "Four-point star sparkles pop around the head and fade." },
+    "droop":        { "phase": "loop",  "description": "Shoulders and head sag; arms hang lower; slower idle." },
+    "tears":        { "phase": "loop",  "description": "Single drops fall from the eyes now and then." },
+    "tear_streams": { "phase": "loop",  "description": "Two exaggerated arcs of tears gush sideways from the eyes." },
+    "red_face":     { "phase": "loop",  "description": "Head tones swap to a red ramp that rises from the chin." },
+    "shake":        { "phase": "loop",  "description": "Fists clenched, body vibrates a few pixels side to side." },
+    "steam":        { "phase": "loop",  "description": "Puffs of steam shoot from the top of the head in bursts." },
+    "jump_back":    { "phase": "burst", "seconds": 0.5, "description": "Quick hop backwards with arms thrown up (a take)." },
+    "jaw_drop":     { "phase": "burst", "seconds": 0.9, "description": "Jaw drops far below the head; at intensity 3 it reaches the ground, then snaps back." },
+    "eyes_pop":     { "phase": "burst", "seconds": 0.7, "description": "Eyes shoot forward out of the head on short stalks and spring back." },
+    "sweat_drops":  { "phase": "loop",  "description": "Sweat drops fly off the head in small arcs." },
+    "tremble":      { "phase": "loop",  "description": "Knees knock and the whole body jitters." },
+    "pale_face":    { "phase": "loop",  "description": "Head tones swap to a pale blue-white ramp." },
+    "hair_stand":   { "phase": "burst", "seconds": 0.8, "description": "Hair (or fur) shoots straight up and slowly settles." }
+  },
+
+  "approximations": [
+    { "category": "action", "es": ["bailar", "danzar"], "en": ["dance", "dancing"], "to": { "action": "jump", "variant": "spin" }, "note": "There is no dance action; a spinning jump is the closest move." },
+    { "category": "action", "es": ["trepar", "escalar", "subir"], "en": ["climb", "scale"], "to": { "action": "jump", "variant": "normal", "height": "high" }, "note": "There is no climbing; a high jump replaces it." },
+    { "category": "action", "es": ["volar"], "en": ["fly", "soar"], "to": { "action": "jump", "variant": "normal", "height": "high" }, "note": "People and land animals cannot fly; a high jump replaces it. A bird already flies when it runs." },
+    { "category": "action", "es": ["nadar"], "en": ["swim"], "to": { "action": "walk", "variant": "normal" }, "note": "There is no swimming; the character walks along the shore." },
+    { "category": "action", "es": ["patear", "dar una patada", "chutar"], "en": ["kick", "kick the ball"], "to": { "action": "give", "variant": "toss" }, "note": "A kick is shown as tossing the held item to someone." },
+    { "category": "action", "es": ["dormir", "dormirse", "acostarse", "echarse"], "en": ["sleep", "lie down", "nap"], "to": { "action": "fall", "variant": "faint" }, "note": "There is no lie-down action; a soft faint leaves the character lying." },
+    { "category": "action", "es": ["esconderse", "ocultarse"], "en": ["hide", "hide away"], "to": { "action": "walk", "variant": "sneak" }, "note": "Sneak behind a front-layer piece or off stage." },
+    { "category": "action", "es": ["comer", "beber"], "en": ["eat", "drink"], "to": { "action": "pick_up" }, "note": "There is no eating; pick up the food or cup and react happily." },
+    { "category": "action", "es": ["celebrar", "festejar"], "en": ["celebrate", "cheer"], "to": { "action": "jump", "variant": "split", "emotion": "happy" }, "note": "A happy split jump." },
+    { "category": "action", "es": ["patinar", "montar en bicicleta", "andar en patineta", "manejar"], "en": ["skate", "ride a bike", "skateboard", "drive"], "to": { "action": "run", "variant": "dash" }, "note": "There are no rideable vehicles; a fast run replaces the ride." },
+    { "category": "action", "es": ["dar la mano", "estrechar la mano"], "en": ["shake hands", "handshake"], "to": { "action": "wave", "variant": "normal" }, "note": "A wave toward the other character." },
+    { "category": "action", "es": ["reír", "reírse", "carcajada"], "en": ["laugh", "giggle"], "to": { "action": "talk", "emotion": "happy", "intensity": 3 }, "note": "Laughter is a talk beat with a laughing line and happy intensity 3." },
+    { "category": "action", "es": ["llorar", "sollozar"], "en": ["cry", "sob"], "to": { "reaction": true, "emotion": "sad", "intensity": 3 }, "note": "Crying is a reaction beat with sad intensity 3." },
+    { "category": "action", "es": ["mirar", "observar", "ver", "esperar", "quedarse quieto", "asentir"], "en": ["look", "watch", "stare", "wait", "stand still", "nod"], "to": { "reaction": true }, "note": "Use a reaction beat (no action) with a target to look at." },
+    { "category": "action", "es": ["empujar"], "en": ["push", "shove"], "to": { "action": "point", "variant": "accuse" }, "note": "There is no push; an accusing point is the closest." },
+    { "category": "emotion", "es": ["enamorado", "enamorada"], "en": ["in love", "smitten"], "to": { "emotion": "happy", "intensity": 2 }, "note": "Shown as happy." },
+    { "category": "emotion", "es": ["cansado", "cansada", "aburrido", "aburrida"], "en": ["tired", "bored", "sleepy"], "to": { "emotion": "sad", "intensity": 1 }, "note": "Shown as a mild sad droop." },
+    { "category": "emotion", "es": ["avergonzado", "avergonzada", "tímido", "tímida"], "en": ["embarrassed", "shy", "ashamed"], "to": { "emotion": "scared", "intensity": 1 }, "note": "Shown as mildly scared (sweat drop)." },
+    { "category": "emotion", "es": ["orgulloso", "orgullosa", "confiado", "confiada"], "en": ["proud", "confident", "smug"], "to": { "emotion": "happy", "intensity": 2 }, "note": "Pair it with walk variant strut." },
+    { "category": "emotion", "es": ["confundido", "confundida", "dudoso"], "en": ["confused", "puzzled"], "to": { "emotion": "surprised", "intensity": 1 }, "note": "Pair it with a think beat." },
+    { "category": "kind", "es": ["adolescente", "joven", "muchacho grande"], "en": ["teen", "teenager", "youth"], "to": { "kind": "boy", "look": { "height": "tall" } }, "note": "Use girl with height tall for a teenage girl." },
+    { "category": "kind", "es": ["bebé", "bebe", "niño pequeño"], "en": ["baby", "toddler"], "to": { "kind": "boy", "look": { "height": "short" } }, "note": "Use girl with height short for a baby girl." },
+    { "category": "kind", "es": ["caballo", "vaca", "burro", "lobo", "oso", "león", "tigre", "cabra", "oveja", "cerdo", "venado"], "en": ["horse", "cow", "donkey", "wolf", "bear", "lion", "tiger", "goat", "sheep", "pig", "deer"], "to": { "kind": "dog", "look": { "size": "large" } }, "note": "Only dog, cat and bird exist; a large four-legged animal is drawn as a large dog." },
+    { "category": "kind", "es": ["conejo", "ratón", "ardilla", "hámster", "zorro", "mapache"], "en": ["rabbit", "bunny", "mouse", "squirrel", "hamster", "fox", "raccoon"], "to": { "kind": "cat", "look": { "size": "small" } }, "note": "A small four-legged animal is drawn as a small cat." },
+    { "category": "kind", "es": ["gallina", "pato", "búho", "águila", "pingüino", "colibrí", "gallo"], "en": ["chicken", "hen", "duck", "owl", "eagle", "penguin", "hummingbird", "rooster"], "to": { "kind": "bird" }, "note": "All birds share one bird body; pick the closest plumage color." },
+    { "category": "kind", "es": ["pez", "mariposa", "abeja", "insecto", "serpiente", "tortuga"], "en": ["fish", "butterfly", "bee", "insect", "snake", "turtle"], "to": null, "note": "Not available. Ask the user which catalog animal should play that role, or drop it." },
+    { "category": "kind", "fantasy": true, "es": ["robot", "dragón", "unicornio", "hada", "fantasma", "monstruo", "alienígena", "extraterrestre", "superhéroe", "mago", "bruja", "sirena", "zombi", "vampiro", "duende", "ogro"], "en": ["robot", "dragon", "unicorn", "fairy", "ghost", "monster", "alien", "superhero", "wizard", "witch", "mermaid", "zombie", "vampire", "elf", "goblin", "ogre"], "to": null, "note": "Only real beings are allowed. Propose a real person or animal for the same role and tell the user; if the being is central to the plot, ask before writing the script." },
+    { "category": "base", "es": ["escuela", "colegio", "patio del colegio", "estadio", "cancha"], "en": ["school", "schoolyard", "stadium", "court", "playground"], "to": { "base": "park" }, "note": "Use park and add buildings or fences as pieces." },
+    { "category": "base", "es": ["desierto"], "en": ["desert"], "to": { "base": "plain" }, "note": "Use plain with sand and rock pieces." },
+    { "category": "base", "es": ["río", "lago", "laguna"], "en": ["river", "lake"], "to": { "base": "forest" }, "note": "Use forest and add a water piece." },
+    { "category": "base", "es": ["supermercado", "mercado", "centro comercial"], "en": ["supermarket", "market", "mall"], "to": { "base": "city" }, "note": "Outside: city with shop pieces. Inside: room with shelf pieces." },
+    { "category": "base", "es": ["espacio", "luna", "castillo", "fondo del mar", "nubes"], "en": ["space", "moon", "castle", "underwater", "sky"], "to": null, "note": "Not available. Ask the user for a catalog place." },
+    { "category": "light", "es": ["amanecer", "madrugada", "alba"], "en": ["dawn", "sunrise", "daybreak"], "to": { "light": "sunset" }, "note": "There is no dawn palette; sunset is the closest." },
+    { "category": "light", "es": ["medianoche", "noche cerrada"], "en": ["midnight", "dead of night"], "to": { "light": "dusk" }, "note": "dusk is the darkest palette." },
+    { "category": "light", "es": ["nublado", "lluvia", "tormenta", "nieve", "neblina"], "en": ["cloudy", "rain", "storm", "snow", "fog"], "to": { "light": "day" }, "note": "There is no weather; use day and add cloud pieces." },
+    { "category": "item", "es": ["juguete", "muñeco", "peluche"], "en": ["toy", "doll", "teddy bear"], "to": { "item": "ball" }, "note": "Toys are drawn as a ball." },
+    { "category": "item", "es": ["comida", "sándwich", "galleta", "pan", "dulce"], "en": ["food", "sandwich", "cookie", "bread", "candy"], "to": { "item": "apple" }, "note": "Food is drawn as an apple." },
+    { "category": "item", "es": ["dinero", "billete", "moneda", "tarjeta", "foto", "boleto"], "en": ["money", "bill", "coin", "card", "photo", "ticket"], "to": { "item": "letter" }, "note": "Flat paper objects are drawn as a letter." }
+  ]
+}

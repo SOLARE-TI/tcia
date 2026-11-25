@@ -1,0 +1,383 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "Paws, Claws and One Loud Bird",
+    "slug": "test-animals-places",
+    "lang": "en",
+    "light": "day"
+  },
+  "characters": [
+    { "id": "mango", "name": "Mango", "kind": "dog", "look": { "size": "small", "coat": "tan", "pattern": "solid", "ears": "floppy", "accessory": "none" } },
+    { "id": "domino", "name": "Domino", "kind": "dog", "look": { "size": "medium", "coat": "white", "pattern": "spots", "ears": "pointy", "accessory": "collar", "accessory_color": "blue" } },
+    { "id": "pudding", "name": "Pudding", "kind": "dog", "look": { "size": "large", "coat": "brown", "pattern": "solid", "ears": "floppy", "accessory": "bandana", "accessory_color": "orange" } },
+    { "id": "tofu", "name": "Tofu", "kind": "cat", "look": { "size": "small", "coat": "orange", "pattern": "stripes", "accessory": "collar", "accessory_color": "purple" } },
+    { "id": "smudge", "name": "Smudge", "kind": "cat", "look": { "size": "medium", "coat": "black", "pattern": "solid", "accessory": "none" } },
+    { "id": "kiki", "name": "Kiki", "kind": "bird", "look": { "size": "small", "plumage": "yellow" } }
+  ],
+  "sets": [
+    {
+      "id": "downtown",
+      "base": "city",
+      "pieces": [
+        { "piece": "building", "at": "far_left", "layer": "far", "variant": "tall", "color": "blue" },
+        { "piece": "building", "at": "center_left", "layer": "back", "variant": "short", "color": "gray" },
+        { "piece": "building", "at": "right", "layer": "far", "variant": "wide", "color": "white" },
+        { "piece": "shop", "at": "right", "color": "red" },
+        { "piece": "lamp_post", "at": "left", "layer": "front" },
+        { "piece": "trash_can", "at": "center", "dx": 60 },
+        { "piece": "hydrant", "at": "far_right", "layer": "front", "color": "yellow" },
+        { "piece": "car", "at": "center_right", "color": "red", "flip": true },
+        { "piece": "cloud", "at": "center", "layer": "sky" }
+      ]
+    },
+    {
+      "id": "woods",
+      "base": "forest",
+      "pieces": [
+        { "piece": "tree", "at": "far_left", "variant": "round" },
+        { "piece": "tree", "at": "center", "layer": "far", "variant": "tall" },
+        { "piece": "pine", "at": "right" },
+        { "piece": "bush", "at": "left", "layer": "front" },
+        { "piece": "log", "at": "center_left" },
+        { "piece": "water", "at": "center_right", "variant": "stream" },
+        { "piece": "flowers", "at": "far_right", "layer": "front", "color": "purple" },
+        { "piece": "cloud", "at": "left", "layer": "sky" }
+      ]
+    },
+    {
+      "id": "shore",
+      "base": "beach",
+      "pieces": [
+        { "piece": "palm", "at": "far_left" },
+        { "piece": "sand", "at": "center_left", "layer": "front" },
+        { "piece": "beach_umbrella", "at": "right", "color": "teal" },
+        { "piece": "crate", "at": "center_right" },
+        { "piece": "rock", "at": "far_right" },
+        { "piece": "cloud", "at": "left", "layer": "sky" }
+      ]
+    },
+    {
+      "id": "peak",
+      "base": "mountain",
+      "pieces": [
+        { "piece": "mountain", "at": "left", "variant": "snowy" },
+        { "piece": "mountain", "at": "right", "variant": "bare" },
+        { "piece": "pine", "at": "center", "layer": "far" },
+        { "piece": "rock", "at": "far_left", "layer": "front" },
+        { "piece": "log", "at": "far_right", "layer": "front" }
+      ]
+    },
+    {
+      "id": "meadow",
+      "base": "park",
+      "pieces": [
+        { "piece": "hill", "at": "center" },
+        { "piece": "tree", "at": "left", "variant": "round" },
+        { "piece": "bench", "at": "center_right" },
+        { "piece": "lamp_post", "at": "far_right" },
+        { "piece": "flowers", "at": "far_left", "color": "pink" },
+        { "piece": "ramp", "at": "center" },
+        { "piece": "water", "at": "right", "variant": "pond" },
+        { "piece": "bush", "at": "center_left" },
+        { "piece": "fence", "at": "right", "layer": "front", "dx": 80 }
+      ]
+    },
+    {
+      "id": "farm",
+      "base": "countryside",
+      "pieces": [
+        { "piece": "hill", "at": "left" },
+        { "piece": "house", "at": "far_left", "variant": "small", "color": "red" },
+        { "piece": "house", "at": "right", "layer": "far", "variant": "two_story", "color": "green" },
+        { "piece": "fence", "at": "center_right" },
+        { "piece": "tree", "at": "far_right", "variant": "tall" },
+        { "piece": "cloud", "at": "center_left", "layer": "sky" }
+      ]
+    },
+    {
+      "id": "kitchen",
+      "base": "room",
+      "pieces": [
+        { "piece": "window", "at": "center_left" },
+        { "piece": "door", "at": "far_right", "color": "blue" },
+        { "piece": "table", "at": "center" },
+        { "piece": "chair", "at": "left", "layer": "front" },
+        { "piece": "sofa", "at": "right", "color": "pink" },
+        { "piece": "bed", "at": "far_left", "color": "navy" },
+        { "piece": "shelf", "at": "center_right" },
+        { "piece": "floor_lamp", "at": "far_right", "layer": "front", "dx": -80 },
+        { "piece": "rug", "at": "center", "color": "orange" },
+        { "piece": "potted_plant", "at": "center_left", "layer": "front", "dx": 90 }
+      ]
+    },
+    {
+      "id": "stage",
+      "base": "plain",
+      "pieces": [
+        { "piece": "crate", "at": "center_right", "layer": "front" },
+        { "piece": "ramp", "at": "center_left", "layer": "front" },
+        { "piece": "rock", "at": "right" },
+        { "piece": "sand", "at": "center" }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "morning_walk",
+      "set": "downtown",
+      "cast": [
+        { "who": "mango", "at": "offstage_left" },
+        { "who": "domino", "at": "center", "facing": "left" },
+        { "who": "kiki", "at": "far_right", "facing": "left" }
+      ],
+      "beats": [
+        { "actor": "mango", "action": "walk", "to": "left" },
+        { "actor": "domino", "action": "talk", "target": "mango", "say": "Woof! Morning!" },
+        { "actor": "kiki", "action": "walk", "to": "right" },
+        { "actor": "kiki", "action": "talk", "target": "domino", "say": "Tweet tweet!" },
+        { "actor": "domino", "action": "wave", "target": "kiki" },
+        { "actor": "kiki", "action": "wave", "variant": "big", "target": "domino" },
+        { "actor": "mango", "target": "kiki", "emotion": "surprised", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "chase",
+      "set": "woods",
+      "cast": [
+        { "who": "tofu", "at": "left", "facing": "right" },
+        { "who": "smudge", "at": "center", "facing": "left" },
+        { "who": "kiki", "at": "center_right", "facing": "left" }
+      ],
+      "beats": [
+        { "actor": "tofu", "action": "run", "to": "center_left" },
+        { "actor": "kiki", "action": "run", "to": "far_right" },
+        { "actor": "smudge", "action": "jump", "variant": "flip", "emotion": "happy", "intensity": 2 },
+        { "actor": "kiki", "action": "jump", "variant": "backflip" },
+        { "actor": "tofu", "action": "point", "target": "kiki", "say": "Mrrow!" },
+        { "actor": "kiki", "action": "point", "target": "far_left", "say": "Look, a squirrel!" },
+        { "actor": "tofu", "target": "kiki", "emotion": "angry", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "beach_ball",
+      "set": "shore",
+      "light": "sunset",
+      "cast": [
+        { "who": "pudding", "at": "center_left", "facing": "right" },
+        { "who": "tofu", "at": "center_right", "facing": "right" },
+        { "who": "kiki", "at": "right", "facing": "left" }
+      ],
+      "items": [
+        { "id": "ball", "item": "ball", "at": "center_left" },
+        { "id": "apple", "item": "apple", "at": "right" }
+      ],
+      "beats": [
+        { "actor": "pudding", "action": "pick_up", "item": "ball" },
+        { "actor": "kiki", "action": "pick_up", "item": "apple" },
+        { "actor": "kiki", "action": "give", "target": "tofu" },
+        { "actor": "pudding", "action": "give", "variant": "toss", "target": "kiki" },
+        { "actor": "tofu", "action": "sit" },
+        { "actor": "kiki", "action": "sit" },
+        { "actor": "pudding", "action": "think", "say": "Wait. Where is my ball?", "emotion": "surprised", "intensity": 2 },
+        { "actor": "kiki", "action": "think", "say": "Mine now." },
+        { "actor": "pudding", "target": "kiki", "emotion": "surprised", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "slippery_peak",
+      "set": "peak",
+      "cast": [
+        { "who": "domino", "at": "left", "facing": "right" },
+        { "who": "pudding", "at": "center", "facing": "right" },
+        { "who": "kiki", "at": "center_right", "facing": "left" }
+      ],
+      "beats": [
+        { "actor": "pudding", "action": "hug", "target": "kiki" },
+        { "actor": "kiki", "action": "hug", "target": "pudding" },
+        { "actor": "domino", "action": "fall", "variant": "trip", "emotion": "surprised", "intensity": 2 },
+        { "actor": "kiki", "action": "fall", "variant": "slip", "emotion": "scared", "intensity": 2 },
+        { "actor": "pudding", "target": "domino", "emotion": "happy", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "night_crossing",
+      "set": "meadow",
+      "light": "dusk",
+      "cast": [
+        { "who": "mango", "at": "far_left", "facing": "right" },
+        { "who": "smudge", "at": "offstage_right" },
+        { "who": "kiki", "at": "center", "facing": "left" }
+      ],
+      "beats": [
+        { "actor": "smudge", "action": "walk", "variant": "sneak", "to": "right" },
+        { "actor": "mango", "action": "run", "to": "center_left" },
+        { "actor": "kiki", "action": "run", "variant": "dash", "to": "offstage_left" },
+        { "actor": "smudge", "action": "jump", "variant": "spin", "emotion": "surprised", "intensity": 3 },
+        { "actor": "mango", "action": "walk", "variant": "strut", "to": "offstage_left" }
+      ]
+    },
+    {
+      "id": "farm_gate",
+      "set": "farm",
+      "light": "sunset",
+      "cast": [
+        { "who": "pudding", "at": "left", "facing": "right" },
+        { "who": "tofu", "at": "center", "facing": "left" },
+        { "who": "domino", "at": "right", "facing": "left" }
+      ],
+      "beats": [
+        { "actor": "domino", "action": "walk", "variant": "stomp", "to": "center_right", "emotion": "angry", "intensity": 2 },
+        { "actor": "tofu", "action": "jump", "variant": "cartwheel", "to": "center_left" },
+        { "actor": "pudding", "action": "talk", "variant": "shout", "say": "WOOF!", "emotion": "happy", "intensity": 3 },
+        { "actor": "tofu", "action": "fall", "variant": "faint", "emotion": "scared", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "kitchen_mess",
+      "set": "kitchen",
+      "light": "indoor",
+      "cast": [
+        { "who": "smudge", "at": "center_left", "facing": "right" },
+        { "who": "mango", "at": "center", "facing": "left" },
+        { "who": "kiki", "at": "right", "facing": "left" }
+      ],
+      "items": [
+        { "id": "cup", "item": "cup", "at": "center" }
+      ],
+      "beats": [
+        { "actor": "mango", "action": "jump", "variant": "split" },
+        { "actor": "smudge", "action": "talk", "variant": "whisper", "target": "mango", "say": "Psst. The cup." },
+        { "actor": "mango", "action": "pick_up", "variant": "snatch", "item": "cup" },
+        { "actor": "kiki", "target": "mango", "emotion": "surprised", "intensity": 2 },
+        { "actor": "mango", "action": "run", "variant": "panic", "to": "far_left", "emotion": "scared", "intensity": 1 }
+      ]
+    },
+    {
+      "id": "curtain_call",
+      "set": "stage",
+      "light": "dusk",
+      "cast": [
+        { "who": "domino", "at": "center_left", "facing": "right" },
+        { "who": "tofu", "at": "center", "facing": "right" },
+        { "who": "smudge", "at": "center_right", "facing": "left" },
+        { "who": "kiki", "at": "far_right", "facing": "left" }
+      ],
+      "beats": [
+        { "actor": "kiki", "action": "jump", "variant": "cartwheel", "to": "right" },
+        { "actor": "smudge", "action": "jump", "variant": "split", "together": true },
+        { "actor": "tofu", "action": "point", "variant": "up", "say": "Ta-daa!" },
+        { "actor": "domino", "action": "sit", "variant": "flop", "emotion": "happy", "intensity": 2 }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "snack",
+      "after": "slippery_peak",
+      "options": [
+        {
+          "id": "bone",
+          "label": "Dig for a bone",
+          "scenes": [
+            {
+              "id": "dig",
+              "set": "peak",
+              "cast": [
+                { "who": "pudding", "at": "center", "facing": "left" },
+                { "who": "domino", "at": "left", "facing": "right" }
+              ],
+              "beats": [
+                { "actor": "pudding", "action": "jump", "height": "high", "say": "Bone radar ON!" },
+                { "actor": "pudding", "action": "fall", "variant": "trip", "emotion": "surprised", "intensity": 2 },
+                { "actor": "domino", "target": "pudding", "emotion": "happy", "intensity": 2 }
+              ]
+            }
+          ],
+          "rejoin": "night_crossing"
+        },
+        { "id": "nap", "label": "Nap on the rocks", "rejoin": "night_crossing" }
+      ]
+    },
+    {
+      "id": "encore",
+      "after": "curtain_call",
+      "options": [
+        { "id": "bow", "label": "Take a bow", "rejoin": "@endings" },
+        { "id": "chase", "label": "Chase the bird", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "bravo",
+      "title": "Bravo, Domino!",
+      "when": { "all": [ { "choice": "snack", "is": "bone" }, { "choice": "encore", "is": "bow" } ] },
+      "scenes": [
+        {
+          "id": "end_bravo",
+          "set": "stage",
+          "light": "dusk",
+          "cast": [
+            { "who": "domino", "at": "center", "facing": "right" },
+            { "who": "tofu", "at": "center_right", "facing": "left" }
+          ],
+          "beats": [
+            { "actor": "domino", "action": "jump", "variant": "backflip", "height": "high", "say": "Woof-tastic!" },
+            { "actor": "tofu", "target": "domino", "emotion": "happy", "intensity": 3 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zoomies",
+      "title": "The Great Zoomies",
+      "when": { "choice": "encore", "is": "chase" },
+      "scenes": [
+        {
+          "id": "end_zoomies",
+          "set": "meadow",
+          "cast": [
+            { "who": "mango", "at": "left", "facing": "right" },
+            { "who": "kiki", "at": "center", "facing": "left" }
+          ],
+          "beats": [
+            { "actor": "kiki", "target": "mango", "emotion": "scared", "intensity": 3 },
+            { "actor": "mango", "action": "run", "variant": "dash", "to": "center_left", "say": "Zoom zoom!" },
+            { "actor": "kiki", "action": "run", "variant": "panic", "to": "offstage_right" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snooze",
+      "title": "Snooze Time",
+      "scenes": [
+        {
+          "id": "end_snooze",
+          "set": "kitchen",
+          "light": "indoor",
+          "cast": [
+            { "who": "smudge", "at": "right", "facing": "left" },
+            { "who": "pudding", "at": "center", "facing": "right" },
+            { "who": "kiki", "at": "center_left", "facing": "right" }
+          ],
+          "beats": [
+            { "actor": "smudge", "action": "sit" },
+            { "actor": "pudding", "action": "fall", "variant": "faint", "emotion": "happy", "intensity": 1 },
+            { "actor": "kiki", "action": "think", "say": "Zzz... seeds..." }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "approximations": [
+      { "requested": "sleep", "used": "fall.faint", "reason": "There is no lie-down action; a soft faint leaves Pudding lying." }
+    ],
+    "invented": [
+      "Everything beyond the cast list: this is a coverage story for tests",
+      "Decisions snack and encore; branch scene dig; three endings"
+    ],
+    "comment": "Test story 4 of TCIA 0.1.0: dog, cat and bird with every attribute value, the 8 bases, the 4 lights, the 34 pieces with every variant and layer, and the 9 positions with entries and exits."
+  }
+}

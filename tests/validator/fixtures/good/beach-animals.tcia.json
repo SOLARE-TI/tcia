@@ -1,0 +1,85 @@
+{
+  "tcia": 1,
+  "meta": { "title": "Shell Swap", "slug": "shell-swap", "lang": "en", "light": "sunset" },
+  "characters": [
+    { "id": "biscuit", "name": "Biscuit", "kind": "dog", "look": { "size": "large", "ears": "pointy", "accessory": "bandana" } },
+    { "id": "nori", "name": "Nori", "kind": "cat", "look": { "coat": "black", "accessory": "collar" } },
+    { "id": "zaz", "name": "Zaz", "kind": "bird", "look": { "size": "medium", "plumage": "red" } }
+  ],
+  "sets": [ { "id": "sand", "base": "beach" } ],
+  "scenes": [
+    {
+      "id": "fetch", "set": "sand",
+      "cast": [ { "who": "biscuit", "at": "left" }, { "who": "nori", "at": "center" }, { "who": "zaz", "at": "center_right" } ],
+      "items": [ { "id": "ball", "item": "ball", "at": "left" } ],
+      "beats": [
+        { "actor": "biscuit", "action": "pick_up", "variant": "snatch", "item": "ball" },
+        { "actor": "biscuit", "action": "give", "variant": "toss", "target": "nori" },
+        { "actor": "nori", "action": "give", "target": "zaz" },
+        { "actor": "zaz", "action": "jump", "variant": "flip", "emotion": "happy", "intensity": 2 },
+        { "actor": "zaz", "action": "fall", "variant": "slip", "emotion": "surprised", "intensity": 2 },
+        { "actor": "zaz", "action": "think", "say": "Who threw that?" }
+      ]
+    },
+    {
+      "id": "cuddle", "set": "sand",
+      "cast": [ { "who": "biscuit", "at": "center_left" }, { "who": "nori", "at": "center" } ],
+      "beats": [
+        { "actor": "nori", "action": "hug", "target": "biscuit", "emotion": "happy" },
+        { "actor": "biscuit", "action": "talk", "variant": "shout", "say": "Woof woof!" },
+        { "actor": "nori", "action": "wave", "variant": "big", "target": "biscuit" }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1", "after": "fetch",
+      "options": [
+        { "id": "again", "label": "Throw it again", "rejoin": "cuddle" },
+        { "id": "nap", "label": "Nap in the shade", "rejoin": "cuddle" }
+      ]
+    },
+    {
+      "id": "d2", "after": "cuddle",
+      "options": [
+        { "id": "swim", "label": "Run to the water", "rejoin": "@endings" },
+        { "id": "dig", "label": "Dig a hole", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "splash", "title": "Big Splash", "when": { "choice": "d2", "is": "swim" },
+      "scenes": [
+        {
+          "id": "end_splash", "set": "sand",
+          "cast": [ { "who": "biscuit", "at": "left" } ],
+          "beats": [ { "actor": "biscuit", "action": "run", "variant": "dash", "to": "far_right", "emotion": "happy", "intensity": 3 } ]
+        }
+      ]
+    },
+    {
+      "id": "sleepy", "title": "Sleepy Pals", "when": { "choice": "d1", "is": "nap" },
+      "scenes": [
+        {
+          "id": "end_sleepy", "set": "sand",
+          "cast": [ { "who": "nori", "at": "center" } ],
+          "beats": [ { "actor": "nori", "action": "sit" }, { "actor": "nori", "emotion": "sad", "intensity": 1 } ]
+        }
+      ]
+    },
+    {
+      "id": "digger", "title": "Master Digger",
+      "scenes": [
+        {
+          "id": "end_digger", "set": "sand",
+          "cast": [ { "who": "biscuit", "at": "center" }, { "who": "zaz", "at": "right" } ],
+          "beats": [
+            { "actor": "biscuit", "action": "point", "variant": "accuse", "target": "zaz" },
+            { "actor": "zaz", "action": "wave", "target": "biscuit", "say": "Not me!" }
+          ]
+        }
+      ]
+    }
+  ]
+}

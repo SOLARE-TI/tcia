@@ -1,0 +1,82 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "O gato e a bola",
+    "slug": "o-gato-e-a-bola",
+    "lang": "pt",
+    "light": "day",
+    "ui": { "start": "Começar", "restart": "Começar de novo", "decision": "Decisão" }
+  },
+  "characters": [
+    { "id": "rui", "name": "Rui", "kind": "old_man", "look": { "accessory": "cane" } },
+    { "id": "mimo", "name": "Mimo", "kind": "cat", "look": { "pattern": "stripes" } }
+  ],
+  "sets": [ { "id": "quintal", "base": "countryside" } ],
+  "scenes": [
+    {
+      "id": "manha", "set": "quintal",
+      "cast": [ { "who": "rui", "at": "left" }, { "who": "mimo", "at": "center" } ],
+      "items": [ { "id": "bola", "item": "ball", "at": "center" } ],
+      "beats": [
+        { "actor": "mimo", "action": "pick_up", "item": "bola" },
+        { "actor": "rui", "action": "talk", "target": "mimo", "say": "Mimo, devolve a bola!" }
+      ]
+    },
+    {
+      "id": "tarde", "set": "quintal", "light": "sunset",
+      "cast": [ { "who": "rui", "at": "center_left", "posture": "sitting" }, { "who": "mimo", "at": "center" } ],
+      "beats": [
+        { "actor": "mimo", "action": "jump", "height": "low" },
+        { "actor": "rui", "action": "think", "say": "Que gato esperto." }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1", "after": "manha",
+      "options": [
+        { "id": "corre", "label": "Correr atrás do gato", "rejoin": "tarde" },
+        { "id": "espera", "label": "Esperar sentado", "rejoin": "tarde" }
+      ]
+    },
+    {
+      "id": "d2", "after": "tarde",
+      "options": [
+        { "id": "brinca", "label": "Brincar mais", "rejoin": "@endings" },
+        { "id": "dorme", "label": "Dormir", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "amigos", "title": "Amigos", "when": { "choice": "d1", "is": "corre" },
+      "scenes": [
+        {
+          "id": "fim_amigos", "set": "quintal",
+          "cast": [ { "who": "rui", "at": "center_left" }, { "who": "mimo", "at": "center" } ],
+          "beats": [ { "actor": "rui", "action": "hug", "target": "mimo", "emotion": "happy" } ]
+        }
+      ]
+    },
+    {
+      "id": "sesta", "title": "Sesta", "when": { "choice": "d2", "is": "dorme" },
+      "scenes": [
+        {
+          "id": "fim_sesta", "set": "quintal", "light": "dusk",
+          "cast": [ { "who": "rui", "at": "center", "posture": "sitting" } ],
+          "beats": [ { "actor": "rui", "action": "think", "say": "Boa noite, Mimo." } ]
+        }
+      ]
+    },
+    {
+      "id": "jogo", "title": "Jogo sem fim",
+      "scenes": [
+        {
+          "id": "fim_jogo", "set": "quintal",
+          "cast": [ { "who": "mimo", "at": "left" } ],
+          "beats": [ { "actor": "mimo", "action": "run", "variant": "dash", "to": "far_right" } ]
+        }
+      ]
+    }
+  ]
+}

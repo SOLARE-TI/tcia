@@ -1,0 +1,572 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "Teste de fluxo",
+    "slug": "teste-fluxo",
+    "lang": "pt",
+    "light": "sunset",
+    "ui": {
+      "start": "Começar",
+      "restart": "Recomeçar",
+      "decision": "Decisão"
+    }
+  },
+  "state": [
+    {
+      "var": "v",
+      "initial": 0
+    },
+    {
+      "var": "w",
+      "initial": -1
+    }
+  ],
+  "characters": [
+    {
+      "id": "bia",
+      "name": "Bia",
+      "kind": "girl"
+    }
+  ],
+  "sets": [
+    {
+      "id": "praca",
+      "base": "park"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "m1",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "action": "talk",
+          "say": "Olá!"
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m4",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m5",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m6",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m7",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m8",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m9",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m10",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m11",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "m12",
+      "set": "praca",
+      "cast": [
+        {
+          "who": "bia",
+          "at": "center"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "bia",
+          "emotion": "happy",
+          "intensity": 1,
+          "duration": 0.6
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "a",
+      "after": "m3",
+      "options": [
+        {
+          "id": "x",
+          "label": "Opção X",
+          "effects": [
+            {
+              "var": "v",
+              "add": 1
+            }
+          ],
+          "rejoin": "m4"
+        },
+        {
+          "id": "y",
+          "label": "Opção Y",
+          "scenes": [
+            {
+              "id": "ay1",
+              "set": "praca",
+              "cast": [
+                {
+                  "who": "bia",
+                  "at": "center"
+                }
+              ],
+              "beats": [
+                {
+                  "actor": "bia",
+                  "emotion": "happy",
+                  "intensity": 1,
+                  "duration": 0.6
+                }
+              ]
+            }
+          ],
+          "rejoin": "m4"
+        },
+        {
+          "id": "z",
+          "label": "Opção Z",
+          "effects": [
+            {
+              "var": "w",
+              "add": 3
+            }
+          ],
+          "scenes": [
+            {
+              "id": "az1",
+              "set": "praca",
+              "cast": [
+                {
+                  "who": "bia",
+                  "at": "center"
+                }
+              ],
+              "beats": [
+                {
+                  "actor": "bia",
+                  "emotion": "happy",
+                  "intensity": 1,
+                  "duration": 0.6
+                }
+              ]
+            },
+            {
+              "id": "az2",
+              "set": "praca",
+              "cast": [
+                {
+                  "who": "bia",
+                  "at": "center"
+                }
+              ],
+              "beats": [
+                {
+                  "actor": "bia",
+                  "emotion": "happy",
+                  "intensity": 1,
+                  "duration": 0.6
+                }
+              ]
+            }
+          ],
+          "rejoin": "m4"
+        }
+      ]
+    },
+    {
+      "id": "b",
+      "after": "m7",
+      "options": [
+        {
+          "id": "x",
+          "label": "Um",
+          "effects": [
+            {
+              "var": "v",
+              "add": 2
+            }
+          ],
+          "rejoin": "m8"
+        },
+        {
+          "id": "y",
+          "label": "Dois",
+          "rejoin": "m8"
+        },
+        {
+          "id": "z",
+          "label": "Três",
+          "effects": [
+            {
+              "var": "v",
+              "add": -1
+            }
+          ],
+          "rejoin": "m8"
+        }
+      ]
+    },
+    {
+      "id": "c",
+      "after": "m12",
+      "options": [
+        {
+          "id": "x",
+          "label": "Fim A",
+          "rejoin": "@endings"
+        },
+        {
+          "id": "y",
+          "label": "Fim B",
+          "scenes": [
+            {
+              "id": "cy1",
+              "set": "praca",
+              "cast": [
+                {
+                  "who": "bia",
+                  "at": "center"
+                }
+              ],
+              "beats": [
+                {
+                  "actor": "bia",
+                  "action": "talk",
+                  "say": "Tchau!"
+                }
+              ]
+            }
+          ],
+          "rejoin": "@endings"
+        },
+        {
+          "id": "z",
+          "label": "Fim C",
+          "effects": [
+            {
+              "var": "w",
+              "add": -2
+            }
+          ],
+          "rejoin": "@endings"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "e1",
+      "title": "E1",
+      "when": {
+        "all": [
+          {
+            "choice": "a",
+            "is": "x"
+          },
+          {
+            "var": "v",
+            "op": ">=",
+            "value": 3
+          }
+        ]
+      },
+      "scenes": [
+        {
+          "id": "e1s",
+          "set": "praca",
+          "cast": [
+            {
+              "who": "bia",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "bia",
+              "action": "talk",
+              "say": "Viva!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2",
+      "title": "E2",
+      "when": {
+        "any": [
+          {
+            "choice": "c",
+            "is": "z"
+          },
+          {
+            "var": "w",
+            "op": ">",
+            "value": 1
+          }
+        ]
+      },
+      "scenes": [
+        {
+          "id": "e2s",
+          "set": "praca",
+          "cast": [
+            {
+              "who": "bia",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "bia",
+              "emotion": "happy",
+              "intensity": 1,
+              "duration": 0.6
+            }
+          ]
+        },
+        {
+          "id": "e2t",
+          "set": "praca",
+          "cast": [
+            {
+              "who": "bia",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "bia",
+              "emotion": "happy",
+              "intensity": 1,
+              "duration": 0.6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3",
+      "title": "E3",
+      "when": {
+        "not": {
+          "choice": "b",
+          "is": "y"
+        }
+      },
+      "scenes": [
+        {
+          "id": "e3s",
+          "set": "praca",
+          "cast": [
+            {
+              "who": "bia",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "bia",
+              "emotion": "happy",
+              "intensity": 1,
+              "duration": 0.6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e4",
+      "title": "E4",
+      "scenes": [
+        {
+          "id": "e4s",
+          "set": "praca",
+          "cast": [
+            {
+              "who": "bia",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "bia",
+              "action": "talk",
+              "say": "Ufa."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

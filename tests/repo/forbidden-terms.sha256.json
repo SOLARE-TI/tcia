@@ -1,0 +1,35 @@
+{
+  "$comment": "CONTRACT DATA (no owner). SHA-256 hex digests of normalized words and word sequences (1 to 3 words) that no file of this repository may contain. The words themselves are intentionally not written anywhere in the repository. Normalization and scan rules: specs/shared/2026-11-25/00_primera-version.md, decision D17.",
+  "algorithm": "sha256",
+  "normalization": "NFKD, strip combining marks, split camelCase, lowercase, every char outside a-z0-9 becomes a space, split on spaces, check every 1-, 2- and 3-word sequence joined by one space",
+  "selfTest": {
+    "gram": "tciaselftest",
+    "sha256": "f3ebc8bd2b186b307f69e6fcb20ce973fa7a4513dbea76cf7a61caf25da93283"
+  },
+  "count": 23,
+  "hashes": [
+    "34a533dfd7273a9bb03656b32956a2b1d08dc62533b11c813b28d0ef23ec8e67",
+    "43c2133f3d46cd66413568139e932e4531fbbf6f9e589a8c8b2cf11d14272c8c",
+    "4d304dfed178d8ac90f63964a01da0c7f1dc729ad932586ea19709ce10adae04",
+    "51f210f680739c4598e913cb6e43852cc59cb93f0b095b24d3f3c0d7ebe2ccb5",
+    "5232140642678edeb6b8eb14e173baed98fe32f14ec26db9938a4a81605e2c35",
+    "5252f4d14ba39adb478d64f27eb46a9506739f880c73b055b99a5f92dfe3ef57",
+    "62de6712196a60bdc850bdbb0944d98be8e8adfc226a648c2b560ae9a0d7c3ff",
+    "65d24a36afddbde96fbea1a2cbc43b8de22f9e99d5b1073be3adea1ceb94a8a9",
+    "69ed7603f5c43c97cecd6229a99a81c186a0f7e93e0c81d7093361e43a8a46fa",
+    "721b231d560d75f2a6e3778d17cb0fe574c5ebbc326fd8e41c71daa8af849813",
+    "774a25d050e2e2d5c933a2097b7c6cca0e9a73378d43dbc58a2cad59f7bde899",
+    "8e3863dacbbe042734a533f5f8233ba7d2ed1a08b5c474dac76c0017f08eee1b",
+    "8f788151206446a06a268634223407568a573afd0392178f35b5e158a9a4b55a",
+    "962f1009b36728303350f93771b0a294936c8772ab930df71c1fc051a3d680be",
+    "9ba16723b401a32431ffc059eae5ca0a8bdf267b411722021668f3034f644fab",
+    "a47a04abcc9db4a383d88a3c933fc05d1fb5ca8a368857b2b14aad7ed06fea66",
+    "a5f45d324a5b32d7697852b9b244f14b309a1380a84d0243af1697823fa983b1",
+    "a8d77a313f5bf3c24b44062e9cbf9cf4ce698c4bc9d3d5a2755821e75427dc61",
+    "b30b4cb1272640cb62b8428e67cb0167ed3715a9958588c14cc480ef2b89a4f2",
+    "cc15b25e8503479ab224effa3b8387612a1d14cc5a4ca2460efb9426999240e9",
+    "d4cc4e11fbf4fb915e33670a415512f2e8b784f71e60feaf38bdf4bba568875c",
+    "dd4b099f9c56068c37af46e0d4701cab91de3769a2c4f089fb88146bea7b1a9d",
+    "efd7e8c98c5d821fb40ca8c488d3f199fd05ec6facfaf84c11ff004254ec8dc4"
+  ]
+}

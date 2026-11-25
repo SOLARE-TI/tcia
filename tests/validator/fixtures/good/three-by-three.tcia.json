@@ -1,0 +1,146 @@
+{
+  "tcia": 1,
+  "meta": { "title": "Lía y el charco", "slug": "lia-y-el-charco", "lang": "es", "light": "day" },
+  "state": [ { "var": "risa", "initial": 0 } ],
+  "characters": [
+    { "id": "lia", "name": "Lía", "kind": "girl", "look": { "hair": "braids", "top_color": "yellow" } },
+    { "id": "copo", "name": "Copo", "kind": "dog", "look": { "size": "small", "coat": "white" } }
+  ],
+  "sets": [ { "id": "plaza", "base": "park" } ],
+  "scenes": [
+    {
+      "id": "s1", "set": "plaza",
+      "cast": [ { "who": "lia", "at": "center_left" }, { "who": "copo", "at": "center" } ],
+      "beats": [
+        { "actor": "lia", "action": "talk", "target": "copo", "say": "¿Jugamos, Copo?" },
+        { "actor": "copo", "action": "jump", "emotion": "happy" }
+      ]
+    },
+    {
+      "id": "s2", "set": "plaza",
+      "cast": [ { "who": "lia", "at": "left" }, { "who": "copo", "at": "center_right" } ],
+      "beats": [
+        { "actor": "copo", "action": "run", "to": "center" },
+        { "actor": "lia", "action": "walk", "to": "center_left", "together": true }
+      ]
+    },
+    {
+      "id": "s3", "set": "plaza", "light": "sunset",
+      "cast": [ { "who": "lia", "at": "center" }, { "who": "copo", "at": "center_left" } ],
+      "beats": [
+        { "actor": "lia", "action": "wave", "target": "copo" },
+        { "actor": "copo", "action": "talk", "say": "¡Guau!" }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1", "after": "s1",
+      "options": [
+        {
+          "id": "a", "label": "Saltar el charco", "effects": [ { "var": "risa", "add": 1 } ],
+          "scenes": [
+            {
+              "id": "b1", "set": "plaza",
+              "cast": [ { "who": "lia", "at": "left" } ],
+              "beats": [ { "actor": "lia", "action": "jump", "variant": "flip", "to": "center", "emotion": "happy", "intensity": 3 } ]
+            }
+          ],
+          "rejoin": "s2"
+        },
+        { "id": "b", "label": "Rodear el charco", "rejoin": "s2" },
+        {
+          "id": "c", "label": "Volver a casa",
+          "scenes": [
+            {
+              "id": "b2", "set": "plaza",
+              "cast": [ { "who": "lia", "at": "center" } ],
+              "beats": [ { "actor": "lia", "action": "walk", "to": "right" } ]
+            },
+            {
+              "id": "b3", "set": "plaza",
+              "cast": [ { "who": "lia", "at": "right" }, { "who": "copo", "at": "offstage_left" } ],
+              "beats": [
+                { "actor": "copo", "action": "run", "to": "center_right" },
+                { "actor": "lia", "action": "hug", "target": "copo", "emotion": "happy" }
+              ]
+            }
+          ],
+          "rejoin": "s2"
+        }
+      ]
+    },
+    {
+      "id": "d2", "after": "s2",
+      "options": [
+        { "id": "a", "label": "Perseguir a Copo", "effects": [ { "var": "risa", "add": 1 } ], "rejoin": "s3" },
+        {
+          "id": "b", "label": "Lanzar la pelota",
+          "scenes": [
+            {
+              "id": "b4", "set": "plaza",
+              "cast": [ { "who": "lia", "at": "left" }, { "who": "copo", "at": "center_right" } ],
+              "items": [ { "id": "pelota", "item": "ball", "held_by": "lia" } ],
+              "beats": [ { "actor": "lia", "action": "give", "variant": "toss", "target": "copo" } ]
+            }
+          ],
+          "rejoin": "s3"
+        },
+        { "id": "c", "label": "Descansar", "rejoin": "s3" }
+      ]
+    },
+    {
+      "id": "d3", "after": "s3",
+      "options": [
+        { "id": "a", "label": "Otra carrera", "effects": [ { "var": "risa", "add": 1 } ], "rejoin": "@endings" },
+        { "id": "b", "label": "Una siesta", "rejoin": "@endings" },
+        { "id": "c", "label": "Merendar", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "campeones", "title": "Campeones del charco",
+      "when": { "all": [ { "choice": "d1", "is": "a" }, { "choice": "d2", "is": "a" } ] },
+      "scenes": [
+        {
+          "id": "f1", "set": "plaza",
+          "cast": [ { "who": "lia", "at": "center" } ],
+          "beats": [ { "actor": "lia", "action": "jump", "variant": "spin", "height": "high", "say": "¡Campeona!" } ]
+        }
+      ]
+    },
+    {
+      "id": "risas", "title": "Tarde de risas",
+      "when": { "var": "risa", "op": ">=", "value": 2 },
+      "scenes": [
+        {
+          "id": "f2", "set": "plaza",
+          "cast": [ { "who": "lia", "at": "center" }, { "who": "copo", "at": "center_right" } ],
+          "beats": [ { "actor": "lia", "action": "talk", "variant": "shout", "target": "copo", "say": "¡Qué tarde!", "emotion": "happy", "intensity": 3 } ]
+        }
+      ]
+    },
+    {
+      "id": "merienda", "title": "Merienda en la plaza",
+      "when": { "any": [ { "choice": "d3", "is": "c" }, { "not": { "choice": "d1", "is": "b" } } ] },
+      "scenes": [
+        {
+          "id": "f3", "set": "plaza",
+          "cast": [ { "who": "lia", "at": "center_right" } ],
+          "beats": [ { "actor": "lia", "action": "sit" }, { "actor": "lia", "action": "think", "say": "Pan con queso." } ]
+        }
+      ]
+    },
+    {
+      "id": "siesta", "title": "Siesta",
+      "scenes": [
+        {
+          "id": "f4", "set": "plaza", "light": "dusk",
+          "cast": [ { "who": "lia", "at": "center" } ],
+          "beats": [ { "actor": "lia", "action": "fall", "variant": "faint", "emotion": "sad", "intensity": 1 } ]
+        }
+      ]
+    }
+  ]
+}

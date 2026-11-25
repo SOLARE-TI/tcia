@@ -1,0 +1,676 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "Places test",
+    "slug": "places-test",
+    "lang": "en",
+    "light": "day"
+  },
+  "characters": [
+    {
+      "id": "kim",
+      "name": "Kim",
+      "kind": "woman",
+      "look": {
+        "hair": "afro",
+        "hair_color": "black",
+        "skin": "deep",
+        "outfit": "overalls",
+        "top_color": "white",
+        "bottom_color": "green",
+        "accessory": "headband",
+        "accessory_color": "purple"
+      }
+    }
+  ],
+  "sets": [
+    {
+      "id": "city_a",
+      "base": "city"
+    },
+    {
+      "id": "city_b",
+      "base": "city",
+      "pieces": [
+        {
+          "piece": "building",
+          "at": "far_left",
+          "variant": "tall",
+          "color": "pink"
+        },
+        {
+          "piece": "building",
+          "at": "left",
+          "variant": "short",
+          "layer": "back"
+        },
+        {
+          "piece": "building",
+          "at": "center",
+          "variant": "wide",
+          "layer": "far",
+          "color": "yellow"
+        },
+        {
+          "piece": "shop",
+          "at": "center_right",
+          "color": "green"
+        },
+        {
+          "piece": "car",
+          "at": "right",
+          "color": "orange",
+          "flip": true
+        },
+        {
+          "piece": "trash_can",
+          "at": "far_right",
+          "layer": "front"
+        },
+        {
+          "piece": "hydrant",
+          "at": "center_left",
+          "layer": "front",
+          "color": "yellow"
+        },
+        {
+          "piece": "lamp_post",
+          "at": "left",
+          "layer": "front",
+          "dx": 90
+        },
+        {
+          "piece": "cloud",
+          "at": "right",
+          "layer": "sky"
+        }
+      ]
+    },
+    {
+      "id": "forest_a",
+      "base": "forest"
+    },
+    {
+      "id": "beach_a",
+      "base": "beach",
+      "pieces": [
+        {
+          "piece": "palm",
+          "at": "far_left"
+        },
+        {
+          "piece": "palm",
+          "at": "far_right",
+          "layer": "far"
+        },
+        {
+          "piece": "beach_umbrella",
+          "at": "right",
+          "color": "teal"
+        },
+        {
+          "piece": "sand",
+          "at": "left",
+          "layer": "front"
+        },
+        {
+          "piece": "sand",
+          "at": "center_right"
+        },
+        {
+          "piece": "water",
+          "at": "center_left",
+          "variant": "pond"
+        },
+        {
+          "piece": "water",
+          "at": "center",
+          "variant": "stream"
+        },
+        {
+          "piece": "crate",
+          "at": "far_right",
+          "layer": "front"
+        },
+        {
+          "piece": "rock",
+          "at": "right",
+          "layer": "front",
+          "dx": 100
+        },
+        {
+          "piece": "cloud",
+          "at": "center",
+          "layer": "sky"
+        }
+      ]
+    },
+    {
+      "id": "mountain_a",
+      "base": "mountain"
+    },
+    {
+      "id": "park_a",
+      "base": "park"
+    },
+    {
+      "id": "country_a",
+      "base": "countryside",
+      "pieces": [
+        {
+          "piece": "house",
+          "at": "far_left",
+          "variant": "two_story",
+          "color": "blue"
+        },
+        {
+          "piece": "house",
+          "at": "right",
+          "variant": "small",
+          "layer": "far"
+        },
+        {
+          "piece": "fence",
+          "at": "center_right",
+          "layer": "front"
+        },
+        {
+          "piece": "tree",
+          "at": "far_right",
+          "variant": "tall"
+        },
+        {
+          "piece": "tree",
+          "at": "center",
+          "variant": "round",
+          "layer": "far"
+        },
+        {
+          "piece": "bush",
+          "at": "left",
+          "layer": "front"
+        },
+        {
+          "piece": "flowers",
+          "at": "center_left",
+          "color": "red"
+        },
+        {
+          "piece": "ramp",
+          "at": "right",
+          "layer": "front"
+        },
+        {
+          "piece": "log",
+          "at": "left"
+        },
+        {
+          "piece": "hill",
+          "at": "center",
+          "layer": "far"
+        },
+        {
+          "piece": "pine",
+          "at": "far_left",
+          "layer": "far"
+        }
+      ]
+    },
+    {
+      "id": "room_a",
+      "base": "room"
+    },
+    {
+      "id": "room_b",
+      "base": "room",
+      "pieces": [
+        {
+          "piece": "table",
+          "at": "center_left"
+        },
+        {
+          "piece": "chair",
+          "at": "left",
+          "layer": "front"
+        },
+        {
+          "piece": "bed",
+          "at": "right",
+          "color": "purple"
+        },
+        {
+          "piece": "shelf",
+          "at": "far_left"
+        },
+        {
+          "piece": "window",
+          "at": "center"
+        },
+        {
+          "piece": "door",
+          "at": "far_right",
+          "color": "green"
+        },
+        {
+          "piece": "rug",
+          "at": "center",
+          "color": "teal"
+        },
+        {
+          "piece": "floor_lamp",
+          "at": "center_right",
+          "layer": "front"
+        },
+        {
+          "piece": "potted_plant",
+          "at": "far_right",
+          "layer": "front"
+        },
+        {
+          "piece": "sofa",
+          "at": "left",
+          "color": "yellow",
+          "dx": -60
+        }
+      ]
+    },
+    {
+      "id": "plain_a",
+      "base": "plain",
+      "pieces": [
+        {
+          "piece": "mountain",
+          "at": "center",
+          "variant": "snowy"
+        },
+        {
+          "piece": "mountain",
+          "at": "far_right",
+          "variant": "bare"
+        },
+        {
+          "piece": "rock",
+          "at": "far_left",
+          "layer": "back"
+        },
+        {
+          "piece": "cloud",
+          "at": "left",
+          "layer": "sky"
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "p_city",
+      "set": "city_a",
+      "light": "dusk",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "City lights!"
+        }
+      ]
+    },
+    {
+      "id": "p_city_b",
+      "set": "city_b",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "Busy street."
+        }
+      ]
+    },
+    {
+      "id": "p_forest",
+      "set": "forest_a",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "Trees!"
+        }
+      ]
+    },
+    {
+      "id": "p_beach",
+      "set": "beach_a",
+      "light": "sunset",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "Sunset beach."
+        }
+      ]
+    },
+    {
+      "id": "p_mountain",
+      "set": "mountain_a",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "So high!"
+        }
+      ]
+    },
+    {
+      "id": "p_park",
+      "set": "park_a",
+      "light": "dusk",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "Night park."
+        }
+      ]
+    },
+    {
+      "id": "p_country",
+      "set": "country_a",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "Farm air."
+        }
+      ]
+    },
+    {
+      "id": "p_room",
+      "set": "room_a",
+      "light": "indoor",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "Home!"
+        }
+      ]
+    },
+    {
+      "id": "p_room_b",
+      "set": "room_b",
+      "light": "dusk",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "Bed time."
+        }
+      ]
+    },
+    {
+      "id": "p_plain",
+      "set": "plain_a",
+      "light": "sunset",
+      "cast": [
+        {
+          "who": "kim",
+          "at": "offstage_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "kim",
+          "action": "walk",
+          "to": "center",
+          "emotion": "happy",
+          "intensity": 1
+        },
+        {
+          "actor": "kim",
+          "action": "wave",
+          "say": "Nothing here."
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "after": "p_mountain",
+      "options": [
+        {
+          "id": "a",
+          "label": "Go on",
+          "rejoin": "p_park"
+        },
+        {
+          "id": "b",
+          "label": "Look around",
+          "rejoin": "p_park"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "after": "p_plain",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stay",
+          "rejoin": "@endings"
+        },
+        {
+          "id": "b",
+          "label": "Leave",
+          "rejoin": "@endings"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "stay",
+      "title": "Stay",
+      "scenes": [
+        {
+          "id": "end_stay",
+          "set": "plain_a",
+          "cast": [
+            {
+              "who": "kim",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "kim",
+              "action": "sit",
+              "emotion": "happy",
+              "intensity": 1
+            }
+          ]
+        }
+      ],
+      "when": {
+        "choice": "d2",
+        "is": "a"
+      }
+    },
+    {
+      "id": "look",
+      "title": "Look",
+      "scenes": [
+        {
+          "id": "end_look",
+          "set": "forest_a",
+          "cast": [
+            {
+              "who": "kim",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "kim",
+              "action": "point",
+              "variant": "up"
+            }
+          ]
+        }
+      ],
+      "when": {
+        "choice": "d1",
+        "is": "b"
+      }
+    },
+    {
+      "id": "leave",
+      "title": "Leave",
+      "scenes": [
+        {
+          "id": "end_leave",
+          "set": "city_a",
+          "cast": [
+            {
+              "who": "kim",
+              "at": "center"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "kim",
+              "action": "run",
+              "to": "offstage_right"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

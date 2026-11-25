@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" data-tcia-state="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="tcia-format" content="1">
+<meta name="tcia-engine" content="0.0.0-test">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:">
+<title>TCIA test engine</title>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"></svg>
+<script type="application/json" id="tcia-script"></script>
+<script>
+// Test double of the engine (tests/build only): reads the script block.
+var data = JSON.parse(document.getElementById('tcia-script').textContent);
+document.title = data.meta.title;
+</script>
+</body>
+</html>

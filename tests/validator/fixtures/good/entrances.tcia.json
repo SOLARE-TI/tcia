@@ -1,0 +1,110 @@
+{
+  "tcia": 1,
+  "meta": { "title": "Night Race", "slug": "night-race", "lang": "en", "light": "dusk" },
+  "characters": [
+    { "id": "duna", "name": "Duna", "kind": "girl", "look": { "hair": "curly", "accessory": "cap", "accessory_color": "teal" } },
+    { "id": "taro", "name": "Taro", "kind": "man", "look": { "build": "broad", "outfit": "jacket_pants" } },
+    { "id": "kiwi", "name": "Kiwi", "kind": "bird", "look": { "plumage": "green" } }
+  ],
+  "sets": [ { "id": "street", "base": "city" } ],
+  "scenes": [
+    {
+      "id": "arrive", "set": "street",
+      "cast": [
+        { "who": "duna", "at": "offstage_left" },
+        { "who": "taro", "at": "center_right" },
+        { "who": "kiwi", "at": "far_right" }
+      ],
+      "beats": [
+        { "actor": "duna", "action": "walk", "to": "left" },
+        { "actor": "taro", "action": "wave", "target": "duna", "say": "Over here!" },
+        { "actor": "kiwi", "action": "run", "to": "center" },
+        { "actor": "duna", "action": "run", "to": "center_left" },
+        { "actor": "duna", "action": "point", "target": "far_right", "say": "Race you there!" },
+        { "actor": "taro", "action": "point", "variant": "up", "together": true },
+        { "actor": "kiwi", "emotion": "surprised", "intensity": 3, "target": "duna" }
+      ]
+    },
+    {
+      "id": "race", "set": "street",
+      "cast": [
+        { "who": "duna", "at": "left" },
+        { "who": "taro", "at": "right" },
+        { "who": "kiwi", "at": "offstage_right" }
+      ],
+      "beats": [
+        { "actor": "kiwi", "action": "run", "variant": "panic", "to": "offstage_left" },
+        { "actor": "duna", "action": "jump", "variant": "cartwheel", "to": "center" },
+        { "actor": "taro", "action": "jump", "to": "far_right", "together": true },
+        { "actor": "duna", "action": "run", "variant": "dash", "to": "offstage_right" },
+        { "actor": "taro", "action": "walk", "variant": "sneak", "to": "offstage_right" }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1", "after": "arrive",
+      "options": [
+        {
+          "id": "follow", "label": "Follow the bird",
+          "scenes": [
+            {
+              "id": "bench_stop", "set": "street",
+              "cast": [ { "who": "kiwi", "at": "center_right" }, { "who": "duna", "at": "center" } ],
+              "beats": [
+                { "actor": "kiwi", "action": "sit" },
+                { "actor": "duna", "emotion": "happy", "target": "kiwi", "duration": 0.8 }
+              ]
+            }
+          ],
+          "rejoin": "race"
+        },
+        { "id": "wait", "label": "Wait for Taro", "rejoin": "race" }
+      ]
+    },
+    {
+      "id": "d2", "after": "race",
+      "options": [
+        { "id": "home", "label": "Head home", "rejoin": "@endings" },
+        { "id": "stay", "label": "One more lap", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "patient", "title": "Patient Runner",
+      "when": { "not": { "choice": "d1", "is": "follow" } },
+      "scenes": [
+        {
+          "id": "end_patient", "set": "street",
+          "cast": [ { "who": "duna", "at": "center_left" }, { "who": "taro", "at": "center" } ],
+          "beats": [ { "actor": "taro", "action": "hug", "target": "duna" } ]
+        }
+      ]
+    },
+    {
+      "id": "home", "title": "Home Before Dark",
+      "when": { "choice": "d2", "is": "home" },
+      "scenes": [
+        {
+          "id": "end_home", "set": "street",
+          "cast": [ { "who": "duna", "at": "center" } ],
+          "beats": [ { "actor": "duna", "action": "walk", "variant": "strut", "to": "offstage_left" } ]
+        }
+      ]
+    },
+    {
+      "id": "lap", "title": "One More Lap",
+      "scenes": [
+        {
+          "id": "end_lap", "set": "street",
+          "cast": [ { "who": "duna", "at": "offstage_left" }, { "who": "kiwi", "at": "far_left" } ],
+          "beats": [
+            { "actor": "duna", "action": "run", "to": "offstage_right" },
+            { "actor": "kiwi", "action": "jump", "variant": "backflip", "together": true }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-tcia-state="loading" data-tcia-errors="0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="tcia-format" content="1">
+<meta name="tcia-engine" content="0.1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:">
+<title>TCIA</title>
+<style>
+html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000000; }
+body { font-family: "Trebuchet MS", "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif; }
+#stage {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: min(100vw, calc(100vh * 16 / 9)); height: min(100vh, calc(100vw * 9 / 16));
+  container-type: inline-size; overflow: hidden; background: #000000;
+}
+#stage > svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#tcia-fade { position: absolute; inset: 0; background: #000000; opacity: 0; pointer-events: none; }
+.veil { position: absolute; inset: 0; background: #1F1D2B; pointer-events: none; }
+.veil-title { opacity: 0.35; }
+.veil-deciding { opacity: 0.3; animation: tcia-veil 0.3s ease-out both; }
+.veil-ended { opacity: 0.4; animation: tcia-veil 0.4s ease-out both; }
+@keyframes tcia-veil { from { opacity: 0; } }
+[hidden] { display: none !important; }
+html[data-tcia-frozen] #stage *, html[data-tcia-frozen] #stage { animation: none !important; }
+#tcia-title { position: absolute; inset: 0; }
+#tcia-title-text {
+  position: absolute; left: 4cqw; right: 4cqw; top: 3%;
+  margin: 0; display: flex; flex-direction: column; align-items: center; color: #FFFFFF; font-size: 4cqw; line-height: 1.12;
+  font-weight: 700; text-align: center; letter-spacing: 0.04em; text-transform: uppercase;
+  text-shadow: 0.25cqw 0.25cqw 0 #1F1D2B, -0.12cqw -0.12cqw 0 #1F1D2B, 0.12cqw -0.12cqw 0 #1F1D2B, -0.12cqw 0.12cqw 0 #1F1D2B;
+  animation: tcia-drop 0.7s cubic-bezier(.3,1.6,.5,1) both;
+}
+@keyframes tcia-drop { 0% { transform: translateY(-40%) scale(0.6); opacity: 0; } 60% { transform: translateY(4%) scale(1.08); opacity: 1; } 100% { transform: none; } }
+button {
+  font: inherit; cursor: pointer; color: #1F1D2B; background: #FFFFFF; border: 0.3cqw solid #1F1D2B;
+  box-shadow: 0.35cqw 0.35cqw 0 #1F1D2B; font-weight: 700;
+  clip-path: polygon(0.9cqw 0, calc(100% - 0.9cqw) 0, 100% 0.9cqw, 100% calc(100% - 0.9cqw), calc(100% - 0.9cqw) 100%, 0.9cqw 100%, 0 calc(100% - 0.9cqw), 0 0.9cqw);
+}
+button:hover { background: #FFF4C2; }
+button:focus-visible { outline: 3px solid #FFE27A; outline-offset: 0.4cqw; clip-path: none; }
+button:focus { outline: 3px solid #FFE27A; outline-offset: 0.4cqw; clip-path: none; }
+#tcia-start, #tcia-restart { font-size: 2.4cqw; padding: 0.9cqw 3.2cqw; }
+#tcia-start { animation: tcia-pop 0.6s 0.35s cubic-bezier(.3,1.6,.5,1) both; }
+/* button bands (viewBox 926–1066 below the ground line, or 24–164 at the top): buttons never cover anyone */
+.band { position: absolute; left: 0; right: 0; top: 85.7407%; height: 12.963%; display: flex; align-items: center; justify-content: center; padding: 0 3cqw; box-sizing: border-box; }
+.band.band-top { top: 2.2222%; }
+#tcia-restart { animation: tcia-pop 0.6s 0.1s cubic-bezier(.3,1.6,.5,1) both, tcia-wiggle 2.4s 1.2s ease-in-out infinite; }
+#tcia-decision .row { display: flex; align-items: stretch; justify-content: center; gap: 2cqw; max-height: 100%; }
+.choice {
+  display: flex; align-items: center; gap: 1cqw; font-size: 1.8cqw; padding: 0.7cqw 1.5cqw 0.7cqw 0.8cqw; max-width: 30cqw; text-align: left;
+  animation: tcia-pop 0.55s cubic-bezier(.3,1.6,.5,1) both;
+}
+.row.count-2 .choice { max-width: 40cqw; }
+.choice .num {
+  flex: none; display: inline-flex; align-items: center; justify-content: center; width: 2.8cqw; height: 2.8cqw;
+  background: #FFE27A; border: 0.25cqw solid #1F1D2B; border-radius: 50%; font-size: 1.7cqw;
+}
+.choice .label { line-height: 1.15; }
+@keyframes tcia-pop { 0% { transform: scale(0.2) rotate(-6deg); opacity: 0; } 55% { transform: scale(1.18) rotate(2deg); opacity: 1; } 75% { transform: scale(0.94) rotate(-1deg); } 100% { transform: scale(1); } }
+@keyframes tcia-wiggle { 0%, 86%, 100% { transform: scale(1) rotate(0); } 90% { transform: scale(1.06) rotate(-3deg); } 94% { transform: scale(1.06) rotate(3deg); } }
+#tcia-error {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #FFFFFF;
+  font-size: 2cqw; text-align: center; padding: 4cqw; background: #1F1D2B;
+}
+</style>
+</head>
+<body>
+<div id="stage">
+<div id="tcia-veil" class="veil" hidden></div>
+<div id="tcia-title" hidden><h1 id="tcia-title-text"></h1><div id="tcia-startbar" class="band"><button type="button" id="tcia-start"></button></div></div>
+<div id="tcia-decision" class="band" role="group" aria-label="" hidden></div>
+<div id="tcia-end" class="band" hidden><button type="button" id="tcia-restart"></button></div>
+<div id="tcia-fade"></div>
+<div id="tcia-error" hidden></div>
+</div>
+<script type="application/json" id="tcia-catalog">@@TCIA_CATALOG_JSON@@</script>
+<script type="application/json" id="tcia-script">__TCIA_SCRIPT_JSON__</script>
+<script>@@TCIA_ENGINE_JS@@</script>
+</body>
+</html>

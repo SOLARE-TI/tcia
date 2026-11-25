@@ -1,0 +1,11 @@
+{
+  "name": "tcia",
+  "displayName": "TCIA (Taller Creativo IA Animation)",
+  "version": "0.1.0",
+  "description": "Interactive 2D lowpoly cartoon animations from a story idea: Claude writes a JSON script, a validator checks it and a fixed engine turns it into one self-contained HTML file.",
+  "author": { "name": "Solare S.A.S.", "url": "https://github.com/SOLARE-TI" },
+  "homepage": "https://github.com/SOLARE-TI/tcia",
+  "repository": "https://github.com/SOLARE-TI/tcia",
+  "license": "MIT",
+  "keywords": ["animation", "interactive-story", "lowpoly", "svg", "storytelling", "animacion", "historia-interactiva"]
+}

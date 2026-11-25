@@ -1,0 +1,437 @@
+{
+  "tcia": 1,
+  "meta": {
+    "title": "Rulo y el Salto de Oro",
+    "slug": "rulo-salta-la-ciudad",
+    "lang": "es",
+    "light": "day"
+  },
+  "state": [
+    { "var": "valor", "initial": 0 }
+  ],
+  "characters": [
+    {
+      "id": "rulo",
+      "name": "Rulo",
+      "kind": "boy",
+      "look": {
+        "height": "medium",
+        "build": "slim",
+        "skin": "tan",
+        "head": "square",
+        "hair": "spiky",
+        "hair_color": "black",
+        "outfit": "hoodie_pants",
+        "top_color": "red",
+        "bottom_color": "navy",
+        "accessory": "helmet",
+        "accessory_color": "yellow"
+      }
+    },
+    {
+      "id": "maite",
+      "name": "Maite",
+      "kind": "girl",
+      "look": {
+        "height": "tall",
+        "skin": "tan",
+        "head": "oval",
+        "hair": "ponytail",
+        "hair_color": "black",
+        "outfit": "skirt_top",
+        "top_color": "teal",
+        "bottom_color": "purple",
+        "accessory": "glasses",
+        "accessory_color": "black"
+      }
+    },
+    {
+      "id": "chema",
+      "name": "Don Chema",
+      "kind": "man",
+      "look": {
+        "build": "broad",
+        "skin": "light",
+        "head": "trapezoid",
+        "hair": "buzz",
+        "hair_color": "gray",
+        "outfit": "shirt_pants",
+        "top_color": "white",
+        "bottom_color": "brown",
+        "accessory": "cap",
+        "accessory_color": "white"
+      }
+    },
+    {
+      "id": "fina",
+      "name": "Abuela Fina",
+      "kind": "old_woman",
+      "look": {
+        "height": "short",
+        "skin": "tan",
+        "head": "circle",
+        "hair": "bun",
+        "hair_color": "gray",
+        "outfit": "dress",
+        "top_color": "pink",
+        "accessory": "cane",
+        "accessory_color": "brown"
+      }
+    },
+    {
+      "id": "tornillo",
+      "name": "Tornillo",
+      "kind": "dog",
+      "look": {
+        "size": "medium",
+        "coat": "gray",
+        "pattern": "spots",
+        "ears": "pointy",
+        "accessory": "bandana",
+        "accessory_color": "red"
+      }
+    }
+  ],
+  "sets": [
+    {
+      "id": "barrio",
+      "base": "city",
+      "pieces": [
+        { "piece": "building", "at": "far_left", "layer": "far", "variant": "tall", "color": "blue" },
+        { "piece": "building", "at": "center", "layer": "far", "variant": "wide", "color": "yellow" },
+        { "piece": "building", "at": "far_right", "layer": "far", "variant": "short", "color": "teal" },
+        { "piece": "shop", "at": "right", "color": "orange" },
+        { "piece": "lamp_post", "at": "left" },
+        { "piece": "crate", "at": "center_left", "layer": "front" },
+        { "piece": "crate", "at": "center", "layer": "front", "dx": -40 },
+        { "piece": "hydrant", "at": "far_left" },
+        { "piece": "cloud", "at": "center_left", "layer": "sky" }
+      ]
+    },
+    {
+      "id": "parque",
+      "base": "park",
+      "pieces": [
+        { "piece": "hill", "at": "center" },
+        { "piece": "tree", "at": "left", "variant": "round" },
+        { "piece": "bench", "at": "far_left" },
+        { "piece": "ramp", "at": "center" },
+        { "piece": "flowers", "at": "far_right", "color": "yellow" },
+        { "piece": "lamp_post", "at": "right" },
+        { "piece": "cloud", "at": "right", "layer": "sky" }
+      ]
+    },
+    {
+      "id": "casa",
+      "base": "room",
+      "pieces": [
+        { "piece": "window", "at": "center_left" },
+        { "piece": "sofa", "at": "center", "color": "green" },
+        { "piece": "floor_lamp", "at": "far_left" },
+        { "piece": "bed", "at": "right", "color": "blue" },
+        { "piece": "rug", "at": "center", "color": "red" }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "el_reto",
+      "set": "barrio",
+      "cast": [
+        { "who": "rulo", "at": "left", "facing": "right", "emotion": "happy" },
+        { "who": "maite", "at": "center_left", "facing": "left" },
+        { "who": "tornillo", "at": "far_left", "facing": "right" }
+      ],
+      "beats": [
+        { "actor": "rulo", "action": "walk", "variant": "strut", "to": "center", "emotion": "happy", "intensity": 2 },
+        { "actor": "rulo", "action": "talk", "variant": "shout", "target": "maite", "say": "¡Hoy gano el Salto de Oro!", "emotion": "happy", "intensity": 3 },
+        { "actor": "maite", "action": "think", "say": "¿Y si se vuelve a caer?", "emotion": "scared", "intensity": 2 },
+        { "actor": "tornillo", "action": "jump", "height": "high", "emotion": "happy", "intensity": 3, "together": true },
+        { "actor": "maite", "action": "talk", "target": "rulo", "say": "Primero calienta, ¿sí?", "emotion": "neutral" },
+        { "actor": "rulo", "action": "point", "variant": "up", "say": "¡Calentar es para tortugas!" }
+      ]
+    },
+    {
+      "id": "la_panaderia",
+      "set": "barrio",
+      "cast": [
+        { "who": "chema", "at": "right", "facing": "left", "emotion": "happy", "intensity": 1 },
+        { "who": "rulo", "at": "offstage_left" },
+        { "who": "tornillo", "at": "offstage_left" }
+      ],
+      "items": [
+        { "id": "torta", "item": "gift", "held_by": "chema" }
+      ],
+      "beats": [
+        { "actor": "rulo", "action": "run", "variant": "dash", "to": "center_left", "emotion": "happy", "intensity": 2 },
+        { "actor": "tornillo", "action": "run", "to": "left", "together": true },
+        { "actor": "rulo", "action": "jump", "variant": "cartwheel", "to": "center_right", "emotion": "happy", "intensity": 3, "say": "¡Abran paso!" },
+        { "actor": "chema", "target": "rulo", "emotion": "surprised", "intensity": 3 },
+        { "actor": "rulo", "action": "fall", "variant": "trip", "emotion": "surprised", "intensity": 2 },
+        { "actor": "chema", "action": "talk", "variant": "shout", "target": "rulo", "say": "¡Cuidado con mi torta!", "emotion": "angry", "intensity": 3 },
+        { "actor": "rulo", "action": "talk", "target": "chema", "say": "¡Perdón, don Chema!", "emotion": "scared", "intensity": 1 },
+        { "actor": "tornillo", "action": "walk", "to": "center" }
+      ]
+    },
+    {
+      "id": "el_parque",
+      "set": "parque",
+      "cast": [
+        { "who": "fina", "at": "far_left", "posture": "sitting", "facing": "right" },
+        { "who": "rulo", "at": "center_left", "facing": "left" },
+        { "who": "tornillo", "at": "center", "facing": "left" }
+      ],
+      "beats": [
+        { "actor": "fina", "action": "talk", "target": "rulo", "say": "Rulo, mijo, ¿y ese casco?" },
+        { "actor": "rulo", "action": "jump", "variant": "split", "emotion": "happy", "intensity": 3, "say": "¡Listo para volar!" },
+        { "actor": "fina", "target": "rulo", "emotion": "surprised", "intensity": 2 },
+        { "actor": "tornillo", "action": "jump", "variant": "flip", "together": true },
+        { "actor": "fina", "action": "think", "variant": "idea", "say": "Este niño salió a mí.", "emotion": "happy", "intensity": 2 }
+      ]
+    },
+    {
+      "id": "la_rampa",
+      "set": "parque",
+      "light": "sunset",
+      "cast": [
+        { "who": "rulo", "at": "far_left", "facing": "right", "emotion": "happy", "intensity": 2 },
+        { "who": "maite", "at": "center_right", "facing": "left" },
+        { "who": "tornillo", "at": "left", "facing": "right" }
+      ],
+      "beats": [
+        { "actor": "rulo", "action": "run", "variant": "dash", "to": "center_left" },
+        { "actor": "rulo", "action": "jump", "variant": "spin", "to": "right", "height": "high", "emotion": "happy", "intensity": 3, "say": "¡Salto de Oooro!" },
+        { "actor": "maite", "target": "rulo", "emotion": "surprised", "intensity": 3 },
+        { "actor": "tornillo", "action": "jump", "variant": "backflip", "together": true },
+        { "actor": "maite", "action": "talk", "target": "rulo", "say": "¡Lo lograste, Rulo!", "emotion": "happy", "intensity": 3 }
+      ]
+    },
+    {
+      "id": "de_vuelta",
+      "set": "barrio",
+      "light": "dusk",
+      "cast": [
+        { "who": "rulo", "at": "left", "facing": "right", "emotion": "happy" },
+        { "who": "maite", "at": "center_left", "facing": "right" },
+        { "who": "tornillo", "at": "far_left", "facing": "right" }
+      ],
+      "beats": [
+        { "actor": "maite", "action": "walk", "to": "center_right" },
+        { "actor": "rulo", "action": "walk", "to": "center", "together": true },
+        { "actor": "tornillo", "action": "run", "to": "left", "together": true },
+        { "actor": "maite", "action": "talk", "target": "rulo", "say": "La abuela nos espera. Sin saltos." },
+        { "actor": "rulo", "action": "jump", "variant": "flip", "say": "¡Uno chiquitito!" },
+        { "actor": "rulo", "action": "fall", "variant": "trip", "emotion": "surprised", "intensity": 2 },
+        { "actor": "maite", "target": "rulo", "emotion": "happy", "intensity": 3 },
+        { "actor": "rulo", "action": "think", "say": "¿Y si mañana salto el doble?", "emotion": "happy", "intensity": 2 }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "calentar",
+      "after": "el_reto",
+      "options": [
+        {
+          "id": "voltereta",
+          "label": "Una voltereta de práctica",
+          "effects": [ { "var": "valor", "add": 1 } ],
+          "scenes": [
+            {
+              "id": "practica",
+              "set": "barrio",
+              "cast": [
+                { "who": "rulo", "at": "center", "facing": "left" },
+                { "who": "maite", "at": "center_left", "facing": "right" }
+              ],
+              "beats": [
+                { "actor": "rulo", "action": "jump", "variant": "backflip", "emotion": "happy", "intensity": 2 },
+                { "actor": "rulo", "action": "fall", "variant": "slip", "emotion": "surprised", "intensity": 2, "say": "¡Uy!" },
+                { "actor": "maite", "action": "talk", "target": "rulo", "say": "Te lo dije.", "emotion": "angry", "intensity": 1 },
+                { "actor": "rulo", "action": "jump", "height": "low", "say": "¡No me dolió!" }
+              ]
+            }
+          ],
+          "rejoin": "la_panaderia"
+        },
+        {
+          "id": "estirar",
+          "label": "Estirar con Maite",
+          "scenes": [
+            {
+              "id": "estiramiento",
+              "set": "barrio",
+              "cast": [
+                { "who": "rulo", "at": "center", "facing": "left" },
+                { "who": "maite", "at": "center_left", "facing": "right" }
+              ],
+              "beats": [
+                { "actor": "maite", "action": "sit" },
+                { "actor": "rulo", "action": "sit", "together": true },
+                { "actor": "maite", "action": "talk", "target": "rulo", "say": "Uno, dos, tres... ¡estira!" },
+                { "actor": "rulo", "action": "think", "say": "Esto es más difícil que saltar.", "emotion": "sad", "intensity": 3 },
+                { "actor": "maite", "target": "rulo", "emotion": "surprised", "intensity": 2 }
+              ]
+            }
+          ],
+          "rejoin": "la_panaderia"
+        },
+        {
+          "id": "nada",
+          "label": "¡Nada de calentar!",
+          "effects": [ { "var": "valor", "add": 2 } ],
+          "rejoin": "la_panaderia"
+        }
+      ]
+    },
+    {
+      "id": "salto",
+      "after": "el_parque",
+      "options": [
+        {
+          "id": "mortal",
+          "label": "Mortal hacia atrás",
+          "effects": [ { "var": "valor", "add": 1 } ],
+          "scenes": [
+            {
+              "id": "plan_mortal",
+              "set": "parque",
+              "cast": [
+                { "who": "fina", "at": "far_left", "posture": "sitting", "facing": "right" },
+                { "who": "rulo", "at": "center_left", "facing": "left" }
+              ],
+              "beats": [
+                { "actor": "rulo", "action": "talk", "target": "fina", "say": "Abuela, ¡mire este mortal!" },
+                { "actor": "rulo", "action": "jump", "variant": "backflip", "height": "high", "emotion": "happy", "intensity": 3 },
+                { "actor": "fina", "target": "rulo", "emotion": "scared", "intensity": 3 }
+              ]
+            }
+          ],
+          "rejoin": "la_rampa"
+        },
+        {
+          "id": "giro",
+          "label": "Giro en el aire",
+          "rejoin": "la_rampa"
+        }
+      ]
+    },
+    {
+      "id": "en_casa",
+      "after": "de_vuelta",
+      "options": [
+        { "id": "contar", "label": "Contarle todo a la abuela", "rejoin": "@endings" },
+        { "id": "practicar", "label": "Practicar en el patio", "effects": [ { "var": "valor", "add": 1 } ], "rejoin": "@endings" },
+        { "id": "dormir", "label": "Dormir como un tronco", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "leyenda",
+      "title": "La leyenda del barrio",
+      "when": { "all": [ { "var": "valor", "op": ">=", "value": 3 }, { "choice": "en_casa", "is": "practicar" } ] },
+      "scenes": [
+        {
+          "id": "fin_leyenda",
+          "set": "barrio",
+          "light": "dusk",
+          "cast": [
+            { "who": "rulo", "at": "center_left", "facing": "right" },
+            { "who": "chema", "at": "right", "facing": "left" },
+            { "who": "maite", "at": "far_left", "facing": "right" },
+            { "who": "tornillo", "at": "left", "facing": "right" }
+          ],
+          "beats": [
+            { "actor": "rulo", "action": "jump", "variant": "flip", "to": "center", "height": "high", "emotion": "happy", "intensity": 3 },
+            { "actor": "rulo", "action": "jump", "variant": "split", "say": "¡Rulo, el increíble!" },
+            { "actor": "chema", "action": "wave", "variant": "big", "target": "rulo", "emotion": "happy", "intensity": 3 },
+            { "actor": "maite", "action": "wave", "target": "rulo", "emotion": "happy", "together": true },
+            { "actor": "tornillo", "action": "jump", "variant": "spin", "together": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sermon",
+      "title": "El sermón de la abuela",
+      "when": { "choice": "calentar", "is": "nada" },
+      "scenes": [
+        {
+          "id": "fin_sermon",
+          "set": "casa",
+          "light": "indoor",
+          "cast": [
+            { "who": "fina", "at": "center_left", "facing": "right" },
+            { "who": "rulo", "at": "center", "facing": "left", "emotion": "scared" }
+          ],
+          "beats": [
+            { "actor": "fina", "action": "point", "variant": "accuse", "target": "rulo", "emotion": "angry", "intensity": 3, "say": "¡Sin calentar, nunca más!" },
+            { "actor": "rulo", "target": "fina", "emotion": "scared", "intensity": 3 },
+            { "actor": "rulo", "action": "talk", "variant": "whisper", "target": "fina", "say": "Sí, abuela...", "emotion": "sad", "intensity": 2 },
+            { "actor": "fina", "action": "hug", "target": "rulo", "emotion": "happy", "intensity": 1 },
+            { "actor": "rulo", "action": "jump", "variant": "spin", "height": "low", "say": "¡Mañana caliento saltando!", "emotion": "happy", "intensity": 2 },
+            { "actor": "fina", "target": "rulo", "emotion": "surprised", "intensity": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abuela",
+      "title": "Cuentos con la abuela",
+      "when": { "choice": "en_casa", "is": "contar" },
+      "scenes": [
+        {
+          "id": "fin_abuela",
+          "set": "casa",
+          "light": "indoor",
+          "cast": [
+            { "who": "fina", "at": "center", "facing": "right" },
+            { "who": "rulo", "at": "right", "facing": "left" },
+            { "who": "tornillo", "at": "center_left", "facing": "right" }
+          ],
+          "beats": [
+            { "actor": "fina", "action": "sit" },
+            { "actor": "rulo", "action": "talk", "target": "fina", "say": "¡Y entonces giré tres veces!", "emotion": "happy", "intensity": 3 },
+            { "actor": "fina", "action": "talk", "target": "rulo", "say": "Yo saltaba cercas a tu edad." },
+            { "actor": "rulo", "target": "fina", "emotion": "surprised", "intensity": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tronco",
+      "title": "Dormido como un tronco",
+      "scenes": [
+        {
+          "id": "fin_tronco",
+          "set": "casa",
+          "light": "indoor",
+          "cast": [
+            { "who": "rulo", "at": "right", "facing": "left" },
+            { "who": "tornillo", "at": "center", "facing": "right" }
+          ],
+          "beats": [
+            { "actor": "rulo", "action": "sit", "variant": "flop" },
+            { "actor": "rulo", "action": "fall", "variant": "faint", "emotion": "happy", "intensity": 1 },
+            { "actor": "rulo", "action": "think", "say": "Salto... de... oro...", "emotion": "happy", "intensity": 1 },
+            { "actor": "tornillo", "action": "sit" }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "approximations": [
+      { "requested": "torta de la panadería", "used": "gift", "reason": "There is no cake item; a gift box is the closest object." },
+      { "requested": "dormirse", "used": "fall.faint", "reason": "There is no lie-down action; a soft faint leaves Rulo lying." }
+    ],
+    "invented": [
+      "Decisions calentar, salto and en_casa, with their labels",
+      "Branch scenes practica, estiramiento and plan_mortal",
+      "Endings leyenda, sermon, abuela and tronco",
+      "Don Chema's cake and the cartwheel over the crates"
+    ],
+    "comment": "Example 1 of TCIA 0.1.0: an original daredevil story requested in Spanish."
+  }
+}

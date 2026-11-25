@@ -1,0 +1,404 @@
+{
+  "tcia": 2,
+  "meta": {
+    "title": "Nico and the Ramp",
+    "slug": "nico-and-the-ramp",
+    "lang": "en",
+    "light": "day"
+  },
+  "state": [
+    {
+      "var": "bold",
+      "initial": 0
+    }
+  ],
+  "characters": [
+    {
+      "id": "nico",
+      "name": "Nico",
+      "kind": "boy",
+      "look": {
+        "height": "medium",
+        "build": "slim",
+        "skin": "tan",
+        "head": "circle",
+        "hair": "spiky",
+        "hair_color": "black",
+        "outfit": "tee_shorts",
+        "top_color": "orange",
+        "bottom_color": "navy",
+        "accessory": "helmet",
+        "accessory_color": "green"
+      }
+    },
+    {
+      "id": "rocky",
+      "name": "Rocky",
+      "kind": "dog",
+      "look": {
+        "size": "medium",
+        "coat": "cream",
+        "pattern": "spots",
+        "ears": "floppy",
+        "accessory": "collar",
+        "accessory_color": "red"
+      }
+    }
+  ],
+  "sets": [
+    {
+      "id": "park",
+      "base": "park",
+      "pieces": [
+        {
+          "piece": "tree",
+          "at": "far_left",
+          "variant": "round"
+        },
+        {
+          "piece": "ramp",
+          "at": "center_right"
+        },
+        {
+          "piece": "bench",
+          "at": "far_right"
+        },
+        {
+          "piece": "cloud",
+          "at": "center",
+          "layer": "sky"
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "warmup",
+      "set": "park",
+      "cast": [
+        {
+          "who": "nico",
+          "at": "left",
+          "facing": "right",
+          "emotion": "happy"
+        },
+        {
+          "who": "rocky",
+          "at": "center_left",
+          "facing": "left"
+        }
+      ],
+      "items": [
+        {
+          "id": "ball",
+          "item": "ball",
+          "held_by": "rocky"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "nico",
+          "action": "talk",
+          "target": "rocky",
+          "say": "Rocky, today I jump the ramp!"
+        },
+        {
+          "actor": "rocky",
+          "action": "jump",
+          "height": "low",
+          "emotion": "happy"
+        },
+        {
+          "actor": "rocky",
+          "action": "give",
+          "target": "nico"
+        },
+        {
+          "actor": "nico",
+          "action": "think",
+          "say": "Flip or no flip?"
+        }
+      ]
+    },
+    {
+      "id": "the_jump",
+      "set": "park",
+      "cast": [
+        {
+          "who": "nico",
+          "at": "left",
+          "facing": "right",
+          "emotion": "happy"
+        },
+        {
+          "who": "rocky",
+          "at": "far_left",
+          "facing": "right"
+        }
+      ],
+      "beats": [
+        {
+          "actor": "nico",
+          "action": "run",
+          "variant": "dash",
+          "to": "center"
+        },
+        {
+          "actor": "nico",
+          "action": "jump",
+          "variant": "flip",
+          "height": "high",
+          "emotion": "happy",
+          "intensity": 3,
+          "say": "Woo-hoo!"
+        },
+        {
+          "actor": "rocky",
+          "action": "run",
+          "to": "center_left"
+        },
+        {
+          "actor": "rocky",
+          "action": "talk",
+          "target": "nico",
+          "say": "Woof!"
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "after": "warmup",
+      "options": [
+        {
+          "id": "flip",
+          "label": "Go for the flip!",
+          "effects": [
+            {
+              "var": "bold",
+              "add": 1
+            }
+          ],
+          "scenes": [
+            {
+              "id": "flip_practice",
+              "set": "park",
+              "cast": [
+                {
+                  "who": "nico",
+                  "at": "center_left",
+                  "facing": "right",
+                  "emotion": "happy"
+                }
+              ],
+              "beats": [
+                {
+                  "actor": "nico",
+                  "action": "jump",
+                  "variant": "backflip",
+                  "emotion": "happy",
+                  "intensity": 3
+                },
+                {
+                  "actor": "nico",
+                  "action": "fall",
+                  "variant": "slip",
+                  "emotion": "surprised",
+                  "intensity": 3,
+                  "say": "Whoa!"
+                },
+                {
+                  "actor": "nico",
+                  "action": "jump",
+                  "height": "low",
+                  "emotion": "happy",
+                  "say": "I'm okay!"
+                }
+              ]
+            }
+          ],
+          "rejoin": "the_jump"
+        },
+        {
+          "id": "safe",
+          "label": "Play it safe",
+          "rejoin": "the_jump"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "after": "the_jump",
+      "options": [
+        {
+          "id": "again",
+          "label": "Jump again!",
+          "effects": [
+            {
+              "var": "bold",
+              "add": 1
+            }
+          ],
+          "rejoin": "@endings"
+        },
+        {
+          "id": "rest",
+          "label": "Take a break",
+          "rejoin": "@endings"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "legend",
+      "title": "Ramp Legend",
+      "when": {
+        "all": [
+          {
+            "choice": "d1",
+            "is": "flip"
+          },
+          {
+            "choice": "d2",
+            "is": "again"
+          }
+        ]
+      },
+      "scenes": [
+        {
+          "id": "end_legend",
+          "set": "park",
+          "cast": [
+            {
+              "who": "nico",
+              "at": "center",
+              "facing": "left"
+            },
+            {
+              "who": "rocky",
+              "at": "center_left",
+              "facing": "right"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "nico",
+              "action": "jump",
+              "variant": "spin",
+              "height": "high",
+              "emotion": "happy",
+              "intensity": 3,
+              "say": "Ramp legend!"
+            },
+            {
+              "actor": "rocky",
+              "action": "jump",
+              "emotion": "happy",
+              "together": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brave",
+      "title": "Brave Enough",
+      "when": {
+        "var": "bold",
+        "op": ">=",
+        "value": 1
+      },
+      "scenes": [
+        {
+          "id": "end_brave",
+          "set": "park",
+          "cast": [
+            {
+              "who": "nico",
+              "at": "center",
+              "facing": "left",
+              "emotion": "happy"
+            },
+            {
+              "who": "rocky",
+              "at": "center_left",
+              "facing": "right",
+              "emotion": "happy"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "nico",
+              "action": "hug",
+              "target": "rocky",
+              "emotion": "happy",
+              "intensity": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buddies",
+      "title": "Best Buddies",
+      "scenes": [
+        {
+          "id": "end_buddies",
+          "set": "park",
+          "light": "sunset",
+          "cast": [
+            {
+              "who": "nico",
+              "at": "center",
+              "facing": "right"
+            },
+            {
+              "who": "rocky",
+              "at": "center_left",
+              "facing": "right"
+            }
+          ],
+          "beats": [
+            {
+              "actor": "nico",
+              "action": "walk",
+              "to": "right"
+            },
+            {
+              "actor": "rocky",
+              "action": "walk",
+              "to": "center_right",
+              "together": true
+            },
+            {
+              "actor": "nico",
+              "action": "sit"
+            },
+            {
+              "actor": "nico",
+              "action": "talk",
+              "target": "rocky",
+              "say": "Same time tomorrow, Rocky?"
+            },
+            {
+              "actor": "rocky",
+              "action": "wave",
+              "target": "nico",
+              "emotion": "happy"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "approximations": [],
+    "invented": [
+      "Branch scene flip_practice (option d1.flip)",
+      "Endings legend, brave and buddies"
+    ],
+    "comment": "Smallest script that exercises every part of format 1. Contract file: keep it valid."
+  }
+}

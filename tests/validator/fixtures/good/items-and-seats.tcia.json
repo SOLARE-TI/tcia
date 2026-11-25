@@ -1,0 +1,120 @@
+{
+  "tcia": 1,
+  "meta": { "title": "The Missing Key", "slug": "the-missing-key", "lang": "en", "light": "indoor" },
+  "state": [ { "var": "calm", "initial": 1 } ],
+  "characters": [
+    { "id": "omar", "name": "Omar", "kind": "man", "look": { "outfit": "suit", "accessory": "glasses" } },
+    { "id": "ines", "name": "Ines", "kind": "woman", "look": { "hair": "afro", "outfit": "dress" } },
+    { "id": "pip", "name": "Pip", "kind": "cat" }
+  ],
+  "sets": [
+    {
+      "id": "flat", "base": "room",
+      "pieces": [
+        { "piece": "sofa", "at": "center_right", "color": "purple" },
+        { "piece": "table", "at": "left" },
+        { "piece": "chair", "at": "far_left" },
+        { "piece": "window", "at": "center" },
+        { "piece": "door", "at": "far_right" },
+        { "piece": "rug", "at": "center_left" }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "search", "set": "flat",
+      "cast": [
+        { "who": "omar", "at": "center_left" },
+        { "who": "ines", "at": "center_right", "posture": "sitting" },
+        { "who": "pip", "at": "left" }
+      ],
+      "items": [ { "id": "key", "item": "key", "at": "left" }, { "id": "cup", "item": "cup", "held_by": "ines" } ],
+      "beats": [
+        { "actor": "omar", "action": "think", "say": "Where did I put the key?", "emotion": "scared", "intensity": 1 },
+        { "actor": "pip", "action": "pick_up", "item": "key" },
+        { "actor": "pip", "action": "give", "target": "omar", "emotion": "happy" },
+        { "actor": "omar", "action": "talk", "target": "pip", "say": "Pip, you genius!", "emotion": "happy", "intensity": 3 },
+        { "actor": "ines", "action": "talk", "target": "omar", "say": "Coffee first?" }
+      ]
+    },
+    {
+      "id": "tea", "set": "flat",
+      "cast": [ { "who": "omar", "at": "left" }, { "who": "ines", "at": "center_right" } ],
+      "items": [ { "id": "book", "item": "book", "held_by": "ines" } ],
+      "beats": [
+        { "actor": "ines", "action": "give", "variant": "toss", "target": "omar", "say": "Catch!" },
+        { "actor": "omar", "action": "sit", "variant": "flop" },
+        { "actor": "omar", "action": "fall", "variant": "faint", "emotion": "surprised", "intensity": 2 },
+        { "actor": "omar", "action": "think", "say": "So many pages..." },
+        { "actor": "omar", "action": "walk", "to": "center_left" }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1", "after": "search",
+      "options": [
+        {
+          "id": "stay", "label": "Stay on the sofa", "effects": [ { "var": "calm", "add": 1 } ],
+          "scenes": [
+            {
+              "id": "nap", "set": "flat",
+              "cast": [ { "who": "ines", "at": "center_right" }, { "who": "pip", "at": "right" } ],
+              "beats": [
+                { "actor": "ines", "action": "sit" },
+                { "actor": "pip", "action": "walk", "variant": "sneak", "to": "far_right" },
+                { "actor": "pip", "action": "sit", "variant": "flop" }
+              ]
+            }
+          ],
+          "rejoin": "tea"
+        },
+        { "id": "go", "label": "Go out now", "rejoin": "tea" }
+      ]
+    },
+    {
+      "id": "d2", "after": "tea",
+      "options": [
+        { "id": "hug", "label": "Hug Ines", "rejoin": "@endings" },
+        { "id": "read", "label": "Read the book", "rejoin": "@endings" }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "cozy", "title": "A Cozy Evening",
+      "when": { "all": [ { "var": "calm", "op": ">=", "value": 2 }, { "choice": "d2", "is": "hug" } ] },
+      "scenes": [
+        {
+          "id": "end_cozy", "set": "flat",
+          "cast": [ { "who": "omar", "at": "center_left" }, { "who": "ines", "at": "center" } ],
+          "beats": [ { "actor": "ines", "action": "hug", "variant": "bear", "target": "omar", "emotion": "happy", "intensity": 2 } ]
+        }
+      ]
+    },
+    {
+      "id": "bookworm", "title": "Bookworm", "when": { "choice": "d2", "is": "read" },
+      "scenes": [
+        {
+          "id": "end_bookworm", "set": "flat",
+          "cast": [ { "who": "omar", "at": "center_right", "posture": "sitting" } ],
+          "items": [ { "id": "novel", "item": "book", "held_by": "omar" } ],
+          "beats": [ { "actor": "omar", "action": "think", "variant": "idea", "say": "One more chapter!" } ]
+        }
+      ]
+    },
+    {
+      "id": "out", "title": "Out the Door",
+      "scenes": [
+        {
+          "id": "end_out", "set": "flat",
+          "cast": [ { "who": "omar", "at": "right" }, { "who": "ines", "at": "center" } ],
+          "beats": [
+            { "actor": "omar", "action": "walk", "to": "offstage_right" },
+            { "actor": "ines", "action": "wave", "variant": "big", "together": true }
+          ]
+        }
+      ]
+    }
+  ]
+}
